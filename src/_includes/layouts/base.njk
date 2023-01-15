@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="{{ metadata.language }}" x-data="xDOM">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ title or metadata.title }}</title>
+		<meta name="description" content="{{ description or metadata.description }}">
+
+		{#- Atom and JSON feeds included by default #}
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}">
+
+		<meta name="generator" content="{{ eleventy.generator }}">
+
+		{% if eleventy.env.runMode === "serve" %}
+		<script>console.log('🎈11ty: ServeMode')</script>
+		<link rel="stylesheet" href="/css/main.css">
+		{% else %}
+		<style>
+		{% include "../../css/main.css" %}
+		</style>
+		{% endif %}
+
+		{% include "../partials/scripts-head.njk" %}
+
+	</head>
+	<body class="py-6">
+
+		{% include "../partials/scripts-body.njk" %}
+
+		<a href="#skip" class="sr-only">Skip to main content</a>
+
+		{% include "../partials/header.njk" %}
+
+{#		Set min height for main section alpine js #}
+		<main id="skip" class="my-12"
+			  x-ref="main"
+			  :style="`min-height: ${window.innerHeight - $refs.header.scrollHeight - $refs.footer.scrollHeight}px`">
+			<div class="container px-10 prose">
+				{{ content | safe }}
+			</div>
+		</main>
+
+		{% include "../partials/footer.njk" %}
+
+		{% include "../partials/scripts-footer.njk" %}
+
+		{# Load script defer #}
+		<script src="/js/main.js" defer type="text/javascript"></script>
+
+		<!-- Current page: {{ page.url | htmlBaseUrl }} -->
+
+	</body>
+</html>

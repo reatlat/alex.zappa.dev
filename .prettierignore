@@ -1,0 +1,10 @@
+build
+coverage
+.package-lock.json
+*.min.*
+**/node_modules
+_site/
+*.md
+node_modules
+.cache
+NOTEPAD

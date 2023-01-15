@@ -1,0 +1,20 @@
+/* Base */
+@import "tailwindcss/base";
+@import "base/reset.css";
+@import "base/typography.css";
+@import "base/forms.css";
+
+
+/* 3rd party styles */
+@import "prismjs/themes/prism-okaidia.css";
+
+
+/* Components */
+@import "tailwindcss/components";
+@import "components/yt-lite.css";
+@import "components/prism-diff.css";
+
+
+/* Utils */
+@import "tailwindcss/utilities";
+@import "utilities/utils.css";
