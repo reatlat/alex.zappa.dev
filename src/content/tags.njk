@@ -8,15 +8,18 @@ pagination:
     - post
     - posts
     - tagList
+    - featured
   addAllPagesToCollections: true
-layout: home.njk
+layout: prose.njk
 eleventyComputed:
-  title: Tagged “{{ tag }}”
+  title: Tagged “{{ tag | slugify }}”
 permalink: /tags/{{ tag | slugify }}/
+excludeFromSitemap: true
 ---
-<h1>Tagged “{{ tag }}”</h1>
+<h1>Tagged “{{ tag | slugify }}”</h1>
 
 {% set postslist = collections[ tag ] %}
-{% include "postslist.njk" %}
+
+{% include "partials/postslist-timeline.njk" %}
 
 <p>See <a href="/tags/">all tags</a>.</p>

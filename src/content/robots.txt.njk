@@ -1,0 +1,9 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+# Build: {{ build.hash }} at {{ build.gitTimestamp }}
+User-agent: *
+Disallow: /tags/
+Disallow: /404.html
+Sitemap: {{ build.url }}/sitemap.xml

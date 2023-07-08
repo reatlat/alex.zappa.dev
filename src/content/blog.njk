@@ -1,10 +1,11 @@
 ---
-layout: home.njk
-eleventyNavigation:
-  key: Archive
-  order: 2
+layout: prose.njk
+title: Blog Archive
+permalink: /blog/
 ---
-<h1>Archive</h1>
+
+<h1>{{ title }}</h1>
 
 {% set postslist = collections.posts %}
-{% include "postslist.njk" %}
+
+{% include "partials/postslist-timeline.njk" %}

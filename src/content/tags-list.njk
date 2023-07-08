@@ -1,12 +1,14 @@
 ---
 permalink: /tags/
-layout: home.njk
+layout: prose.njk
+title: Tags
+excludeFromSitemap: true
 ---
-<h1>Tags</h1>
+<h1>{{ title }}</h1>
 
-<ul>
+<ul class="flex flex-wrap gap-2 p-0 m-0 list-none">
 {% for tag in collections.all | getAllTags | filterTagList %}
 	{% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-	<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a></li>
+	<li class="m-0 p-0"><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %},{% endif -%}</li>
 {% endfor %}
 </ul>
