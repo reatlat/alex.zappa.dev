@@ -1,27 +1,73 @@
 ---
 layout: base.njk
 ---
-<div class="prose mx-auto">
-<h1>{{ title }}</h1>
+<div class="prose mx-auto pt-2 pb-8 md:pt-8 md:pb-14">
 
-<ul class="post-metadata">
-	<li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
-	{%- for tag in tags | filterTagList %}
-	{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-	<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
-	{%- endfor %}
-</ul>
+	<article>
+		<header class="grid">
+			<h1 class="order-2 mb-0">{{ title }}{%- if draft %} <small class="text-base">[draft]</small>{%- endif %}</h1>
+			<p class="post-metadata order-1 m-0 text-sm md:text-base">
+				<time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate("LLLL dd, yyyy") }}</time>
+			</p>
+			{%- if tags|filterTagList|length %}
+				<div class="post-tags flex gap-2 order-3 text-sm md:text-base">
+					<ul class="post-tags list-none flex flex-wrap gap-2 m-0 p-0">
+						{%- for tag in tags | filterTagList %}
+							{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+							<li class="m-0 p-0"><a href="{{ tagUrl }}" class="post-tag text-current">#{{ tag }}</a>{%- if not loop.last %},{% endif %}</li>
+						{%- endfor %}
+					</ul>
+				</div>
+			{%- endif %}
+		</header>
 
-{{ content | safe }}
+		{{ content | safe }}
 
-{%- if collections.posts %}
-{%- set previousPost = collections.posts | getPreviousCollectionItem %}
-{%- set nextPost = collections.posts | getNextCollectionItem %}
-{%- if nextPost or previousPost %}
-<ul class="links-nextprev">
-	{%- if previousPost %}<li>Previous: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></li>{% endif %}
-	{%- if nextPost %}<li>Next: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>{% endif %}
-</ul>
-{%- endif %}
-{%- endif %}
+		{#
+		{%- if tags|filterTagList|length %}
+		<footer class="mt-8"></footer>
+		{%- endif %}
+		#}
+	</article>
+
+
+	{%- if collections.posts %}
+		<section class="my-12 py-8 border-t border-solid dark:border-zinc-700">
+			{%- set previousPost = collections.posts | getPreviousCollectionItem %}
+			{%- set nextPost = collections.posts | getNextCollectionItem %}
+			{%- if nextPost or previousPost %}
+				<ul class="links-nextprev list-none p-0 m-0 grid grid-cols-2 gap-8">
+					{%- if previousPost %}
+						<li class="text-left m-0 p-0">
+							<a class="!no-underline group" href="{{ previousPost.url }}">
+								<span class="text-sm text-[--tw-prose-body] flex gap-1 items-center justify-start -ml-1">
+									{% feather "arrow-up-left", { "class": "h-5 w-5" } %}<span>Previous</span>
+								</span>
+								<span class="group-hover:underline">{{ previousPost.data.title }}</span>
+							</a>
+						</li>
+					{%- else %}
+						<li></li>
+					{%- endif %}
+					{%- if nextPost %}
+						<li class="text-right m-0 p-0">
+							<a class="!no-underline group" href="{{ nextPost.url }}">
+								<span class="text-sm text-[--tw-prose-body] flex gap-1 items-center justify-end -mr-1">
+									<span>Next</span>{% feather "arrow-up-right", { "class": "h-5 w-5" } %}
+								</span>
+								<span class="group-hover:underline">{{ nextPost.data.title }}</span>
+							</a>
+						</li>
+					{%- else %}
+						<li></li>
+					{%- endif %}
+				</ul>
+			{%- endif %}
+		</section>
+	{%- endif %}
+
+
+{#	<section id="comments"></section>#}
+
+
 </div>

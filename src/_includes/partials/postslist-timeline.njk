@@ -1,0 +1,36 @@
+<div class="grid gap-8">
+
+	{% set lastYear = "" %}
+
+	{% for post in postslist | reverse %}
+
+	{% set currentYear = post.date.getFullYear() %}
+
+	{% if currentYear != lastYear %}
+	{% if loop.index != 1 %}
+	</ul></div>
+{% endif %}
+<div class="relative">
+	<h2 id="year-{{ currentYear }}" class="text-xl md:text-3xl inline-block m-0 p-0 sticky top-6 left-0">{{ currentYear }}</h2>
+	<ul class="postlist grid gap-4  list-none p-0 ml-16 md:ml-20 -mt-6 md:-mt-10 mb-0">
+		{% endif %}
+
+		{% set lastYear = currentYear %}
+
+		<li class="postlist-item flex flex-col md:flex-row md:gap-2 m-0">
+			<time class="postlist-date font-mono text-xs md:leading-8"
+				  datetime="{{ post.date | htmlDateString }}">
+				{{ post.date | readableDate("LL/dd") }}
+			</time>
+			<div class="">
+				<a href="{{ post.url }}"
+					 class="postlist-link">
+					{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}
+				</a>
+				<p class="text-sm m-0 line-clamp-4 md:line-clamp-2">{{ post.data.desc }}</p>
+			</div>
+		</li>
+
+		{% endfor %}
+
+</div>

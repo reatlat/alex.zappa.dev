@@ -1,41 +1,50 @@
-<footer class="my-12"
-		x-ref="footer">
-	<div class="container">
-
-		<div class="footer footer-center p-10 bg-base-200 text-base-content rounded drop-shadow-lg">
-			<div class="grid grid-flow-col gap-4">
-				<a class="link link-hover">About us</a>
-				<a class="link link-hover">Contact</a>
-				<a class="link link-hover">Jobs</a>
-				<a class="link link-hover">Press kit</a>
-			</div>
-			<div>
-				<div class="grid grid-flow-col gap-4">
-					<a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg></a>
-					<a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg></a>
-					<a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
+<footer class="bg-zenith dark:bg-zenith-700 pb-12 [&_a:hover]:underline" aria-labelledby="footer-heading" x-ref="footer">
+	<div class="container pb-8 pt-16 sm:pt-24">
+		<div class="grid sm:flex sm:justify-between gap-8">{# xl:grid xl:grid-cols-3 xl:gap-8 #}
+			<div class="space-y-8">
+				<p class="text-2xl sm:text-3xl font-bold mb-8 md:mb-4">Thanks for reading!</p>
+				<div class="flex flex-wrap gap-6 select-none">
+					<a href="/feed.json" class="text-xl !no-underline leading-5 font-semibold" title="JSON Feed">
+						<span class="sr-only">JSON Feed</span>
+						<span>{ i }</span>
+					</a>
+					<a href="/feed.xml" title="RSS Feed">
+						<span class="sr-only">RSS Feed</span>
+						{% feather "rss", { class: "h-6 w-6" } %}
+					</a>
+					<a href="https://www.github.com/{{ build.issues.owner }}/" title="GitHub" target="_blank" rel="noopener noreferrer">
+						<span class="sr-only">GitHub</span>
+						{% feather "github", { class: "h-6 w-6" } %}
+					</a>
+					<a href="https://www.gitlab.com/{{ build.issues.owner }}/" title="CodePen" target="_blank" rel="noopener noreferrer">
+						<span class="sr-only">CodePen</span>
+						{% feather "codepen", { class: "h-6 w-6" } %}
+					</a>
+					<a href="https://www.linkedin.com/in/reatlat/" title="LinedIn" target="_blank" rel="noopener noreferrer">
+						<span class="sr-only">LinedIn</span>
+						{% feather "linkedin", { class: "h-6 w-6" } %}
+					</a>
+					<a href="https://twitter.com/reatlat" title="Twitter" target="_blank" rel="noopener noreferrer">
+						<span class="sr-only">Twitter</span>
+						{% feather "twitter", { class: "h-6 w-6" } %}
+					</a>
 				</div>
 			</div>
-			<div>
-				<p>Copyright © 2023 - All right reserved by <a href="/">Alex Zappa</a></p>
-			</div>
+{#			<div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 xl:col-span-2 xl:mt-0">#}
+				<ul role="list" class="space-y-4">
+					<li><a class="leading-8" href="/blog/">Blog</a></li>
+					<li><a class="leading-8" href="/about/">About</a></li>
+					<li><a class="leading-8" href="/privacy/">Privacy Policy</a></li>
+				</ul>
+{#			</div>#}
 		</div>
-
+		<div class="mt-16 sm:mt-20 text-sm">
+			<p>Last built on {{ build.timestamp.formatted }} (<a href="https://www.github.com/{{ build.issues.owner }}/{{ build.issues.repo }}/commit/{{ build.hash.full }}" target="_blank" rel="noreferrer noopener" >{{ build.hash.short }}</a>)</p>
+		</div>
+		<div class="border-t border-solid dark:border-zinc-700 pt-8 mt-8">
+			<p class="text-sm text-justify">
+				&copy;&nbsp;{% year %} <a href="/">Alex&nbsp;Zappa</a>. All&nbsp;Right&nbsp;Reserved. Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href="#mit-license">MIT License</a>. Learn more at /site/
+			</p>
+		</div>
 	</div>
 </footer>
-
-
-<div id="breadcrumbs" class="fixed left-0 -bottom-2 w-full font-mono font-semibold bg-terminal/80 text-white pt-2 pb-4">
-	<div class="container overflow-hidden whitespace-nowrap pb-safe truncate text-xs md:text-base">
-		<a class="!text-cursor hidden md:inline" href="mailto:alex@zappa.dev">alex@zappa.dev</a><span class="hidden md:inline">:</span>
-		<a class="text-white hover:text-amber-300" href="/" title="Home">~<span class="text-white">&nbsp;/</span></a>
-		{# Todo add breadcrumbs to files #}
-		{% if layout == 'post.njk' %}
-			<a class="text-white hover:text-amber-300"
-			   href="/blog/">Blog<span class="text-white">&nbsp;/</span></a>
-			<a class="text-white hover:text-amber-300"
-			   href="{{ page.filePathStem }}/">{{ title | titleSinPeriod }}<span class="text-white">&nbsp;/</span></a>
-		{% endif %}
-		<span class="animate-blink">_</span>
-	</div>
-</div>

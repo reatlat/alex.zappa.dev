@@ -1,75 +1,25 @@
-<header class="mb-12"
-		x-ref="header">
-	{#-
-	<a href="/" class="home-link">{{ metadata.title }}</a>
-
-	<!-- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ -->
-	<nav>
-		<h2 class="visually-hidden">Top level navigation menu</h2>
-		<ul class="nav">
-			{%- for entry in collections.all | eleventyNavigation %}
-				<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
-			{%- endfor %}
-		</ul>
-	</nav>
-	#}
-
-	<div class="container">
-
-{#-		probably needs to be bg -100 #}
-		<div class="navbar bg-base-200 text-base-content rounded drop-shadow-lg">
-			<div class="navbar-start">
-				<a href="/" class="flex items-center gap-2 font-bold whitespace-nowrap [&:hover_img]:opacity-70">
-					<div class="w-10 rounded-full">
-						<img class="rounded-full border-2 border-[#404040] transition duration-200"
-							 src="https://alex.zappa.dev/wp-content/uploads/2021/09/cropped-photo-bw-2021-jule-small-100x100.jpg" />
-					</div>
-					Alex Zappa
-				</a>
+<header class="bg-zenith dark:bg-zenith-700" x-ref="header">
+	<nav class="mx-auto flex container items-center justify-between py-6" aria-label="Global">
+		<a href="/" class="flex items-center gap-2 font-bold whitespace-nowrap [&:hover_img]:opacity-70">
+			<div class="w-10 rounded-full">
+				{% image '/images/alex-zappa-avatar.jpg', 'Alex Zappa', [100], 'rounded-full border-2 border-terminal-200 transition duration-200' %}
 			</div>
-			<div class="navbar-center hidden lg:flex">
-				<ul class="menu menu-horizontal px-1">
-					<li><a>Item 1</a></li>
-					<li tabindex="0">
-						<details>
-							<summary>Parent</summary>
-							<ul class="p-2">
-								<li><a>Submenu 1</a></li>
-								<li><a>Submenu 2</a></li>
-							</ul>
-						</details>
-					</li>
-					<li><a>Item 3</a></li>
-				</ul>
+			Alex Zappa
+		</a>
+		<div class="flex gap-x-12">
+			<div class="hidden sm:flex sm:gap-x-12">
+{#				<a href="/about/" class="text-sm font-semibold leading-6">About</a>#}
+{#				<a href="/tools/" class="text-sm font-semibold leading-6">Tools</a>#}
+				<a href="/blog/" class="text-sm font-semibold leading-6">Blog</a>
 			</div>
-			<div class="navbar-end">
-				<button class="btn btn-ghost btn-circle"
-						aria-label="Switch to dark theme"
-						:aria-label="theme.dark ? 'Switch to light theme' : 'Switch to dark theme'"
-						@click="toggleTheme()">
-					<span x-show="theme.dark">{% feather "sun", { "class": "h-5 w-5" } %}</span>
-					<span x-show="!theme.dark" x-cloak>{% feather "moon", { "class": "h-5 w-5" } %}</span>
-
-				</button>
-
-				<div class="dropdown dropdown-bottom dropdown-left">
-					<label tabindex="0" class="btn btn-ghost btn-circle lg:hidden">
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-					</label>
-					<ul tabindex="0" class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-						<li><a>Item 1</a></li>
-						<li>
-							<a>Parent</a>
-							<ul class="p-2">
-								<li><a>Submenu 1</a></li>
-								<li><a>Submenu 2</a></li>
-							</ul>
-						</li>
-						<li><a>Item 3</a></li>
-					</ul>
-				</div>
-			</div>
+			<button class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
+					aria-label="Switch to dark theme"
+					:aria-label="theme.dark ? 'Switch to light theme' : 'Switch to dark theme'"
+					@click="toggleTheme()">
+				<span class="sr-only" x-text="theme.dark ? 'Switch to light theme' : 'Switch to dark theme'">Switch to dark theme</span>
+				<span x-show="theme.dark">{% feather "sun", { "class": "h-5 w-5" } %}</span>
+				<span x-show="!theme.dark" x-cloak>{% feather "moon", { "class": "h-5 w-5" } %}</span>
+			</button>
 		</div>
-
-	</div>
+	</nav>
 </header>
