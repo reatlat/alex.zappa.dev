@@ -2,34 +2,27 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-	content: [
-		"./src/**/*.{html,js,njk,md,vue}",
-	],
+	content: ["./src/**/*.{html,js,njk,md,vue}", "./cfg/_11ty/**/*.js"],
+	darkMode: "class",
 	theme: {
 		extend: {
 			keyframes: {
 				blink: {
-					'50%': { opacity: 0 },
-				}
+					"50%": { opacity: 0 },
+				},
 			},
 			animation: {
-				'blink': 'blink 1.5s steps(1) infinite',
-			},
-			colors: {
-				transparent: "transparent",
-				current: "currentColor",
-				inherit: "inherit",
-				white: "#fff",
-				black: "#111",
-				terminal: "#000",
-				cursor: "#5EFA68",
+				blink: "blink 1.5s steps(1) infinite",
 			},
 			aspectRatio: {
 				auto: "auto",
 				box: "1",
 				landscape: "4/3",
 				portrait: "3/4",
-				video: "16/9"
+				video: "16/9",
+			},
+			height: {
+				unset: "unset",
 			},
 			maxWidth: {
 				"copy-xs": "25ch",
@@ -39,24 +32,142 @@ module.exports = {
 				"copy-xl": "75ch",
 				"copy-2xl": "85ch",
 			},
+			colors: {
+				transparent: "transparent",
+				current: "currentColor",
+				inherit: "inherit",
+				white: "#fff",
+				black: "#111",
+				cursor: {
+					5: "#262626",
+					10: "#292929",
+					50: "#888888",
+					500: "#ffffff",
+					DEFAULT: "#ffffff",
+				},
+				zenith: {
+					10: "#FEFEFE",
+					50: "#F8F8F8",
+					500: "#f2f2f2",
+					DEFAULT: "#f2f2f2",
+					600: "#1e1e1e",
+					700: "#1a1a1a",
+				},
+				slate: {
+					10: "#EDEDED",
+					50: "#A6A6A6",
+					500: "#4d4d4d",
+					DEFAULT: "#4d4d4d",
+				},
+				terminal: {
+					10: "#E7E7E7",
+					50: "#888888",
+					200: "#404040",
+					400: "#222222",
+					500: "#111111",
+					DEFAULT: "#111111",
+				},
+				amber: {
+					10: "#FFF8E6",
+					50: "#FFDD80",
+					100: "rgba(255,188,0,1.0)",
+					500: "#ffbc00",
+					DEFAULT: "#ffbc00",
+				},
+				satori: {
+					10: "#E9F0FB",
+					50: "#90B3EC",
+					100: "#E9F0FB",
+					200: "#a7c3f0",
+					300: "#90B3EC",
+					400: "#3c7be1",
+					500: "#2268d9",
+					DEFAULT: "#2268d9",
+					600: "#1b53ae",
+					700: "#143e82",
+					800: "#0e2a57",
+					900: "#07152b",
+				},
+
+				gray: {
+					100: "#dbdbdb",
+					200: "#b8b8b8",
+					300: "#949494",
+					400: "#717171",
+					500: "#4d4d4d",
+					DEFAULT: "#4d4d4d",
+					600: "#3e3e3e",
+					700: "#2e2e2e",
+					800: "#1f1f1f",
+					900: "#111111",
+				},
+				green: {
+					100: "#dcf5e0",
+					200: "#b9ecc2",
+					300: "#97e2a3",
+					400: "#74d985",
+					500: "#7EE175",
+					DEFAULT: "#7EE175",
+					600: "#5EFA68",
+					// 600: "#59AE52",
+					700: "#317c3d",
+					800: "#205329",
+					900: "#102914",
+				},
+				red: {
+					100: "#ffe1e1",
+					200: "#ffc4c4",
+					300: "#ffa6a6",
+					400: "#ff8989",
+					500: "#FF6868",
+					DEFAULT: "#FF6868",
+					600: "#cc5656",
+					700: "#BD4848",
+					800: "#662b2b",
+					900: "#331515",
+				},
+				aspectRatio: {
+					auto: "auto",
+					box: "1",
+					landscape: "4/3",
+					portrait: "3/4",
+					video: "16/9",
+				},
+				height: {
+					unset: "unset",
+				},
+				maxWidth: {
+					"copy-xs": "25ch",
+					"copy-sm": "45ch",
+					"copy-md": "55ch",
+					"copy-lg": "65ch",
+					"copy-xl": "75ch",
+					"copy-2xl": "85ch",
+				},
+			},
 		},
 	},
 	plugins: [
-		require("daisyui"),
 		require("@tailwindcss/typography"),
 		require("@tailwindcss/aspect-ratio"),
 		require("tailwindcss-safe-area"),
 		require("@tailwindcss/line-clamp"),
-		({addComponents, theme}) => {
+		({ addComponents, theme }) => {
 			addComponents({
 				"#breadcrumbs": {
 					backdropFilter: "saturate(180%)blur(.2rem)",
 				},
 				"[data-theme=light] .prose": {
 					"--tw-prose-links": "#06c",
+					"--tw-prose-quote-borders": "#06c",
+					"--tw-prose-headings": "#222",
 				},
 				"[data-theme=dark] .prose": {
 					"--tw-prose-links": "#fbbf24",
+					"--tw-prose-quote-borders": "#fbbf24",
+					"--tw-prose-quotes": "#f2f2f2",
+					"--tw-prose-body": "#f2f2f2",
+					"--tw-prose-headings": "#f2f2f2",
 				},
 				".btn": {
 					"@apply no-underline": {},
@@ -68,48 +179,43 @@ module.exports = {
 					textDecoration: "none",
 					"@apply hover:underline": {},
 				},
+				'.prose :where(pre):not(:where([class~="not-prose"] *))': {
+					"--tw-prose-pre-bg": "#1a1a1a",
+				},
+				'code, code[class*="language-"], pre[class*="language-"]': {
+					fontFamily: "monospace",
+					fontSize: "0.9rem",
+					fontWeight: "400",
+					lineHeight: "1.3",
+				},
+				"code:where(:not([class]))": {
+					"@apply !rounded !font-normal": {},
+				},
+				".token.property, .token.tag, .token.constant, .token.symbol, .token.deleted":
+					{
+						fontStyle: "italic",
+					},
+				//".language-css .token.selector": {
+				//	color: "#ffca03",
+				//},
+				':not(pre) > code[class*="language-"], pre[class*="language-"]':
+					{
+						"@apply bg-zenith-700 drop-shadow-lg dark:drop-shadow-none":
+							{},
+					},
+				'.prose :where(blockquote p:first-of-type):not(:where([class~="not-prose"] *))::before, .prose :where(blockquote p:last-of-type):not(:where([class~="not-prose"] *))::after':
+					{
+						"@apply hidden": {},
+					},
 				".container": {
 					"@apply px-4 mx-auto": {},
 					maxWidth: "1132px",
 				},
+				"lite-youtube": {
+					"@apply w-full max-w-3xl mx-auto aspect-video align-middle h-unset":
+						{},
+				},
 			});
 		},
 	],
-	daisyui: {
-		// themes: false, // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
-		themes: [
-			{
-				light: {
-					...require('daisyui/src/theming/themes')['[data-theme=light]'],
-					primary: colors.blue[500],
-					secondary: colors.blue[700],
-				}
-			},
-			{
-				dark: {
-					...require('daisyui/src/theming/themes')['[data-theme=dark]'],
-					primary: colors.amber[500],
-					"primary-content": "#ffffff",
-					secondary: colors.amber[700],
-					"secondary-content": "#ffffff",
-					accent: "#1FB2A5",
-					"accent-content": "#ffffff",
-					neutral: "#2a323c",
-					"neutral-focus": "#242b33",
-					"neutral-content": "#A6ADBB",
-					"base-100": "#222222",
-					"base-200": "#1a1a1a",
-					"base-300": "#1e1e1e",
-					"base-content": "#f2f2f2"
-				}
-			},
-		],
-		darkTheme: "dark", // name of one of the included themes for dark mode
-		base: true, // applies background color and foreground color for root element by default
-		styled: true, // include daisyUI colors and design decisions for all components
-		utils: true, // adds responsive and modifier utility classes
-		rtl: false, // rotate style direction from left-to-right to right-to-left. You also need to add dir="rtl" to your html tag and install `tailwindcss-flip` plugin for Tailwind CSS.
-		prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
-		logs: false, // Shows info about daisyUI version and used config in the console when building your CSS
-	},
-}
+};

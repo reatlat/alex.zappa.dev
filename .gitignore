@@ -135,6 +135,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# IntelliJ
+.idea
+
 # Random other files
 NOTEPAD.txt
 NOTEPAD.js
