@@ -66,7 +66,7 @@ img {
 
 ## Detect dark system mode
 
-[When you want a style that applies to users with dark mode turned on](/blog/detect-dark-or-light-device-mode/), add your style inside media query below. If we want the black background and white text for dark mode users, we will type something like this:
+[When you want a style that applies to users with dark mode turned on](/blog/detect-dark-or-light-system-mode/), add your style inside media query below. If we want the black background and white text for dark mode users, we will type something like this:
 
 ```css
 @media (prefers-color-scheme: dark) {
