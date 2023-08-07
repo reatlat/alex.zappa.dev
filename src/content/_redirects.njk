@@ -14,8 +14,9 @@ https://zappa.dev/* https://alex.zappa.dev/:splat 301!
 {# Handle legacy #}
 /eng/* /blog/:splat 301
 
+{# Plausible proxy #}
+/api/event https://plausible.io/api/event 200
+
 {# API Proxy #}
 /api/* /.netlify/functions/:splat 200
 
-{# Plausible proxy #}
-/api/event https://plausible.io/api/event 200
