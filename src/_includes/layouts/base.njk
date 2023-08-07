@@ -24,9 +24,7 @@
 		{% if eleventy.env.runMode === "serve" %}
 		<link rel="stylesheet" href="/css/main.css">
 		{% else %}
-		<style>
-		{% include "../../../_site/css/main.css" %}
-		</style>
+		<style>{%- include "../../../_site/css/main.css" -%}</style>
 		{% endif %}
 
 		{% include "../partials/scripts-head.njk" %}
@@ -55,7 +53,7 @@
 		{% include "../partials/scripts-footer.njk" %}
 
 		{# Load script defer #}
-		<script src="/js/main.js" defer type="text/javascript"></script>
+		<script src="/js/main{%- if eleventy.env.runMode == 'build' -%}.{{ build.hash.short }}{%- endif -%}.js" defer type="text/javascript"></script>
 
 		<!-- Current page: {{ page.url | htmlBaseUrl }} -->
 
