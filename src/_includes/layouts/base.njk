@@ -21,13 +21,13 @@
 		<meta name="msapplication-config" content="/browserconfig.xml">
 		<meta name="theme-color" content="#ffffff">
 
-{#		{% if eleventy.env.runMode === "serve" %}#}
+		{% if eleventy.env.runMode === "serve" %}
 		<link rel="stylesheet" href="/css/main.css">
-{#		{% else %}#}
-{#		<style>#}
-{#		{% include "../../css/main.css" %}#}
-{#		</style>#}
-{#		{% endif %}#}
+		{% else %}
+		<style>
+		{% include "../../_site/css/main.css" %}
+		</style>
+		{% endif %}
 
 		{% include "../partials/scripts-head.njk" %}
 
