@@ -33,10 +33,10 @@ module.exports = function (eleventyConfig) {
 	// Customize Markdown library settings:
 	eleventyConfig.amendLibrary("md", (mdLib) => {
 		mdLib.use(markdownItAnchor, {
-			permalink: markdownItAnchor.permalink.ariaHidden({
+			permalink: markdownItAnchor.permalink.linkInsideHeader({
 				placement: "after",
 				class: "header-anchor",
-				symbol: "#",
+				symbol: "#<span class='sr-only'> Anchor link </span>",
 				//ariaHidden: true,
 			}),
 			level: [1, 2, 3, 4],
