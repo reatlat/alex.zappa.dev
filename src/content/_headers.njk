@@ -1,0 +1,22 @@
+---
+permalink: '/_headers'
+eleventyExcludeFromCollections: true
+---
+
+{# Default #}
+/*
+	Access-Control-Allow-Origin = "https://alex.zappa.dev"
+	Vary = "Origin"
+	{# Content-Security-Policy = "frame-ancestors 'none';" #}
+
+
+{# API Endpoint #}
+/api/*
+	X-Robots-Tag: "noindex, nofollow"
+	Cache-Control: "max-age=0, no-cache, no-store, must-revalidate"
+
+
+{# TW Config #}
+/tw-config/*
+	X-Robots-Tag: "noindex, nofollow"
+	Cache-Control: "max-age=0, no-cache, no-store, must-revalidate"
