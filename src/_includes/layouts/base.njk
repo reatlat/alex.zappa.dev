@@ -19,7 +19,7 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<meta name="msapplication-TileColor" content="#000000">
 		<meta name="msapplication-config" content="/browserconfig.xml">
-		<meta name="theme-color" content="#ffffff">
+		<meta name="theme-color" content="#1a1a1a" :content="theme.dark?'#1a1a1a':'#ffffff'">
 
 		{% if eleventy.env.runMode === "serve" %}
 		<link rel="stylesheet" href="/css/main.css">
