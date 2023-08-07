@@ -23,9 +23,27 @@
 [[headers]]
 	for = "/*"
 	[headers.values]
-		Content-Security-Policy = "frame-ancestors 'none';"
-		Access-Control-Allow-Origin = "https://alex.zappa.dev,https://cpwebassets.codepen.io,https://codepen.io"
+		#Content-Security-Policy = "frame-ancestors 'none';"
+		Access-Control-Allow-Origin = "https://alex.zappa.dev"
 		Vary = "Origin"
+
+
+[[header]]
+	for = "/tw-config/*"
+	[headers.values]
+		X-Robots-Tag = "noindex, nofollow"
+		Cache-Control = "public"
+		Cache-Control = "max-age=0"
+		Cache-Control = "must-revalidate"
+
+
+[[header]]
+	for = "/api/*"
+	[headers.values]
+		X-Robots-Tag = "noindex, nofollow"
+		Cache-Control = "public"
+		Cache-Control = "max-age=0"
+		Cache-Control = "must-revalidate"
 
 
 # [[plugins]]
