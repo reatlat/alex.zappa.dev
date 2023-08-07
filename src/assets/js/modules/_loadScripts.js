@@ -1,10 +1,11 @@
-module.exports = function (src, callback) {
+module.exports = function (src, loading = "defer", callback) {
 	if (document.querySelector(`script[src="${src}"]`)) {
 		return;
 	}
 	const script = document.createElement("script");
 	script.src = src;
-	script.async = true;
+	if (loading === "defer") script.defer = true;
+	if (loading === "async") script.async = true;
 	script.crossOrigin = "anonymous";
 	script.onload = script.onreadystatechange = () => {
 		if (

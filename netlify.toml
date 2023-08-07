@@ -24,7 +24,7 @@
 	for = "/*"
 	[headers.values]
 		Content-Security-Policy = "frame-ancestors 'none';"
-		Access-Control-Allow-Origin = "https://alex.zappa.dev"
+		Access-Control-Allow-Origin = "https://alex.zappa.dev,https://cpwebassets.codepen.io,https://codepen.io"
 		Vary = "Origin"
 
 

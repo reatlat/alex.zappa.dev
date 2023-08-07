@@ -4,7 +4,7 @@ import Alpine from "alpinejs";
 //import intersect from "@alpinejs/intersect";
 import dataDOM from "./modules/Alpine.data/DOM";
 import "lite-youtube-embed";
-import asyncLoadScripts from "./modules/_asyncLoadScripts";
+import asyncLoadScripts from "./modules/_loadScripts";
 
 // The window.Alpine = Alpine bit is optional, but is nice to have for
 // freedom and flexibility. Like when tinkering with Alpine from the devtools for example.

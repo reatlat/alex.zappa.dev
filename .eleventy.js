@@ -37,7 +37,7 @@ module.exports = function (eleventyConfig) {
 				placement: "after",
 				class: "header-anchor",
 				symbol: "#",
-				ariaHidden: true,
+				//ariaHidden: true,
 			}),
 			level: [1, 2, 3, 4],
 			slugify: eleventyConfig.getFilter("slugify"),

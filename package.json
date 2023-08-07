@@ -14,7 +14,7 @@
 		"debug:11ty": "DEBUG=Eleventy* npx @11ty/eleventy",
 		"watch:11ty": "npx @11ty/eleventy --serve --quiet",
 		"build:11ty": "npx @11ty/eleventy",
-		"build:js": "npx esbuild ./src/assets/js/main.js --outfile=./_site/js/main.js --bundle --minify",
+		"build:js": "npx esbuild ./src/assets/js/main.js --outfile=./_site/js/main.$(git rev-parse --short HEAD).js --bundle --minify",
 		"watch:js": "npx esbuild ./src/assets/js/main.js --outfile=./_site/js/main.js --bundle --watch --sourcemap",
 		"watch:tailwind": "npx tailwindcss --postcss -i src/assets/css/main.css -o ./_site/css/main.css --watch",
 		"build:tailwind": "npx tailwindcss --postcss -i src/assets/css/main.css -o ./_site/css/main.css --minify",
