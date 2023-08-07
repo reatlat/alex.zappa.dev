@@ -2,7 +2,7 @@
 permalink: /robots.txt
 eleventyExcludeFromCollections: true
 ---
-# Build: {{ build.hash }} at {{ build.gitTimestamp }}
+# Build: {{ build.hash.short }} at {{ build.timestamp.formatted }}
 User-agent: *
 Disallow: /tags/
 Disallow: /404.html
