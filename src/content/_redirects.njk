@@ -3,6 +3,11 @@ permalink: '/_redirects'
 eleventyExcludeFromCollections: true
 ---
 
+{# Redirect default Netlify subdomain to primary domain #}
+https://alexzappa.netlify.app/* https://alex.zappa.dev/:splat 301!
+https://www.zappa.dev/* https://alex.zappa.dev/:splat 301!
+https://zappa.dev/* https://alex.zappa.dev/:splat 301!
+
 # Blogs redirects
 /blog/track-utm-parameters-for-hubspot-forms/ /blog/track-utm-parameters-for-hubspot-forms-like-a-boss/
 /blog/detect-dark-or-light-device-mode/ /blog/detect-dark-or-light-system-mode/
