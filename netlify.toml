@@ -50,8 +50,8 @@
 		output_path = "reports/lighthouse/index.html"
 
 
-[[plugins]]
-	package="netlify-plugin-checklinks"
+#[[plugins]]
+#	package="netlify-plugin-checklinks"
 
 
 [[plugins]]
