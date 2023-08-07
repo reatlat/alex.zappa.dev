@@ -27,8 +27,21 @@ window.addEventListener("DOMContentLoaded", () => {
 	});
 
 	// if .codepen is present, load the embed script
-	if (document.querySelector(".codepen"))
-		asyncLoadScripts("//cpwebassets.codepen.io/assets/embed/ei.js");
+	if (document.querySelector(".codepen")) {
+		const codepenObserver = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					// load the script
+					asyncLoadScripts(
+						"//cpwebassets.codepen.io/assets/embed/ei.js"
+					);
+					// stop observing
+					codepenObserver.disconnect();
+				}
+			});
+		});
+		codepenObserver.observe(document.querySelector(".codepen"));
+	}
 
 	// listener for link click with class header-anchor
 	document.addEventListener("click", (event) => {
