@@ -1,0 +1,25 @@
+---
+permalink: '/_headers'
+eleventyExcludeFromCollections: true
+---
+
+{# Default #}
+/*
+	X-Frame-Options: "SAMEORIGIN"
+	X-Content-Type-Options: "nosniff"
+	Referrer-Policy: "no-referrer-when-downgrade"
+	X-XSS-Protection: "1; mode=block"
+	Access-Control-Allow-Origin = "https://alex.zappa.dev"
+	{# Content-Security-Policy = "frame-ancestors 'none';" #}
+
+
+{# API Endpoint #}
+/api/*
+	X-Robots-Tag: "noindex, nofollow"
+	Cache-Control: "max-age=0, no-cache, no-store, must-revalidate"
+
+
+{# TW Config #}
+/tw-config/*
+	X-Robots-Tag: "noindex, nofollow"
+	Cache-Control: "max-age=0, no-cache, no-store, must-revalidate"

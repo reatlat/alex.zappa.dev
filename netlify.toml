@@ -20,14 +20,6 @@
 	directory = "./api"
 
 
-[[headers]]
-	for = "/*"
-	[headers.values]
-		Content-Security-Policy = "frame-ancestors 'none';"
-		Access-Control-Allow-Origin = "https://alex.zappa.dev,https://cpwebassets.codepen.io,https://codepen.io"
-		Vary = "Origin"
-
-
 # [[plugins]]
 # 	# Opt-in to the Netlify Lighthouse plugin (choose one):
 # 	# 1. Go to your site on https://app.netlify.com and navigate to the Integrations tab, search for the `Lighthouse` plugin
