@@ -184,13 +184,17 @@ module.exports = {
 				},
 				'code, code[class*="language-"], pre[class*="language-"]': {
 					fontFamily: "monospace",
-					fontSize: "0.9rem",
 					fontWeight: "400",
 					lineHeight: "1.3",
 				},
 				"code:where(:not([class]))": {
-					"@apply !rounded !font-normal": {},
+					"@apply !rounded !font-normal !text-current !bg-zenith dark:!bg-zenith-700 px-2 py-1":
+						{},
 				},
+				"code:where(:not([class]))::before, code:where(:not([class]))::after":
+					{
+						"@apply !content-none": {},
+					},
 				".token.property, .token.tag, .token.constant, .token.symbol, .token.deleted":
 					{
 						fontStyle: "italic",

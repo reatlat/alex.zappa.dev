@@ -19,13 +19,13 @@
 		<link rel="shortcut icon" href="/favicon.ico">
 		<meta name="msapplication-TileColor" content="#000000">
 		<meta name="msapplication-config" content="/browserconfig.xml">
-		<meta name="theme-color" content="#ffffff">
+		<meta name="theme-color" content="#ffffff" :content="theme.dark?'#1a1a1a':'#ffffff'">
 
-		{% if eleventy.env.runMode === "serve" %}
+		{%- if eleventy.env.runMode === "serve" -%}
 		<link rel="stylesheet" href="/css/main.css">
-		{% else %}
+		{%- else -%}
 		<style>{%- include "../../../_site/css/main.css" -%}</style>
-		{% endif %}
+		{%- endif -%}
 
 		{% include "../partials/scripts-head.njk" %}
 
@@ -47,15 +47,12 @@
 			</div>
 		</main>
 
-		{% include "../partials/breadcrumbs.njk" %}
-		{% include "../partials/footer.njk" %}
-
-		{% include "../partials/scripts-footer.njk" %}
+		{%- include "../partials/breadcrumbs.njk" -%}
+		{%- include "../partials/footer.njk" -%}
+		{%- include "../partials/scripts-footer.njk" -%}
 
 		{# Load script defer #}
 		<script src="/js/main{%- if eleventy.env.runMode == 'build' -%}.{{ build.hash.short }}{%- endif -%}.js" defer type="text/javascript"></script>
-
-		<!-- Current page: {{ page.url | htmlBaseUrl }} -->
 
 	</body>
 </html>
