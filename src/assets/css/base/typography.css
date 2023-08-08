@@ -11,6 +11,7 @@
 }
 
 .cp_embed_wrapper {
-	@apply overflow-hidden rounded;
+	@apply overflow-hidden;
+	@apply -mx-4 w-screen rounded-none sm:mx-0 sm:w-full sm:rounded;
 	@apply drop-shadow-lg dark:drop-shadow-none;
 }

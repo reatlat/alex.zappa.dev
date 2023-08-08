@@ -20,7 +20,7 @@ html {
 }
 ```
 
-{% videoImage "./mdn-css-demo-box-sizing.mp4" %}
+{% videoImage "./mdn-css-demo-box-sizing.mp4", "dark:invert" %}
 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing" target="_blank" rel="noreferrer noopener nofollow">MDN CSS Demo – box-sizing</a>
 
 ## Selection pseudo class
@@ -112,7 +112,7 @@ The CSS browser prefixes that you can use (each of which is specific to a differ
 
 To make sure your CSS works well on the rest of browsers, always use Autoprefixer, here ho is it looks like:
 
-{% image "./autoprefixer-css-online.png" %}
+{% image "./autoprefixer-css-online.png", "", [900], "dark:invert" %}
 
 ## Conclusion
 

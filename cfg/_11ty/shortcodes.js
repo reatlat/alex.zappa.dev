@@ -125,10 +125,13 @@ module.exports = {
 	videoImage: (eleventyConfig) => {
 		eleventyConfig.addShortcode(
 			"videoImage",
-			function videoImageShortcode(src, classes = "w-full h-auto") {
+			function videoImageShortcode(src, classes) {
 				if (src.startsWith("./")) {
 					src = "/videos/" + src.slice(2);
 				}
+				classes = classes
+					? classes + " w-full h-auto"
+					: "w-full h-auto";
 				return `<video class="${classes}" autoplay="" loop="" muted="" playsinlin="" src="${src}"></video>`;
 			}
 		);
