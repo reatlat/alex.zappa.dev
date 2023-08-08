@@ -186,11 +186,17 @@ module.exports = {
 					fontFamily: "monospace",
 					fontWeight: "400",
 					lineHeight: "1.3",
+					"@apply text-base": {},
 				},
 				"code:where(:not([class]))": {
 					"@apply !rounded !font-normal !text-current !bg-zenith dark:!bg-zenith-700 px-2 py-1":
 						{},
 				},
+				' :not(pre) > code[class*="language-"], pre[class*="language-"]':
+					{
+						"@apply -mx-4 w-screen rounded-none sm:mx-0 sm:w-full sm:rounded":
+							{},
+					},
 				"code:where(:not([class]))::before, code:where(:not([class]))::after":
 					{
 						"@apply !content-none": {},
