@@ -1,4 +1,5 @@
 const markdownItAnchor = require("markdown-it-anchor");
+const htmlmin = require("html-minifier");
 
 const shortcodes = require("./cfg/_11ty/shortcodes");
 const plugins = require("./cfg/_11ty/plugins");
@@ -42,6 +43,23 @@ module.exports = function (eleventyConfig) {
 			level: [1, 2, 3, 4],
 			slugify: eleventyConfig.getFilter("slugify"),
 		});
+	});
+
+	// Minify HTML output
+	eleventyConfig.addTransform("htmlmin", function (content) {
+		// Prior to Eleventy 2.0: use this.outputPath instead
+		if (
+			process.env.ELEVENTY_ENV === "production" &&
+			this.page.outputPath &&
+			this.page.outputPath.endsWith(".html")
+		) {
+			return htmlmin.minify(content, {
+				useShortDoctype: true,
+				removeComments: true,
+				collapseWhitespace: true,
+			});
+		}
+		return content;
 	});
 
 	// Features to make your build faster (when you need them)
