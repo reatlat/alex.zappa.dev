@@ -12,19 +12,19 @@
 						<span class="sr-only">RSS Feed</span>
 						{% feather "rss", { class: "h-6 w-6" } %}
 					</a>
-					<a href="https://www.github.com/{{ build.issues.owner }}/" title="GitHub" target="_blank" rel="noopener noreferrer">
+					<a href="https://www.github.com/{{ build.issues.owner }}/" title="GitHub" rel="noopener noreferrer">
 						<span class="sr-only">GitHub</span>
 						{% feather "github", { class: "h-6 w-6" } %}
 					</a>
-					<a href="https://www.gitlab.com/{{ build.issues.owner }}/" title="CodePen" target="_blank" rel="noopener noreferrer">
+					<a href="https://www.gitlab.com/{{ build.issues.owner }}/" title="CodePen" rel="noopener noreferrer">
 						<span class="sr-only">CodePen</span>
 						{% feather "codepen", { class: "h-6 w-6" } %}
 					</a>
-					<a href="https://www.linkedin.com/in/reatlat/" title="LinedIn" target="_blank" rel="noopener noreferrer">
+					<a href="https://www.linkedin.com/in/reatlat/" title="LinedIn" rel="noopener noreferrer">
 						<span class="sr-only">LinedIn</span>
 						{% feather "linkedin", { class: "h-6 w-6" } %}
 					</a>
-					<a href="https://twitter.com/reatlat" title="Twitter" target="_blank" rel="noopener noreferrer">
+					<a href="https://twitter.com/reatlat" title="Twitter" rel="noopener noreferrer">
 						<span class="sr-only">Twitter</span>
 						{% feather "twitter", { class: "h-6 w-6" } %}
 					</a>
@@ -39,11 +39,11 @@
 {#			</div>#}
 		</div>
 		<div class="mt-16 sm:mt-20 text-sm">
-			<p>Last built on {{ build.timestamp.formatted }} (<a href="https://www.github.com/{{ build.issues.owner }}/{{ build.issues.repo }}/commit/{{ build.hash.full }}" target="_blank" rel="noreferrer noopener" >{{ build.hash.short }}</a>)</p>
+			<p>Last built on {{ build.timestamp.formatted }} (<a href="https://www.github.com/{{ build.issues.owner }}/{{ build.issues.repo }}/commit/{{ build.hash.full }}" rel="noreferrer noopener" >{{ build.hash.short }}</a>)</p>
 		</div>
 		<div class="border-t border-solid dark:border-zinc-700 pt-8 mt-8">
 			<p class="text-sm text-justify">
-				&copy;&nbsp;{% year %} <a href="/">Alex&nbsp;Zappa</a>. All&nbsp;Right&nbsp;Reserved. Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the MIT License. Learn more at /site/
+				&copy;&nbsp;{% year %} <a href="/">Alex&nbsp;Zappa</a>. All&nbsp;Right&nbsp;Reserved. Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener noreferrer">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the MIT License. Learn more at /site/
 			</p>
 		</div>
 	</div>

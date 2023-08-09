@@ -21,7 +21,7 @@ html {
 ```
 
 {% videoImage "./mdn-css-demo-box-sizing.mp4", "dark:invert" %}
-<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing" target="_blank" rel="noreferrer noopener nofollow">MDN CSS Demo – box-sizing</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing" rel="noreferrer noopener nofollow">MDN CSS Demo – box-sizing</a>
 
 ## Selection pseudo class
 
