@@ -1,19 +1,8 @@
 <!doctype html>
-<html lang="{{ metadata.language }}" class="scroll-pt-6 {{ htmlClass }}" :class="theme.name" x-data="xDOM">
+<html lang="{{ metadata.language }}" class="scroll-pt-6 {{ htmlClass }} dark" data-theme="dark" :class="theme.name" x-data="xDOM">
 	<head>
     {% include "../partials/metagen.njk" %}
     {% include "../partials/favicon.njk" %}
-
-    {#- Atom and JSON feeds included by default #}
-    <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
-    <link rel="alternate" href="/feed.json" type="application/json" title="{{ metadata.title }}">
-
-    {%- if eleventy.env.runMode === "serve" -%}
-      <link rel="stylesheet" href="/css/main.css">
-    {%- else -%}
-      <style>{%- include "../../../_site/css/main.css" -%}</style>
-    {%- endif -%}
-
     {% include "../partials/scripts-head.njk" %}
 	</head>
 	<body class="dark:bg-terminal-400 dark:text-zenith {{ bodyClass }}">
