@@ -13,6 +13,9 @@
 
 	html {
 		@apply ring-zenith-700;
+	}
+
+	html:not(.no-fade-in) {
 		animation: 0.3s ease 0.2s normal backwards 1 fadeIn;
 	}
 
