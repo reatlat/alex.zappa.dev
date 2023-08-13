@@ -23,7 +23,7 @@
 	name=author or metadata.author.name,
 	generator='Eleventy',
 	comments=true,
-  inline_js='!function(t,e){t&&"light"===t&&(e.classList.remove("dark"),e.setAttribute("data-theme","light"))}(localStorage.getItem("theme"),document.documentElement);'
+  inline_js='!function(t,e,m){t&&"light"===t&&(e.classList.remove("dark"),e.setAttribute("data-theme","light"),m.setAttribute("content","#ffffff"))}(localStorage.getItem("theme"),document.documentElement,document.querySelector(\'meta[name="theme-color"]\'));'
 %}
 
 {#- Atom and JSON feeds included by default #}
