@@ -1,3 +1,4 @@
+import "./modules/barba";
 import "./modules/tracker";
 import flyingPages from "flying-pages-module";
 import Alpine from "alpinejs";
@@ -21,36 +22,36 @@ Alpine.data("xDOM", dataDOM);
 
 // Start Alpine when the page is ready.
 window.addEventListener("DOMContentLoaded", () => {
-	Alpine.start();
-	flyingPages({
-		// Prefetch all pages by default
-	});
+    Alpine.start();
+    flyingPages({
+        // Prefetch all pages by default
+    });
 
-	// if .codepen is present, load the embed script
-	if (document.querySelector(".codepen")) {
-		const codepenObserver = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					// load the script
-					asyncLoadScripts(
-						"//cpwebassets.codepen.io/assets/embed/ei.js"
-					);
-					// stop observing
-					codepenObserver.disconnect();
-				}
-			});
-		});
-		codepenObserver.observe(document.querySelector(".codepen"));
-	}
+    // if .codepen is present, load the embed script
+    if (document.querySelector(".codepen")) {
+        const codepenObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // load the script
+                    asyncLoadScripts(
+                        "//cpwebassets.codepen.io/assets/embed/ei.js"
+                    );
+                    // stop observing
+                    codepenObserver.disconnect();
+                }
+            });
+        });
+        codepenObserver.observe(document.querySelector(".codepen"));
+    }
 
-	// listener for link click with class header-anchor
-	document.addEventListener("click", (event) => {
-		if (event.target.matches(".header-anchor")) {
-			const target = event.target.getAttribute("href");
-			// copy the target to the clipboard
-			navigator.clipboard.writeText(
-				location.origin + location.pathname + target
-			);
-		}
-	});
+    // listener for link click with class header-anchor
+    document.addEventListener("click", (event) => {
+        if (event.target.matches(".header-anchor")) {
+            const target = event.target.getAttribute("href");
+            // copy the target to the clipboard
+            navigator.clipboard.writeText(
+                location.origin + location.pathname + target
+            );
+        }
+    });
 });

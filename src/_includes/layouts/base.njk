@@ -5,7 +5,7 @@
 		{% include "../partials/favicon.njk" %}
 		{% include "../partials/scripts-head.njk" %}
 	</head>
-	<body class="dark:bg-terminal-400 dark:text-zenith {{ bodyClass }}">
+	<body class="dark:bg-terminal-400 dark:text-zenith {{ bodyClass }}" data-barba="wrapper">
 
 		{% include "../partials/scripts-body.njk" %}
 
@@ -14,9 +14,12 @@
 		{% include "../partials/header.njk" %}
 
 		{# Set min height for main section alpine js #}
-		<main id="skip" class="my-12"
-			  x-ref="main"
-			  :style="`min-height: ${window.innerHeight - $refs.header.scrollHeight - $refs.footer.scrollHeight}px`">
+		<main id="skip"
+          class="py-12"
+          data-barba="container"
+          data-barba-namespace="home"
+          x-ref="main"
+          :style="`min-height: ${window.innerHeight - $refs.header.scrollHeight}px`">
 			<div class="container sm:px-10 prose">
 				{{ content | safe }}
 			</div>

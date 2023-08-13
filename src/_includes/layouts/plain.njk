@@ -5,13 +5,16 @@
     {% include "../partials/favicon.njk" %}
     {% include "../partials/scripts-head.njk" %}
 	</head>
-	<body class="dark:bg-terminal-400 dark:text-zenith {{ bodyClass }}">
+	<body class="dark:bg-terminal-400 dark:text-zenith {{ bodyClass }}" data-barba="wrapper">
 
 		{% include "../partials/scripts-body.njk" %}
 
 		<a href="#skip" class="sr-only">Skip to main content</a>
 
-		<main id="skip" class="py-12">
+		<main id="skip"
+          class="py-12"
+          data-barba="container"
+          data-barba-namespace="home">
 			<div class="container sm:px-10 prose">
 				{{ content | safe }}
 			</div>
