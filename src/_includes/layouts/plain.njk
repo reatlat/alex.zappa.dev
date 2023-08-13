@@ -1,28 +1,9 @@
 <!doctype html>
-<html lang="{{ metadata.language }}" class="scroll-pt-6 {{ htmlClass }}" :class="theme.name" x-data="xDOM">
+<html lang="{{ metadata.language }}" class="scroll-pt-6 {{ htmlClass }} dark" data-theme="dark" :class="theme.name" x-data="xDOM">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{{ title or metadata.title }}</title>
-		<meta name="description" content="{{ description or metadata.description }}">
-
-		{#- Atom and JSON feeds included by default #}
-		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
-		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}">
-
-		<meta name="generator" content="{{ eleventy.generator }}">
-
-{#		{% if eleventy.env.runMode === "serve" %}#}
-		<script>console.log('🎈11ty: ServeMode')</script>
-		<link rel="stylesheet" href="/css/main.css">
-{#		{% else %}#}
-{#		<style>#}
-{#		{% include "../../css/main.css" %}#}
-{#		</style>#}
-{#		{% endif %}#}
-
-		{% include "../partials/scripts-head.njk" %}
-
+    {% include "../partials/metagen.njk" %}
+    {% include "../partials/favicon.njk" %}
+    {% include "../partials/scripts-head.njk" %}
 	</head>
 	<body class="dark:bg-terminal-400 dark:text-zenith {{ bodyClass }}">
 

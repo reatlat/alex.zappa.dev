@@ -1,0 +1,30 @@
+{% set pageTitle = pageTitle or title %}
+
+{% if permalink|includes('/tags/') %}
+  {% set robots = 'noindex' %}
+  {% set pageTitle = 'Tagged “' + tag|slugify + '”' %}
+  {% set permalink = '/tags/' + tag|slugify + '/' %}
+{% endif %}
+
+{% if permalink|includes('/blog/') %}
+  {% set pageTitle = title + ' | ' + metadata.author.name %}
+  {%  set permalink = '/blog/' + title|slugify + '/' %}
+{% endif %}
+
+{% metagen
+	robots=robots or metadata.robots,
+	title=pageTitle or title or metadata.title,
+	desc=desc or metadata.description,
+	url=metadata.url + (metadata.permalink or permalink or '/'+(title|slugify)+'/'),
+	img=metadata.url + (ogImage or metadata.openGraph.image),
+	img_alt=ogImageAlt or metadata.openGraph.imageAlt,
+	twitter_card_type='summary_large_image',
+	twitter_handle=twitter or metadata.author.twitter,
+	name=author or metadata.author.name,
+	generator='Eleventy',
+	comments=true
+%}
+
+{#- Atom and JSON feeds included by default #}
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
+<link rel="alternate" href="/feed.json" type="application/json" title="{{ metadata.title }}">
