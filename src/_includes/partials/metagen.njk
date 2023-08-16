@@ -16,7 +16,7 @@
 	title=pageTitle or title or metadata.title,
 	desc=desc or metadata.description,
 	url=metadata.url + (metadata.permalink or permalink or '/'+(title|slugify)+'/'),
-	img=metadata.url + (ogImage or metadata.openGraph.image),
+	img=metadata.url + (ogImage or '/api/og-image/?url='+(metadata.permalink or permalink or '/'+(title|slugify)+'/')|encodedData),
 	img_alt=ogImageAlt or metadata.openGraph.imageAlt,
 	twitter_card_type='summary_large_image',
 	twitter_handle=twitter or metadata.author.twitter,
