@@ -1,7 +1,7 @@
 // Open Graph Image Generator
 
-const puppeteer = require("puppeteer-core");
-const chromium = require("@sparticuz/chromium");
+import puppeteer from "puppeteer-core";
+import chromium from "@sparticuz/chromium";
 
 exports.handler = async (event, context) => {
     const { rawUrl, path, httpMethod } = event;
@@ -36,9 +36,12 @@ exports.handler = async (event, context) => {
 
     const page = await browser.newPage();
 
+    await page.setJavaScriptEnabled(false);
+
     const websiteUrl = rawUrl.split(path)[0] + atob(url);
 
-    await page.goto(websiteUrl, { waitUntil: "networkidle0" });
+    // go to page and wait 1second for page to load
+    await page.goto(websiteUrl, { timeout: 1000 });
 
     const buffer = await page.screenshot();
 
