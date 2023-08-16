@@ -1,7 +1,7 @@
 // Open Graph Image Generator
 
-import puppeteer from "puppeteer-core";
-import chromium from "@sparticuz/chromium";
+const puppeteer = require("puppeteer-core");
+const chromium = require("@sparticuz/chromium");
 
 exports.handler = async (event, context) => {
     const { rawUrl, path, httpMethod } = event;
