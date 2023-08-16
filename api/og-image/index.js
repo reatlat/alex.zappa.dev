@@ -1,6 +1,7 @@
 // Open Graph Image Generator
 
-const chromium = require("chrome-aws-lambda");
+const puppeteer = require("puppeteer-core");
+const chromium = require("@sparticuz/chromium");
 
 exports.handler = async (event, context) => {
     const { rawUrl, path, httpMethod } = event;
@@ -25,11 +26,12 @@ exports.handler = async (event, context) => {
             }),
         };
 
-    const browser = await chromium.puppeteer.launch({
+    const browser = await puppeteer.launch({
         args: chromium.args,
         defaultViewport: { height: 630, width: 1200 },
-        executablePath: await chromium.executablePath,
+        executablePath: await chromium.executablePath(),
         headless: chromium.headless,
+        ignoreHTTPSErrors: true,
     });
 
     const page = await browser.newPage();
