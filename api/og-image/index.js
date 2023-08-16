@@ -41,7 +41,7 @@ exports.handler = async (event, context) => {
     const websiteUrl = rawUrl.split(path)[0] + atob(url);
 
     // go to page and wait 1second for page to load
-    await page.goto(websiteUrl, { timeout: 1000 });
+    await page.goto(websiteUrl, { waitUntil: "domcontentloaded" });
 
     const buffer = await page.screenshot();
 
