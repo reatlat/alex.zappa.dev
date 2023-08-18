@@ -20,9 +20,7 @@
 		{% include "../partials/scripts-footer.njk" %}
 
 		{# Load script defer #}
-		<script src="/js/main.js" defer type="text/javascript"></script>
-
-		<!-- Current page: {{ page.url | htmlBaseUrl }} -->
+    <script src="/js/main{%- if eleventy.env.runMode == 'build' -%}.{{ build.hash.short }}{%- endif -%}.js" defer type="text/javascript"></script>
 
 	</body>
 </html>
