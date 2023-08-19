@@ -3,6 +3,7 @@
  * https://www.11ty.dev/docs/filters/
  */
 const { DateTime } = require("luxon");
+const uuid = require("uuid");
 
 module.exports = {
     titleSinPeriod: (value) => {
@@ -69,6 +70,10 @@ module.exports = {
             (tag) =>
                 ["all", "nav", "post", "posts", "featured"].indexOf(tag) === -1
         );
+    },
+
+    uuidv4: (text, separator = "") => {
+        return text + separator + uuid.v4();
     },
 
     encodedData: (data) => {

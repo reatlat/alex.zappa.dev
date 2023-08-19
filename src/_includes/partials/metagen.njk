@@ -11,12 +11,18 @@
   {%  set permalink = '/blog/' + title|slugify + '/' %}
 {% endif %}
 
+{% if ogImage == 'gen' or ogImage == 'generate' %}
+  {% set ogImage = '/api/og-image/?url='+(metadata.permalink or permalink or '/'+(title|slugify)+'/')|encodedData %}
+{% endif %}
+
+
+
 {% metagen
 	robots=robots or metadata.robots,
 	title=pageTitle or title or metadata.title,
 	desc=desc or metadata.description,
 	url=metadata.url + (metadata.permalink or permalink or '/'+(title|slugify)+'/'),
-	img=metadata.url + (ogImage or '/api/og-image/?url='+(metadata.permalink or permalink or '/'+(title|slugify)+'/')|encodedData),
+	img=metadata.url + (ogImage or '/unsplash/random/1200x630/?funny+cat&uuid='|uuidv4),
 	img_alt=ogImageAlt or metadata.openGraph.imageAlt,
 	twitter_card_type='summary_large_image',
 	twitter_handle=twitter or metadata.author.twitter,

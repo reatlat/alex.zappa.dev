@@ -18,6 +18,9 @@ https://zappa.dev/* https://alex.zappa.dev/:splat 301!
 {# Plausible proxy #}
 /api/event https://plausible.io/api/event 200
 
+{# Unsplash API #}
+/unsplash/* https://source.unsplash.com/:splat 200
+
 {# API Proxy #}
 /api/* /.netlify/functions/:splat 200
 
