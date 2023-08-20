@@ -16,12 +16,12 @@ blankPage: true
 	<p class="m-0">Or you can <a href="/">return to the home page</a>.</p>
 	<p class="m-0 mt-8">In the meantime, enjoy funny cats</p>
 	<div id="funnyCats" class="mt-2 relative group" x-data="{
-		src: `/unsplash/random/350x350/?funny+cat`,
+		src: `https://source.unsplash.com/random/350x350/?funny+cat`,
 		reload() {
 			this.$refs.funnyCats.src = this.src + '&t=' + Date.now();
 		}
 	}">
-		<img x-ref="funnyCats" class="m-0 rounded-md drop-shadow-lg" src="{{ '/unsplash/random/350x350/?funny+cat'|uuidv4 }}" alt="funny cat" width="250" height="250">
+		<img x-ref="funnyCats" class="m-0 rounded-md drop-shadow-lg" src="{{ 'https://source.unsplash.com/random/350x350/?funny+cat'|uuidv4('&uuid=') }}" alt="funny cat" width="250" height="250">
 		<span class="cursor-pointer text-sm" @click="reload()">
 			<span class="absolute inset-0"></span>
 			<span class="flex gap-2 justify-center items-center p-1">{% feather 'rotate-cw', { class: 'w-4 h-4 transition-all duration-1000 group-hover:rotate-[360deg]' } %} Reload</span>

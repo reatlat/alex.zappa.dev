@@ -9,7 +9,7 @@
 	{%- if post.data.tags|filterTagList|length %}
 		<footer class="post-tags text-sm flex">
 			<ul class="post-tags list-none flex flex-wrap gap-x-2 gap-y-1 m-0 p-0">
-				{%- for tag in post.data.tags | filterTagList %}
+				{%- for tag in post.data.tags | filterTagList | head(3) %}
 					{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
 					<li class="m-0 p-0"><a href="{{ tagUrl }}" class="post-tag text-current">#{{ tag }}</a>{%- if not loop.last %},{% endif %}</li>
 				{%- endfor %}
