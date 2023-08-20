@@ -10,9 +10,9 @@ layout: base.njk
 				<time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate("LLLL dd, yyyy") }}</time>
 			</p>
 			{%- if tags|filterTagList|length %}
-				<div class="post-tags flex gap-2 order-3 text-sm md:text-base">
+				<div class="post-tags mt-4 flex gap-2 order-3 text-sm md:text-base">
 					<ul class="post-tags list-none flex flex-wrap gap-2 m-0 p-0">
-						{%- for tag in tags | filterTagList %}
+						{%- for tag in tags | filterTagList | head(4) %}
 							{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
 							<li class="m-0 p-0"><a href="{{ tagUrl }}" class="post-tag text-current">#{{ tag }}</a>{%- if not loop.last %},{% endif %}</li>
 						{%- endfor %}
