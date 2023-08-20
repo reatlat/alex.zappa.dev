@@ -9,16 +9,17 @@ ogImage: '/default-og-image.png'
 			<h1 class="mb-2">Hi, I'm <a class="font-bold" href="/about/">Alex</a>.</h1>
 			<p class="m-0 md:text-2xl max-w-3xl">I'm a web developer based in the Spain. I'm currently working at <a href="https://www.kandji.io">Kandji</a>. I'm passionate about building accessible, performant and inclusive websites and applications. I'm also a big fan of <a href="https://jamstack.org/">JAMstack</a>, <a href="https://11ty.dev/">Eleventy</a>, <a href="https://www.hubspot.com/">HubSpot</a>, and <a href="https://wordpress.org/">WordPress</a>. When I'm not coding, I'm usually traveling, playing video games, watching films or listening to music. Feel free to get in touch.</p>
 		</div>
-		{#
 		<div class="hidden lg:block">
 			<div class="ml-auto max-w-[250px] text-center">
-			<img class="ml-auto m-0 rounded-md drop-shadow-lg"
-				 src="https://source.unsplash.com/random/350x350/?funny+cat"
-				 alt="funny cat" width="250" height="250">
-				<a class="text-current opacity-70" href="#">What is this?</a>
+        {% imageExt "https://source.unsplash.com/random/350x350/?funny+cat", {
+          "class": "ml-auto m-0",
+          "alt": "funny cat",
+          "width": "250",
+          "height": "250"
+        } %}
+				<a class="text-current opacity-70" href="/blog/the-best-free-image-placeholder-for-quick-and-easy-content-mockups/">What is this?</a>
 			</div>
 		</div>
-		#}
 	</div>
 </section>
 
