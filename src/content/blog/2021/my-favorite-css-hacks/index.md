@@ -2,7 +2,7 @@
 title: My favorite CSS hacks
 desc: Discover CSS hacks and shortcuts, including using box-sizing, selection pseudo-class, caret color for input elements, displaying links when an element has no text value, fitting images to content, detecting dark system mode, hiding images on mobile, using CSS vendor prefixes for different browsers, and utilizing Autoprefixer. Learn these tips and improve your CSS coding skills.
 date: 2021-11-29
-tags: [featured, css, CSS3, hacks, code]
+tags: [featured, css, css3, hacks, code]
 ---
 
 As it is with every coding language, there are several shortcuts or hacks with CSS that allow you to write cleaner code, improve design elements, and save valuable time. Furthermore, you can directly insert these snippets to your site using a code editor. And here is my favorite CSS Hacks.

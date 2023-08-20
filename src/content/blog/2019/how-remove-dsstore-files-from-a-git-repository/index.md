@@ -2,7 +2,7 @@
 title: How remove .DS_Store files from a Git repository?
 desc: Learn how to remove .DS_Store files from your Mac OS X repository. Use commands to find and remove the files. Update .gitignore for future prevention. Check gitignore.io for more configurations.
 date: 2019-04-10
-tags: [git, DS_Store, macOS]
+tags: [git, ds_store, macos]
 ---
 
 Mac OS X users can include system .DS_Store files to repository accidentally.
