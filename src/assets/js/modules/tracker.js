@@ -1,3 +1,4 @@
+import isbot from "isbot";
 import Plausible from "plausible-tracker";
 import colorScheme from "./_detectColorScheme";
 
@@ -7,6 +8,9 @@ const { trackEvent, trackPageview, enableAutoOutboundTracking } = Plausible({
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+    // don't track bots
+    if (isbot(navigator.userAgent)) return;
+
     trackPageview();
     enableAutoOutboundTracking();
 
