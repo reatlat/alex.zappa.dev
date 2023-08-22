@@ -11,15 +11,23 @@ document.addEventListener("DOMContentLoaded", () => {
     // don't track bots
     if (isbot(navigator.userAgent)) return;
 
-    trackPageview();
+    trackPageview({
+        props: {
+            path: location.pathname,
+            referrer: document.referrer,
+            prefers_color_scheme: colorScheme(),
+            user_agent: navigator.userAgent,
+        },
+    });
+
     enableAutoOutboundTracking();
 
     // track color scheme
-    trackEvent("color_scheme", {
-        props: {
-            system_color_scheme: colorScheme(),
-        },
-    });
+    //trackEvent("color_scheme", {
+    //    props: {
+    //        system_color_scheme: colorScheme(),
+    //    },
+    //});
 
     // track File Download
     document.body.addEventListener("click", (event) => {
