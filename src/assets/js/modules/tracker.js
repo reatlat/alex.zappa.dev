@@ -11,22 +11,28 @@ document.addEventListener("DOMContentLoaded", () => {
     // don't track bots
     if (isbot(navigator.userAgent)) return;
 
-    trackPageview({
-        props: {
-            path: location.pathname,
-            referrer: document.referrer,
-            prefers_color_scheme: colorScheme(),
-            user_agent: navigator.userAgent,
-        },
-    });
+    // track page view
+    trackPageview(
+        {},
+        {
+            props: {
+                url: location.href,
+                path: location.pathname,
+                referrer: document.referrer,
+                prefersColorScheme: colorScheme(),
+                userAgent: navigator.userAgent,
+                deviceWidth: window.innerWidth,
+            },
+        }
+    );
 
     enableAutoOutboundTracking();
 
     // track color scheme
     //trackEvent("color_scheme", {
-    //    props: {
-    //        system_color_scheme: colorScheme(),
-    //    },
+    //   props: {
+    //       system_color_scheme: colorScheme(),
+    //   },
     //});
 
     // track File Download
@@ -84,7 +90,12 @@ document.addEventListener("DOMContentLoaded", () => {
         trackEvent("404", {
             props: {
                 title: "404 Pages",
-                path: document.location.pathname,
+                url: location.href,
+                path: location.pathname,
+                referrer: document.referrer,
+                prefersColorScheme: colorScheme(),
+                userAgent: navigator.userAgent,
+                deviceWidth: window.innerWidth,
             },
         });
 
@@ -92,9 +103,15 @@ document.addEventListener("DOMContentLoaded", () => {
         let howManyTimesClicked = 0;
         funnyCats.addEventListener("click", () => {
             howManyTimesClicked++;
-            trackEvent("reload_funny_cats", {
+            trackEvent("reloadFunnyCats", {
                 props: {
                     count: howManyTimesClicked,
+                    url: location.href,
+                    path: location.pathname,
+                    referrer: document.referrer,
+                    prefersColorScheme: colorScheme(),
+                    userAgent: navigator.userAgent,
+                    deviceWidth: window.innerWidth,
                 },
             });
         });
