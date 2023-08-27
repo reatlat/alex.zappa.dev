@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {},
         {
             props: {
+                title: document.title,
                 url: location.href,
                 path: location.pathname,
                 referrer: document.referrer,
@@ -27,13 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     enableAutoOutboundTracking();
-
-    // track color scheme
-    //trackEvent("color_scheme", {
-    //   props: {
-    //       system_color_scheme: colorScheme(),
-    //   },
-    //});
 
     // track File Download
     document.body.addEventListener("click", (event) => {
@@ -87,17 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // track 404 page
     if (document.body.classList.contains("page-404")) {
-        trackEvent("404", {
-            props: {
-                title: "404 Pages",
-                url: location.href,
-                path: location.pathname,
-                referrer: document.referrer,
-                prefersColorScheme: colorScheme(),
-                userAgent: navigator.userAgent,
-                deviceWidth: window.innerWidth,
-            },
-        });
+        trackEvent("404", {});
 
         const funnyCats = document.getElementById("funnyCats");
         let howManyTimesClicked = 0;
@@ -106,12 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
             trackEvent("reloadFunnyCats", {
                 props: {
                     count: howManyTimesClicked,
-                    url: location.href,
-                    path: location.pathname,
-                    referrer: document.referrer,
-                    prefersColorScheme: colorScheme(),
-                    userAgent: navigator.userAgent,
-                    deviceWidth: window.innerWidth,
                 },
             });
         });
