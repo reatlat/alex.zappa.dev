@@ -68,7 +68,9 @@ module.exports = {
 
         return (tags || []).filter(
             (tag) =>
-                ["all", "nav", "post", "posts", "featured"].indexOf(tag) === -1
+                ["all", "nav", "tools", "post", "posts", "featured"].indexOf(
+                    tag
+                ) === -1
         );
     },
 
