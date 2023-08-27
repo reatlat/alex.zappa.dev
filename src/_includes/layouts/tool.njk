@@ -1,0 +1,19 @@
+---
+layout: base.njk
+---
+<div class="prose mx-auto pt-2 pb-8 md:pt-8 md:pb-14">
+
+	<article>
+		<header class="grid">
+			<h1 class="order-2 mb-0">{{ title }}{%- if draft %} <small class="text-base">[draft]</small>{%- endif %}</h1>
+		</header>
+
+		{{ content | safe }}
+
+	</article>
+
+
+{#	<section id="comments"></section>#}
+
+
+</div>
