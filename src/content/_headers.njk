@@ -8,7 +8,7 @@ eleventyExcludeFromCollections: true
 	X-Frame-Options: "SAMEORIGIN"
 	X-Content-Type-Options: "nosniff"
 	X-XSS-Protection: "1; mode=block"
-	Access-Control-Allow-Origin = "https://alex.zappa.dev"
+	{%- if eleventy.env.runMode == 'build' -%}Access-Control-Allow-Origin = "{{ build.url or 'https://alex.zappa.dev' }}"{%- endif -%}
 	{# Content-Security-Policy = "frame-ancestors 'none';" #}
 
 
@@ -22,3 +22,9 @@ eleventyExcludeFromCollections: true
 /tw-config/*
 	X-Robots-Tag: "noindex, nofollow"
 	Cache-Control: "max-age=0, no-cache, no-store, must-revalidate"
+
+
+{# Helpers #}
+/_*
+  X-Robots-Tag: "noindex, nofollow"
+  Cache-Control: "max-age=0, no-cache, no-store, must-revalidate"

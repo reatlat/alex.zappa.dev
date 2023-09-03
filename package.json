@@ -95,8 +95,8 @@
     "uuid": "^9.0.0"
   },
   "dependencies": {
-    "@sparticuz/chromium": "^115.0.0",
+    "@sparticuz/chromium": "^116.0.0",
     "plausible-tracker": "^0.3.8",
-    "puppeteer-core": "^21.0.3"
+    "puppeteer-core": "^21.1.1"
   }
 }
