@@ -81,4 +81,8 @@ module.exports = {
     encodedData: (data) => {
         return btoa(data);
     },
+
+    encodeURIComponent: (data) => {
+        return encodeURIComponent(data);
+    },
 };

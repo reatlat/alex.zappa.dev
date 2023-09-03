@@ -81,7 +81,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // track 404 page
     if (document.body.classList.contains("page-404")) {
-        trackEvent("404", {});
+        trackEvent("404", {
+            props: {
+                props: {
+                    title: document.title,
+                    url: location.href,
+                    path: location.pathname,
+                    referrer: document.referrer,
+                    prefersColorScheme: colorScheme(),
+                    userAgent: navigator.userAgent,
+                    deviceWidth: window.innerWidth,
+                },
+            },
+        });
 
         const funnyCats = document.getElementById("funnyCats");
         let howManyTimesClicked = 0;

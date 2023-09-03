@@ -155,3 +155,6 @@ netlify/functions/dynamic/**
 netlify/functions/serverless/**
 !netlify/functions/serverless/index.js
 .vercel
+
+# Helpers
+api/og-image/template.html
