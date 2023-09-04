@@ -82,6 +82,52 @@ module.exports = {
         return btoa(data);
     },
 
+    encodedTitle: (title) => {
+        title = title
+            .toString()
+            .replaceAll(`"`, `&quot;`)
+            // Removes all unicode emojis that are not in node-emoji
+            .replace(
+                /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/gim,
+                ""
+            )
+            // Removes zero width jumper and other spaces
+            .replace(/[\u200B-\u200D\uFEFF]/gim, "")
+            .replace(" ️ ", " ") // Magic?????
+            .replace(/\s+/gim, " ")
+            .replace(/(\r\n|\n|\r)/gim, "");
+
+        return btoa(title);
+    },
+
+    /**
+     * Clean/escape unicode emojis, zero width jumper and spaces and Magic Spacing
+     *
+     * @link: https://stackoverflow.com/questions/10992921/how-to-remove-emoji-code-using-javascript
+     * @link https://itecnote.com/tecnote/javascript-remove-zero-width-space-characters-from-a-javascript-string/
+     *
+     * @param text
+     * @returns {string}
+     */
+    escapeMetaData: (text) => {
+        return (
+            text
+                .toString()
+                .replaceAll(`"`, `&quot;`)
+                // Removes all unicode emojis that are not in node-emoji
+                .replace(
+                    /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/gim,
+                    ""
+                )
+                // Removes zero width jumper and other spaces
+                .replace(/[\u200B-\u200D\uFEFF]/gim, "")
+                .replace(" ️ ", " ") // Magic?????
+                .replace(/\s+/gim, " ")
+                .replace(/(\r\n|\n|\r)/gim, "")
+                .trim()
+        );
+    },
+
     encodeURIComponent: (data) => {
         return encodeURIComponent(data);
     },

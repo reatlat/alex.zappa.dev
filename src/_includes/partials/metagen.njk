@@ -15,14 +15,14 @@
   {% set ogImage = '/api/og-page-image/?url='+(metadata.permalink or permalink or '/'+(title|slugify)+'/')|encodedData %}
 {% endif %}
 
-{% set defaultOGImage = '/api/og-image/?title='+(title|encodeURIComponent) %}
+{% set defaultOGImage = '/api/og-image/'+(title or pageTitle or metadata.title)|encodedTitle+'.png' %}
 
 {% set fancyCat = '/unsplash/random/1200x630/?funny+cat&uuid='|uuidv4 %}
 
 {% metagen
 	robots=robots or metadata.robots,
-	title=pageTitle or title or metadata.title,
-	desc=desc or metadata.description,
+	title=(pageTitle or title or metadata.title)|escapeMetaData,
+	desc=(desc or metadata.description)|escapeMetaData,
 	url=metadata.url + (metadata.permalink or permalink or '/'+(title|slugify)+'/'),
 	img=metadata.url + (ogImage or defaultOGImage or fancyCatImage),
 	img_alt=ogImageAlt or metadata.openGraph.imageAlt,
