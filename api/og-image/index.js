@@ -9,7 +9,7 @@ chromium.setHeadlessMode = true;
 chromium.setGraphicsMode = false;
 
 exports.handler = async (event, context) => {
-    const { httpMethod } = event;
+    const { httpMethod, path } = event;
 
     if (httpMethod !== "GET")
         return {
@@ -20,16 +20,9 @@ exports.handler = async (event, context) => {
             }),
         };
 
-    const { title, debug } = event.queryStringParameters;
+    const { debug } = event.queryStringParameters;
 
-    if (!title)
-        return {
-            statusCode: 400,
-            body: JSON.stringify({
-                status: "error",
-                message: `Missing required parameter: title`,
-            }),
-        };
+    const title = atob(path.replace("/api/og-image/", "").replace(".png", ""));
 
     const bgColors = ["", "blue", "purple", "marine", "red", "candy"];
 
