@@ -1,0 +1,12 @@
+---
+permalink: ../_temp/titles-for-og-images.txt
+eleventyExcludeFromCollections: true
+excludeFromSitemap: true
+---
+{%- for page in collections.posts %}
+{{ page.data.title if page.data.title }}
+{%- endfor %}
+Tools & Utilities
+Projects
+Privacy Policy
+Blog Archive
