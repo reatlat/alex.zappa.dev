@@ -2,6 +2,7 @@
 layout: prose.njk
 title: Privacy Policy
 desc: Privacy Policy for Alex Zappa's website.
+ogImage: /img/og/privacy-policy.png
 ---
 
 # {{ title }}

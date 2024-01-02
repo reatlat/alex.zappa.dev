@@ -8,24 +8,19 @@
 
 {% if permalink|includes('/blog/') %}
   {% set pageTitle = title + ' | ' + metadata.author.name %}
-  {%  set permalink = '/blog/' + title|slugify + '/' %}
+  {% set permalink = '/blog/' + title|slugify + '/' %}
+  {% set ogImage = '/img/og/' + title|slugify + '.png' %}
 {% endif %}
 
-{% if ogImage == 'page-gen' or ogImage == 'page-generate' %}
-  {% set ogImage = '/api/og-page-image/?url='+(metadata.permalink or permalink or '/'+(title|slugify)+'/')|encodedData %}
-{% endif %}
-
-{% set defaultOGImage = '/api/og-image/'+(title or pageTitle or metadata.title)|encodedTitle+'.png' %}
-
-{% set fancyCat = '/unsplash/random/1200x630/?funny+cat&uuid='|uuidv4 %}
+{% set defaultOGImage = '/default-og-image.png' %}
 
 {% metagen
 	robots=robots or metadata.robots,
 	title=(pageTitle or title or metadata.title)|escapeMetaData,
 	desc=(desc or metadata.description)|escapeMetaData,
 	url=metadata.url + (metadata.permalink or permalink or '/'+(title|slugify)+'/'),
-	img=metadata.url + (ogImage or defaultOGImage or fancyCatImage),
-	img_alt=ogImageAlt or metadata.openGraph.imageAlt,
+	img=metadata.url + (ogImage or defaultOGImage),
+	img_alt=(ogImageAlt or metadata.openGraph.imageAlt or metadata.title)|escapeMetaData,
 	twitter_card_type='summary_large_image',
 	twitter_handle=twitter or metadata.author.twitter,
 	name=author or metadata.author.name,
