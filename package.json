@@ -8,6 +8,7 @@
     "blog:new": "node scripts/new-post.mjs",
     "blog:edit": "node scripts/edit-post.mjs",
     "postbuild": "npm run export:twconfig",
+    "postbuild:og-images": "node scripts/generate-og-images.mjs",
     "view:twconfig": "npx tailwind-config-viewer -o",
     "export:twconfig": "npx tailwind-config-viewer export ./_site/tw-config",
     "debug:11ty": "DEBUG=Eleventy* npx @11ty/eleventy",
@@ -75,7 +76,9 @@
     "luxon": "^3.3.0",
     "markdown-it-anchor": "^8.6.7",
     "netlify-plugin-11ty": "^1.4.0",
+    "node-html-to-image": "^4.0.0",
     "npm-run-all": "^4.1.5",
+    "plausible-tracker": "^0.3.8",
     "postcss": "^8.4.27",
     "postcss-cli": "^10.1.0",
     "postcss-discard-comments": "^6.0.0",
@@ -93,10 +96,5 @@
     "tailwindcss": "^3.3.3",
     "tailwindcss-safe-area": "^0.3.0",
     "uuid": "^9.0.0"
-  },
-  "dependencies": {
-    "@sparticuz/chromium": "^116.0.0",
-    "plausible-tracker": "^0.3.8",
-    "puppeteer-core": "^21.1.1"
   }
 }
