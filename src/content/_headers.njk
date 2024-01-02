@@ -27,3 +27,12 @@ eleventyExcludeFromCollections: true
 /_*
   X-Robots-Tag: "noindex, nofollow"
   Cache-Control: "max-age=0, no-cache, no-store, must-revalidate"
+
+{# CloudFlare Custom Domain #}
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://alex-zappa-dev.pages.dev*
+  Link: <https://alex-zappa-dev.pages.dev/:splat>; rel="canonical"
+  X-Robots-Tag: noindex
+  Refresh: 0; url=https://alex.zappa.dev/:splat
