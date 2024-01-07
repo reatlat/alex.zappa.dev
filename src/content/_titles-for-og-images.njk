@@ -4,7 +4,9 @@ eleventyExcludeFromCollections: true
 excludeFromSitemap: true
 ---
 {%- for page in collections.posts %}
-{{ page.data.title if page.data.title }}
+  {%- if page.data.draft != true %}
+    {{ page.data.title if page.data.title }}
+  {%- endif %}
 {%- endfor %}
 Tools & Utilities
 Projects
