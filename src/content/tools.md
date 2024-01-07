@@ -35,11 +35,11 @@ projects, and I make sure that I have local backups with [gickup](https://github
 [GitHub CoPilot](https://github.com/features/copilot") is an AI pair programmer that helps you write better code. It's a
 great tool for learning new languages, and for getting started with new projects.
 
-## Netlify
+## Cloudflare Pages
 
 The majority of sites that I build today use [Eleventy](https://11ty.dev/), and are hosted
-by [Netlify](https://www.netlify.com/). If a site needs any interactivity, Netlify Functions provides everything that I
-need.
+by [Cloudflare Pages](https://pages.cloudflare.com/). It's a great combination, and I've been able to build some really
+cool sites with it.
 
 ## CodePen
 
@@ -48,8 +48,8 @@ and deploy a website, show off your work, build test cases to learn and debug, a
 
 ## WaveBox
 
-WaveBox is more than just a browser. It's a desktop app that brings together all your web apps into one place. It's a
-supercharged web browser with tabbed windows, notifications, badges, and workspaces.
+[WaveBox](https://wavebox.io/) ) is more than just a browser. It's a desktop app that brings together all your web apps
+into one place. It's a supercharged web browser with tabbed windows, notifications, badges, and workspaces.
 
 I use WaveBix since first day it was released. WaveBox is successor to [WMail](https://thomas101.github.io/wmail/),
 which was a great desktop client for Gmail. WaveBox is a great way to keep all of my work and personal email accounts in
@@ -86,10 +86,13 @@ picker), and some custom workflows for navigating to specific work systems quick
 I've recently started using it's snippets capability, both for common replies and for demo purposes (with autoexpand
 enabled).
 
-## massCode
+## SnippetsLab
 
-[massCode](https://masscode.io/) is a free and open source code snippets manager for developers. It helps you create and
-organize your own personal snippets collection and have quick access to it.
+[SnippetsLab](https://www.renfei.org/snippets-lab/) is a full-featured, easy-to-use snippets manager. It helps you to
+build your personal code snippets library and makes sure that you have easy access to them whenever you want. Sync via
+iCloud Drive across Mac, iPad, and iPhone.
 
-I've been using massCode for a while now, and it's a great way to keep track of code snippets that I use regularly. I've
-got a few snippets that I use for demos, and a few more that I use for common replies.
+## Hazel
+
+[Hazel](https://www.noodlesoft.com/) is a housekeeper for your folders and files. It's a powerful tool that helps you to
+organize your files according to rules you create. Hazel can also manage your trash and uninstall your applications.
