@@ -8,6 +8,9 @@ layout: base.njk
 			<h1 class="order-2 mb-0">{{ title }}{%- if draft %} <small class="text-base">[draft]</small>{%- endif %}</h1>
 			<p class="post-metadata order-1 m-0 text-sm md:text-base">
 				<time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate("LLLL dd, yyyy") }}</time>
+        {%- if updated %}
+          <time datetime="{{ updated | htmlDateString }}"> &bull; updated {{ updated | readableDate("LLL dd, yyyy") }}</time>
+        {%- endif %}
 			</p>
 			{%- if tags|filterTagList|length %}
 				<div class="post-tags mt-4 flex gap-2 order-3 text-sm md:text-base">
