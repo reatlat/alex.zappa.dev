@@ -1,7 +1,10 @@
 <div id="breadcrumbs" class="fixed left-0 -bottom-2 w-full font-mono font-semibold bg-terminal/80 text-white pt-2 pb-4">
 	<div class="container overflow-hidden whitespace-nowrap pb-safe truncate text-xs md:text-base">
-		<a class="!text-green-600 hidden md:inline" href="/">alex@zappa.dev</a><span class="hidden md:inline">:</span>
-		<a class="text-white hover:text-amber-300" href="/" title="Home">~<span class="text-white">&nbsp;/</span></a>
+		<a class="!text-green-600 hidden md:inline" href="/?utm_source=breadcrumbs_email">alex@zappa.dev</a><span class="hidden md:inline">:</span>
+		<a class="text-white hover:text-amber-300" href="/?utm_source=breadcrumbs_root" title="Home">
+      <span class="sr-only">Back to Home</span>
+      ~<span class="text-white">&nbsp;/</span>
+    </a>
 		{# Todo add breadcrumbs to files #}
 		{% if layout == 'post.njk' or permalink == '/blog/' or permalink|includes('/tags/') %}
 			<a class="text-white hover:text-amber-300"
@@ -14,11 +17,12 @@
 				<a class="text-white hover:text-amber-300"
 				   href="/tags/{{ tag | slugify }}/">{{ tag | slugify }}<span class="text-white">&nbsp;/</span></a>
 			{% endif %}
-		{% endif %}
-		{# {{ page.filePathStem }} #}
-		{% if layout == 'post.njk' %}
+		{% elif layout == 'post.njk' %}
 			<a class="text-white hover:text-amber-300"
 			   href="/blog/{{ title | slugify }}/">{{ title | titleSinPeriod }}<span class="text-white">&nbsp;/</span></a>
+		{% elif permalink != '/blog/' %}
+      <a class="text-white hover:text-amber-300"
+         href="/{{ (page.filePathStem or '') | replace('/', '') }}/">{{ (title or '') | titleSinPeriod }}<span class="text-white">&nbsp;/</span></a>
 		{% endif %}
 		<span class="animate-blink">_</span>
 	</div>
