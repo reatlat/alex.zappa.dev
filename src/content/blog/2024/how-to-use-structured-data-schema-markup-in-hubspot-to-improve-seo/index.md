@@ -2,6 +2,7 @@
 title: "How to Use Structured Data (Schema Markup) in HubSpot to Improve SEO"
 desc: "How to use Structured Data, also referred to as Schema Markup, inside of HubSpot that is populated using HubL variables for use to improve SEO."
 date: 2024-01-07
+updated: 2024-02-17
 tags: [hubspot, seo, schema-markup, structured-data]
 ---
 
@@ -85,14 +86,14 @@ BlogPosting schema example:
   },
    "publisher": {
     "@type": "Organization",
-    "name": "{{site_settings.company_name or 'Company Name'}}",
+    "name": "{{site_settings.company_name or brand_settings.primaryLogo.name or 'Company Name'}}",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://www.example.com/images/logo.png"
+      "url": "{{brand_settings.primaryLogo.src}}"
     }
   },
   "description": "{{content.meta_description|striptags|safe|truncate(160, True, '')}}",
-  "url": "{{content.absolute_url}}"
+  "url": "{{content.absolute_url or request.full_url}}"
 }
 {% endraw %}</script>
 ```
@@ -155,5 +156,10 @@ search engines with more information about your content, you can improve its vis
 and enhance the user experience. Don't overlook the importance of schema markup in your SEO strategy. Implement it in
 your HubSpot templates today and reap the benefits of higher search rankings and increased website traffic. Stay ahead
 of the competition and make the most out of your HubSpot platform by leveraging the power of structured data.
+
+## Updated ({{updated|readableDate("LLL dd, yyyy")}})
+I just found out that HubSpot has released [Structured Data (Beta)](https://community.hubspot.com/t5/Releases-and-Updates/Now-live-Setting-to-apply-BlogPosting-JSON-LD-schema-to-blog/ba-p/645867) and it works really well.
+I'm still think homebrewed solution is better, but it's good to know that HubSpot is moving in the right direction.
+
 
 {% signature %}
