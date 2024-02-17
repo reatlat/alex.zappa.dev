@@ -20,7 +20,7 @@
 		{% elif layout == 'post.njk' %}
 			<a class="text-white hover:text-amber-300"
 			   href="/blog/{{ title | slugify }}/">{{ title | titleSinPeriod }}<span class="text-white">&nbsp;/</span></a>
-		{% elif permalink != '/blog/' %}
+		{% elif permalink != '/blog/' and layout != 'home.njk' %}
       <a class="text-white hover:text-amber-300"
          href="/{{ (page.filePathStem or '') | replace('/', '') }}/">{{ (title or '') | titleSinPeriod }}<span class="text-white">&nbsp;/</span></a>
 		{% endif %}
