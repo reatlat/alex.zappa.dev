@@ -28,29 +28,31 @@ ogImage: '/default-og-image.png'
 
     <div class="">
 
-      <div class="iphone flex justify-center items-center relative [&_picture]:absolute [&_img]:m-0" style="width: 130px; height: 266px">
+      <div class="iphone flex justify-center items-center relative [&_picture]:absolute [&_img]:m-0"
+           style="width: 130px; height: 266px">
         <div class="absolute z-10 bg-terminal w-10 h-2.5 rounded-full top-2">
           <div class="rounded-full bg-gradient-to-b from-[#0F1693] via-terminal to-[#0F1693] size-1 absolute right-1" style="top:3px"></div>
         </div>
         {% image "./iphone.png", "iPhone 15Pro", [450], "m-0" %}
         <iframe src="about:blank"
-                class="absolute m-0 p-o scale-[0.3] no-scrollbar"
+                class="absolute m-0 p-0 scale-[0.3] no-scrollbar"
                 style="border-radius: 52px"
                 :src="iframeSrc" width="393" height="852"></iframe>
       </div>
 
-      <div class="ipad flex justify-center items-center relative [&_picture]:absolute [&_img]:m-0">
-        {% image "./ipad.png", "iPad Pro", [450], "m-0" %}
+      <div class="ipad flex justify-center items-center relative [&_picture]:absolute [&_img]:m-0"
+           style="width: 250px; height: 345px;">
+        {% image "./ipad.png", "iPad Pro", [600], "m-0" %}
         <iframe src="about:blank"
-                class="absolute m-0 p-o scale-[0.3] no-scrollbar"
-                style="border-radius: 52px"
-                :src="iframeSrc" width="393" height="852"></iframe>
+                class="absolute m-0 mt-1 p-0 scale-[0.243] no-scrollbar"
+                style="border-radius: 50px"
+                :src="iframeSrc" width="954" height="1330"></iframe>
       </div>
 
       <div class="imac hidden flex justify-center items-center relative [&_picture]:absolute [&_img]:m-0">
         {% image "./imac.png", "iMac", [900], "m-0" %}
         <iframe src="about:blank"
-                class="absolute m-0 p-o scale-[0.3] no-scrollbar"
+                class="absolute m-0 p-0 scale-[0.3] no-scrollbar"
                 style="border-radius: 52px"
                 :src="iframeSrc" width="393" height="852"></iframe>
       </div>
@@ -58,7 +60,7 @@ ogImage: '/default-og-image.png'
       <div class="macbook hidden flex justify-center items-center relative [&_picture]:absolute [&_img]:m-0">
         {% image "./macbook.png", "MacBook Pro", [450], "m-0" %}
         <iframe src="about:blank"
-                class="absolute m-0 p-o scale-[0.3] no-scrollbar"
+                class="absolute m-0 p-0 scale-[0.3] no-scrollbar"
                 style="border-radius: 52px"
                 :src="iframeSrc" width="393" height="852"></iframe>
       </div>
