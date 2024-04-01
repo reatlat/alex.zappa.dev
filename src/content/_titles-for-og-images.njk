@@ -4,11 +4,15 @@ eleventyExcludeFromCollections: true
 excludeFromSitemap: true
 ---
 {%- for page in collections.posts %}
-  {%- if page.data.draft != true %}
-    {{ page.data.title if page.data.title }}
-  {%- endif %}
+{%- if page.data.draft != true %}
+{{ page.data.title if page.data.title }}
+{%- endif %}
+{%- endfor %}
+{%- for page in collections.projects %}
+{%- if page.data.draft != true %}
+{{ page.data.title if page.data.title }}
+{%- endif %}
 {%- endfor %}
 Tools & Utilities
-Projects
 Privacy Policy
 Blog Archive

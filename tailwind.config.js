@@ -68,6 +68,10 @@ module.exports = {
                     200: "#404040",
                     400: "#222222",
                     500: "#111111",
+                    600: "#0f0f0f",
+                    700: "#0d0d0d",
+                    800: "#0b0b0b",
+                    900: "#000000",
                     DEFAULT: "#111111",
                 },
                 amber: {
@@ -152,6 +156,7 @@ module.exports = {
     },
     plugins: [
         require("@tailwindcss/typography"),
+        require("@tailwindcss/forms"),
         require("@tailwindcss/aspect-ratio"),
         require("tailwindcss-safe-area"),
         require("@tailwindcss/line-clamp"),
@@ -171,6 +176,7 @@ module.exports = {
                     "--tw-prose-quotes": "#f2f2f2",
                     "--tw-prose-body": "#f2f2f2",
                     "--tw-prose-headings": "#f2f2f2",
+                    "--tw-prose-bold": "#f2f2f2",
                 },
                 ".btn": {
                     "@apply no-underline": {},

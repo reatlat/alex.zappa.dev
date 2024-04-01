@@ -1,25 +1,26 @@
-import debugLog from './_debugLog'
+import debugLog from "./_debugLog";
 
-export default (param = false, url = false) => {
+module.exports = (param = false, url = false) => {
+    url = url ? url : window.location.href;
 
-    url = url ? url : window.location.href
+    debugLog(`getSearchParams: "${param}" from [${url}]`);
 
-    debugLog(`getSearchParams: "${param}" from [${url}]`)
+    const vars = {};
 
-    const vars = {}
-
-    url.replace(location.hash, '').replace(/[?&]+([^=&]+)=?([^&]*)?/gi, (m, key, value) => {
-        vars[key] = value !== void 0 ? value : ''
-    })
+    url.replace(location.hash, "").replace(
+        /[?&]+([^=&]+)=?([^&]*)?/gi,
+        (m, key, value) => {
+            vars[key] = value !== void 0 ? value : "";
+        }
+    );
 
     if (param) {
         if (vars[param]) {
-            return vars[param]
+            return vars[param];
         } else {
-            return null
+            return null;
         }
     }
 
-    return vars
-
-}
+    return vars;
+};
