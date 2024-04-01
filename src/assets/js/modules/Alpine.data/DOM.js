@@ -1,4 +1,6 @@
 import debugLog from "../_debugLog";
+import loadScript from "../_loadScript";
+import getSearchParams from "../_getSearchParams";
 
 export default () => {
     return {
@@ -6,6 +8,13 @@ export default () => {
             dark: true,
             name: "dark",
         },
+
+        debugLog: (...args) => debugLog(...args),
+
+        _GET: (param = false, url = false) => getSearchParams(param, url),
+
+        loadScript: (src, loading = "defer", callback) =>
+            loadScript(src, loading, callback),
 
         getThemeName() {
             if (localStorage.getItem("theme")) {
