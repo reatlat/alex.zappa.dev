@@ -1,0 +1,19 @@
+---
+layout: home.njk
+title: Projects
+description: Projects
+permalink: /projects/
+ogImage: /img/og/projects.png
+---
+
+<h1>{{ title }}</h1>
+
+{% set projects = collections.projects %}
+
+{% for project in projects %}
+  <div class="">
+    <h2>{{ project.data.title }}</h2>
+    <p>{{ project.data.description }}</p>
+    <a href="{{ project.url }}">Read more</a>
+  </div>
+{% endfor %}
