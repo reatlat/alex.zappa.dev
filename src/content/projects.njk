@@ -13,7 +13,7 @@ ogImage: /img/og/projects.png
 {% for project in projects %}
   <div class="">
     <h2>{{ project.data.title }}</h2>
-    <p>{{ project.data.description }}</p>
+    <p>{{ project.data.desc }}</p>
     <a href="{{ project.url }}">Read more</a>
   </div>
 {% endfor %}
