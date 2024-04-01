@@ -156,6 +156,7 @@ module.exports = {
     },
     plugins: [
         require("@tailwindcss/typography"),
+        require("@tailwindcss/forms"),
         require("@tailwindcss/aspect-ratio"),
         require("tailwindcss-safe-area"),
         require("@tailwindcss/line-clamp"),
@@ -175,6 +176,7 @@ module.exports = {
                     "--tw-prose-quotes": "#f2f2f2",
                     "--tw-prose-body": "#f2f2f2",
                     "--tw-prose-headings": "#f2f2f2",
+                    "--tw-prose-bold": "#f2f2f2",
                 },
                 ".btn": {
                     "@apply no-underline": {},
