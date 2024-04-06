@@ -13,8 +13,10 @@ ogImage: '/img/og/am-i-responsive.png'
         targetUrl: ``,
         setIframeSrc() {
           let link = this.targetUrl && this.targetUrl.length > 0 ? this.targetUrl : `https://alex.zappa.dev/404/ami`;
+          link = link.replace(/</g, `&lt;`).replace(/>/g, `&gt;`);
           if (link.indexOf(`http`) !== 0)
             link = `https://${link}`;
+          window.history.pushState({}, document.title, `?link=${link}`);
           this.iframeSrc = link;
         }
      }"
