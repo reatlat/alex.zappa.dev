@@ -61,7 +61,7 @@ module.exports = {
                 };
 
                 return eleventyImage.generateHTML(metadata, imageAttributes);
-            }
+            },
         );
     },
 
@@ -84,7 +84,7 @@ module.exports = {
                     : "mx-auto rounded drop-shadow-lg";
 
                 return `<img src="${src}" class="${args.class}" loading="${args.loading}" alt="${args.alt}" width="${args.width}" height="${args.height}">`;
-            }
+            },
         );
     },
 
@@ -104,7 +104,7 @@ module.exports = {
                     default:
                         return `May the 4th be with you,<br/>Alex`;
                 }
-            }
+            },
         );
     },
 
@@ -132,7 +132,7 @@ module.exports = {
 				  Selection pseudo class</a> by Alex Zappa (<a href="https://codepen.io/reatlat">@reatlat</a>)
 				  on <a href="https://codepen.io">CodePen</a>.</span>
 				</p>`;
-            }
+            },
         );
     },
 
@@ -141,7 +141,7 @@ module.exports = {
             "video",
             function videoShortcode(src, poster, classes) {
                 return `<video class="${classes}" poster="${poster}" controls><source src="${src}" type="video/mp4"></video>`;
-            }
+            },
         );
     },
 
@@ -156,7 +156,7 @@ module.exports = {
                     ? classes + " w-full h-auto"
                     : "w-full h-auto";
                 return `<video class="${classes}" autoplay="" loop="" muted="" playsinlin="" src="${src}"></video>`;
-            }
+            },
         );
     },
 
@@ -172,7 +172,7 @@ module.exports = {
 							<span class="lyt-visually-hidden">Play Video: ${videoTitle}</span>
 						  </a>
 						</lite-youtube>`;
-            }
+            },
         );
     },
 };

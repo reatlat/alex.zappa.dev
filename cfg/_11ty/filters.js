@@ -13,14 +13,14 @@ module.exports = {
     // Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
     readableDate: (dateObj, format, zone) => {
         return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(
-            format || "dd LLLL yyyy"
+            format || "dd LLLL yyyy",
         );
     },
 
     // dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
     htmlDateString: (dateObj) => {
         return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
-            "yyyy-LL-dd"
+            "yyyy-LL-dd",
         );
     },
 
@@ -76,7 +76,7 @@ module.exports = {
                     "posts",
                     "projects",
                     "featured",
-                ].indexOf(tag) === -1
+                ].indexOf(tag) === -1,
         );
     },
 
@@ -95,7 +95,7 @@ module.exports = {
             // Removes all unicode emojis that are not in node-emoji
             .replace(
                 /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/gim,
-                ""
+                "",
             )
             // Removes zero width jumper and other spaces
             .replace(/[\u200B-\u200D\uFEFF]/gim, "")
@@ -123,7 +123,7 @@ module.exports = {
                 // Removes all unicode emojis that are not in node-emoji
                 .replace(
                     /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/gim,
-                    ""
+                    "",
                 )
                 // Removes zero width jumper and other spaces
                 .replace(/[\u200B-\u200D\uFEFF]/gim, "")
