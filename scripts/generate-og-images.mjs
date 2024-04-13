@@ -6,8 +6,8 @@ import chalk from "chalk";
 if (!fs.existsSync("./_temp/titles-for-og-images.txt")) {
   console.log(
     chalk.red(
-      "File ./_temp/titles-for-og-images.txt does not exist. Please run `npm run build` first."
-    )
+      "File ./_temp/titles-for-og-images.txt does not exist. Please run `npm run build` first.",
+    ),
   );
   process.exit(1);
 }

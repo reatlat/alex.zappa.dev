@@ -39,7 +39,7 @@ draft: true
 ---
 This is a draft post
 
-`
+`,
   );
 
   console.log(chalk.green(`Created ${filepath}`));
