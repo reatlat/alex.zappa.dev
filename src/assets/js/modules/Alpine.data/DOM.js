@@ -37,7 +37,7 @@ export default () => {
             localStorage.setItem("theme", this.theme.name);
             document.documentElement.setAttribute(
                 "data-theme",
-                this.theme.name
+                this.theme.name,
             );
         },
 
@@ -46,7 +46,7 @@ export default () => {
             document.documentElement.classList.remove("dark");
             document.documentElement.setAttribute(
                 "data-theme",
-                this.getThemeName()
+                this.getThemeName(),
             );
         },
     };

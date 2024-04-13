@@ -33,7 +33,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 if (entry.isIntersecting) {
                     // load the script
                     asyncLoadScripts(
-                        "//cpwebassets.codepen.io/assets/embed/ei.js"
+                        "//cpwebassets.codepen.io/assets/embed/ei.js",
                     );
                     // stop observing
                     codepenObserver.disconnect();
@@ -49,7 +49,7 @@ window.addEventListener("DOMContentLoaded", () => {
             const target = event.target.getAttribute("href");
             // copy the target to the clipboard
             navigator.clipboard.writeText(
-                location.origin + location.pathname + target
+                location.origin + location.pathname + target,
             );
         }
     });

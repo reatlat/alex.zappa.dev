@@ -11,7 +11,7 @@ module.exports = (param = false, url = false) => {
         /[?&]+([^=&]+)=?([^&]*)?/gi,
         (m, key, value) => {
             vars[key] = value !== void 0 ? value : "";
-        }
+        },
     );
 
     if (param) {
