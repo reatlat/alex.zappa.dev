@@ -4,7 +4,7 @@ import colorScheme from "./_detectColorScheme";
 
 const { trackEvent, trackPageview, enableAutoOutboundTracking } = Plausible({
     domain: "alex.zappa.dev",
-    apiHost: "https://plausible.zappa.dev",
+    apiHost: "https://firebird.sunnypixels.workers.dev/api/event",
 });
 
 document.addEventListener("DOMContentLoaded", () => {
