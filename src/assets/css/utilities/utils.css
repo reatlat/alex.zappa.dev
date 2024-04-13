@@ -1,5 +1,5 @@
 @layer utilities {
-  /* .icon {
+    /* .icon {
     width: 0.75em;
     width: 1cap;
     height: 0.75em;
@@ -14,7 +14,7 @@
   .with-icon .icon {
     margin-inline-end: 1rem;
   } */
-  /* Container edits
+    /* Container edits
   .container {
     box-sizing: content-box;
   }

@@ -1,17 +1,17 @@
 @layer base {
-	body {
-	}
+    body {
+    }
 }
 
 .header-anchor {
-	display: inline-block;
-	font-weight: 300 !important;
-	text-decoration: none !important;
-	transform: scale(0.85);
+    display: inline-block;
+    font-weight: 300 !important;
+    text-decoration: none !important;
+    transform: scale(0.85);
 }
 
 .cp_embed_wrapper {
-	@apply overflow-hidden;
-	@apply -mx-4 w-screen rounded-none sm:mx-0 sm:w-full sm:rounded;
-	@apply drop-shadow-lg dark:drop-shadow-none;
+    @apply overflow-hidden;
+    @apply -mx-4 w-screen rounded-none sm:mx-0 sm:w-full sm:rounded;
+    @apply drop-shadow-lg dark:drop-shadow-none;
 }
