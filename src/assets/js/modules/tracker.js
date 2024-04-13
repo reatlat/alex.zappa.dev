@@ -1,10 +1,10 @@
-import isbot from "isbot";
+import { isbot } from "isbot";
 import Plausible from "plausible-tracker";
 import colorScheme from "./_detectColorScheme";
 
 const { trackEvent, trackPageview, enableAutoOutboundTracking } = Plausible({
     domain: "alex.zappa.dev",
-    apiHost: "https://firebird.sunnypixels.workers.dev/api/event",
+    apiHost: "https://firebird.beastful.org/api/event",
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 userAgent: navigator.userAgent,
                 deviceWidth: window.innerWidth,
             },
-        }
+        },
     );
 
     enableAutoOutboundTracking();
