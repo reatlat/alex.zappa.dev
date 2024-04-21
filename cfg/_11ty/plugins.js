@@ -9,8 +9,8 @@ module.exports = {
         eleventyConfig.addPlugin(plugin);
     },
 
-    Feather: (eleventyConfig) => {
-        const plugin = require("eleventy-plugin-feathericons");
+    PhosphorIcons: (eleventyConfig) => {
+        const plugin = require("eleventy-plugin-phosphoricons");
         eleventyConfig.addPlugin(plugin);
     },
 
