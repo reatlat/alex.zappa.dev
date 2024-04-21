@@ -24,7 +24,7 @@ blankPage: true
 		<img x-ref="funnyCats" class="m-0 rounded-md drop-shadow-lg" src="{{ 'https://source.unsplash.com/random/350x350/?funny+cat'|uuidv4('&uuid=') }}" alt="funny cat" width="250" height="250">
 		<span class="cursor-pointer text-sm" @click="reload()">
 			<span class="absolute inset-0"></span>
-			<span class="flex gap-2 justify-center items-center p-1">{% feather 'rotate-cw', { class: 'w-4 h-4 transition-all duration-1000 group-hover:rotate-[360deg]' } %} Reload</span>
+			<span class="flex gap-2 justify-center items-center p-1">{% phicon 'arrow-clockwise', 'regular', { class: 'size-4 transition-all duration-1000 group-hover:rotate-[360deg]' } %} Reload</span>
 		</span>
 	</div>
 
