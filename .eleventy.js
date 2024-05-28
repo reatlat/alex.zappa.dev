@@ -1,11 +1,16 @@
 const markdownItAnchor = require("markdown-it-anchor");
 const htmlmin = require("html-minifier");
 
-const shortcodes = require("./cfg/_11ty/shortcodes");
+const dataExtensions = require("./cfg/_11ty/dataExtensions");
 const plugins = require("./cfg/_11ty/plugins");
+const shortcodes = require("./cfg/_11ty/shortcodes");
 const filters = require("./cfg/_11ty/filters");
 
 module.exports = function (eleventyConfig) {
+    Object.keys(dataExtensions).forEach((dataExtensionName) => {
+        dataExtensions[dataExtensionName](eleventyConfig);
+    });
+
     Object.keys(plugins).forEach((pluginName) => {
         plugins[pluginName](eleventyConfig);
     });
