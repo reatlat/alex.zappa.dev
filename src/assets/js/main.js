@@ -1,7 +1,7 @@
 import "./modules/tracker";
 import flyingPages from "flying-pages-module";
 import Alpine from "alpinejs";
-//import intersect from "@alpinejs/intersect";
+import intersect from "@alpinejs/intersect";
 import dataDOM from "./modules/Alpine.data/DOM";
 import "lite-youtube-embed";
 import asyncLoadScripts from "./modules/_loadScript";
@@ -15,7 +15,7 @@ window.Alpine = Alpine;
 // initialize Alpine by calling Alpine.start().
 
 // Add plugins to Alpine
-//Alpine.plugin(intersect);
+Alpine.plugin(intersect);
 
 Alpine.data("xDOM", dataDOM);
 
