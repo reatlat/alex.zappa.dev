@@ -79,6 +79,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    const youTubeVideos = document.querySelectorAll("lite-youtube");
+
+    // track YouTube video views
+    youTubeVideos.forEach((video) => {
+        video.addEventListener("click", () => {
+            trackEvent("YouTube Video", {
+                props: {
+                    videoId: video.getAttribute("videoid"),
+                },
+            });
+        });
+    });
+
     // track 404 page
     if (document.body.classList.contains("page-404")) {
         trackEvent("404", {
@@ -91,17 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 userAgent: navigator.userAgent,
                 deviceWidth: window.innerWidth,
             },
-        });
-
-        const funnyCats = document.getElementById("funnyCats");
-        let howManyTimesClicked = 0;
-        funnyCats.addEventListener("click", () => {
-            howManyTimesClicked++;
-            trackEvent("reloadFunnyCats", {
-                props: {
-                    count: howManyTimesClicked,
-                },
-            });
         });
     }
 });
