@@ -17,10 +17,13 @@ eleventyComputed:
 permalink: /tags/{{ tag | slugify }}/
 excludeFromSitemap: true
 ---
-<h1>Tagged “{{ tag | slugify }}”</h1>
 
-{% set postslist = collections[ tag ] %}
+{% set postsList = collections[ tag ] %}
+
+{% set postYears = postsList | getPostYears | reverse %}
+
+<div class="prose md:prose-xl mx-auto">
+  <h1 class="text-pretty" style="margin-bottom:0.8571429em">Tagged “{{ tag | slugify }}”</h1>
+</div>
 
 {% include "partials/postslist-timeline.njk" %}
-
-<p>See <a href="/tags/">all tags</a>.</p>
