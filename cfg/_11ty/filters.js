@@ -80,6 +80,23 @@ module.exports = {
         );
     },
 
+    getPostYears: (collection) => {
+        let years = new Set();
+        for (let item of collection) {
+            years.add(item.date.getFullYear());
+        }
+        return Array.from(years);
+    },
+
+    postsByYear: (collection, year) => {
+        return collection.filter((item) => item.date.getFullYear() === year);
+    },
+
+    consoleLog: (dataObject) => {
+        console.log(dataObject);
+        return dataObject;
+    },
+
     uuidv4: (text, separator = "") => {
         return text + separator + uuid.v4();
     },
