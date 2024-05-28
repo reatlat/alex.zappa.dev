@@ -11,12 +11,23 @@ ogImage: '/default-og-image.png'
 		</div>
 		<div class="hidden lg:block">
 			<div class="ml-auto max-w-[250px] text-center">
+        {#
         {% imageExt "https://source.unsplash.com/random/350x350/?funny+cat", {
           "class": "ml-auto m-0",
           "alt": "funny cat",
           "width": "250",
           "height": "250"
         } %}
+        #}
+        <div class="size-60 cursor-pointer"
+             x-data="{
+               imageSrc: `https://picsum.photos/seed/${uuid()}/240/240/`,
+               refreshImage() {
+                 this.imageSrc = `https://picsum.photos/seed/${uuid()}/240/240/`;
+               }
+             }" @click="refreshImage()">
+            <img x-cloak :src="imageSrc" class='ml-auto m-0 rounded drop-shadow-lg size-60' loading='lazy' alt='Random image' width='240' height='240'>
+        </div>
 				<a class="text-current opacity-70" href="/blog/the-best-free-image-placeholder-for-quick-and-easy-content-mockups/">What is this?</a>
 			</div>
 		</div>

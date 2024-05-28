@@ -2,6 +2,7 @@
 title: "The Best Free Image Placeholder for Quick & Easy Content Mockups!"
 desc: "Find high-quality, visually appealing images for articles or blog posts with free image placeholders like Placehold.co, Lorem Picsum, Unsplash, and Pixabay Fillers. Customize size, background, text, and more. Streamline your content creation workflow and engage your audience."
 date: 2023-08-20
+updated: 2024-05-28
 tags: [ placeholder, image, content, mockup, free, stock, photo, unsplash, pixabay, placehold, lorem, picsum ]
 ---
 
@@ -44,6 +45,8 @@ See the example below:
 
 ## Unspalsh Source API
 
+**Updated: Temporary broken or finally deprecated, please check the [Unsplash Source API](https://unsplash.com/developers)**
+
 [Unsplash Source](https://unsplash.com/developers) is another free image placeholder that offers a wide selection of
 placeholder images from [Unsplash](https://unsplash.com/). Users can specify the size, category, and even apply filters
 to match their desired aesthetic. Additionally, Unsplash Source provides options to customize the background color, text
@@ -56,7 +59,7 @@ See the example below:
 <img src="https://source.unsplash.com/320x150/?funny+cat" alt="Placeholder Image" />
 ```
 
-{% imageExt "https://source.unsplash.com/320x150/?funny+cat", { alt:"Placeholder Image", width:320, height:150 } %}
+{# {% imageExt "https://source.unsplash.com/320x150/?funny+cat", { alt:"Placeholder Image", width:320, height:150 } %} #}
 
 ## Pixabay Fillers
 
@@ -69,10 +72,10 @@ for content creators in need of high-quality placeholder images.
 See the example below:
 
 ```html
-<img src="https://pixabay.com/get/57e8d14b4c5bae14f6da8c7dda79367b1c3ed9e04e5074407c2d7edc944dc55e_640.jpg" alt="Placeholder Image" />
+<img src="https://cdn.pixabay.com/video/2015/08/08/125-135736646_small.jpg" alt="Placeholder Image" />
 ```
 
-{% imageExt "https://pixabay.com/get/57e8d14b4c5bae14f6da8c7dda79367b1c3ed9e04e5074407c2d7edc944dc55e_640.jpg", { alt:"Placeholder Image", width:320, height:150 } %}
+{% imageExt "https://cdn.pixabay.com/video/2015/08/08/125-135736646_small.jpg", { alt:"Placeholder Image", width:320, height:150 } %}
 
 ## Conclusion
 
