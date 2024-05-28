@@ -89,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
             trackEvent("YouTube Video", {
                 props: {
                     videoId: video.getAttribute("videoid"),
+                    videoLink: `https://www.youtube.com/watch?v=${video.getAttribute("videoid")}`,
                 },
             });
         });
@@ -96,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // track engagement with scroll depth
     let scrollDepth = 0;
+    let markerHit = { 25: false, 50: false, 75: false, 90: false };
 
     window.addEventListener("scroll", () => {
         const scrollHeight = document.documentElement.scrollHeight;
@@ -107,12 +109,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const depthMarkers = [25, 50, 75, 90];
         for (let marker of depthMarkers) {
-            if (scrollDepth > marker) {
+            if (scrollDepth > marker && !markerHit[marker]) {
                 trackEvent("Scroll Depth", {
-                    props: {
-                        depth: `${marker === 90 ? 100 : marker}%`,
-                    },
+                    props: { depth: `${marker === 90 ? 100 : marker}%` },
                 });
+                markerHit[marker] = true;
             }
         }
     });
@@ -128,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             trackEvent("Time on Page", {
                 props: {
-                    time: `${marker} seconds`,
+                    time: marker,
                 },
             });
         }, marker * 1000);
@@ -138,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(timeOnPageInterval);
         trackEvent("Time on Page", {
             props: {
-                time: timeOnPage,
+                totalTime: timeOnPage,
             },
         });
     });
