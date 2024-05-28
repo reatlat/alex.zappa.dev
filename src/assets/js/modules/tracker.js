@@ -7,6 +7,16 @@ const { trackEvent, trackPageview, enableAutoOutboundTracking } = Plausible({
     apiHost: "https://firebird.beastful.org/api/event",
 });
 
+const eventProps = {
+    title: document.title,
+    url: location.href,
+    path: location.pathname,
+    referrer: document.referrer,
+    prefersColorScheme: colorScheme(),
+    userAgent: navigator.userAgent,
+    deviceWidth: window.innerWidth,
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     // don't track bots
     if (isbot(navigator.userAgent)) return;
@@ -15,15 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     trackPageview(
         {},
         {
-            props: {
-                title: document.title,
-                url: location.href,
-                path: location.pathname,
-                referrer: document.referrer,
-                prefersColorScheme: colorScheme(),
-                userAgent: navigator.userAgent,
-                deviceWidth: window.innerWidth,
-            },
+            props: eventProps,
         },
     );
 
@@ -79,29 +81,73 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    const youTubeVideos = document.querySelectorAll("lite-youtube");
+
+    // track YouTube video views
+    youTubeVideos.forEach((video) => {
+        video.addEventListener("click", () => {
+            trackEvent("YouTube Video", {
+                props: {
+                    videoId: video.getAttribute("videoid"),
+                    videoLink: `https://www.youtube.com/watch?v=${video.getAttribute("videoid")}`,
+                },
+            });
+        });
+    });
+
+    // track engagement with scroll depth
+    let scrollDepth = 0;
+    let markerHit = { 25: false, 50: false, 75: false, 90: false };
+
+    window.addEventListener("scroll", () => {
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = window.scrollY;
+        const scrollPercentage =
+            (scrollTop / (scrollHeight - clientHeight)) * 100;
+        scrollDepth = Math.max(scrollDepth, scrollPercentage);
+
+        const depthMarkers = [25, 50, 75, 90];
+        for (let marker of depthMarkers) {
+            if (scrollDepth > marker && !markerHit[marker]) {
+                trackEvent("Scroll Depth", {
+                    props: { depth: `${marker === 90 ? 100 : marker}%` },
+                });
+                markerHit[marker] = true;
+            }
+        }
+    });
+
+    // track time on page
+    let timeOnPage = 0;
+    let timeOnPageInterval = setInterval(() => {
+        timeOnPage += 1;
+    }, 1000);
+
+    const timeMarkers = [20, 40, 60, 90, 120];
+    for (let marker of timeMarkers) {
+        setTimeout(() => {
+            trackEvent("Time on Page", {
+                props: {
+                    time: marker,
+                },
+            });
+        }, marker * 1000);
+    }
+
+    window.addEventListener("beforeunload", () => {
+        clearInterval(timeOnPageInterval);
+        trackEvent("Time on Page", {
+            props: {
+                totalTime: timeOnPage,
+            },
+        });
+    });
+
     // track 404 page
     if (document.body.classList.contains("page-404")) {
         trackEvent("404", {
-            props: {
-                title: document.title,
-                url: location.href,
-                path: location.pathname,
-                referrer: document.referrer,
-                prefersColorScheme: colorScheme(),
-                userAgent: navigator.userAgent,
-                deviceWidth: window.innerWidth,
-            },
-        });
-
-        const funnyCats = document.getElementById("funnyCats");
-        let howManyTimesClicked = 0;
-        funnyCats.addEventListener("click", () => {
-            howManyTimesClicked++;
-            trackEvent("reloadFunnyCats", {
-                props: {
-                    count: howManyTimesClicked,
-                },
-            });
+            props: eventProps,
         });
     }
 });
