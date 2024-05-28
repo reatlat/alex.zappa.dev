@@ -167,11 +167,7 @@ module.exports = {
                 if (videoId.startsWith("https://")) {
                     videoId = findYouTubeVideoId(videoId);
                 }
-                return `<lite-youtube x-on:click.stop videoid="${videoId}" class="mx-auto rounded drop-shadow-lg" style="background-image: url('https://i.ytimg.com/vi/${videoId}/hqdefault.jpg');">
-						  <a href="https://youtube.com/watch?v=${videoId}" class="lty-playbtn" title="Play Video">
-							<span class="lyt-visually-hidden">Play Video: ${videoTitle}</span>
-						  </a>
-						</lite-youtube>`;
+                return `<lite-youtube x-on:click.stop videoid="${videoId}" class="mx-auto rounded drop-shadow-lg" style="background-image: url('https://i.ytimg.com/vi/${videoId}/hqdefault.jpg');"></lite-youtube>`;
             },
         );
     },

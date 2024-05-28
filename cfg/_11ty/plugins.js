@@ -14,6 +14,11 @@ module.exports = {
         eleventyConfig.addPlugin(plugin);
     },
 
+    SpeculationRules: (eleventyConfig) => {
+        const plugin = require("eleventy-plugin-speculation-rules");
+        eleventyConfig.addPlugin(plugin);
+    },
+
     // Drafts support
     DraftsSupport: (eleventyConfig) => {
         const plugin = require("./drafts.js");
