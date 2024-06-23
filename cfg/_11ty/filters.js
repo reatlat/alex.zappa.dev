@@ -2,10 +2,10 @@
  * Add Eleventy filters here
  * https://www.11ty.dev/docs/filters/
  */
-const { DateTime } = require("luxon");
-const uuid = require("uuid");
+import { DateTime } from "luxon";
+import { v4 as uuid } from "uuid";
 
-module.exports = {
+export default {
     titleSinPeriod: (value) => {
         return value.replace(/\.$/, "");
     },

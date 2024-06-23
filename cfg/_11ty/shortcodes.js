@@ -3,8 +3,8 @@
  * https://www.11ty.dev/docs/shortcodes/
  */
 
-const path = require("path");
-const eleventyImage = require("@11ty/eleventy-img");
+import path from "path";
+import eleventyImage from "@11ty/eleventy-img";
 
 const relativeToInputPath = (inputPath, relativeFilePath) => {
     let split = inputPath.split("/");
@@ -26,7 +26,7 @@ const findYouTubeVideoId = (url) => {
     return matches ? matches[0] : "";
 };
 
-module.exports = {
+export default {
     // Eleventy Image shortcode
     // https://www.11ty.dev/docs/plugins/image/
     image: (eleventyConfig) => {

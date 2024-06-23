@@ -2,47 +2,74 @@
  * Add Eleventy plugins here
  * https://www.11ty.dev/docs/plugins/
  */
+import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
+import pluginMetagen from "eleventy-plugin-metagen";
+import pluginPhosphorIcons from "eleventy-plugin-phosphoricons";
+import pluginSpeculationRules from "eleventy-plugin-speculation-rules";
+import pluginRSS from "@11ty/eleventy-plugin-rss";
+import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 
-module.exports = {
+export default {
+    // Drafts support
+    DraftsSupport: (eleventyConfig) => {
+        // When `permalink` is false, the file is not written to disk
+        eleventyConfig.addGlobalData("eleventyComputed.permalink", function () {
+            return (data) => {
+                // Always skip during non-watch/serve builds
+                if (data.draft && !process.env.BUILD_DRAFTS) {
+                    return false;
+                }
+
+                return data.permalink;
+            };
+        });
+
+        // When `eleventyExcludeFromCollections` is true, the file is not included in any collections
+        eleventyConfig.addGlobalData(
+            "eleventyComputed.eleventyExcludeFromCollections",
+            function () {
+                return (data) => {
+                    // Always exclude from non-watch/serve builds
+                    if (data.draft && !process.env.BUILD_DRAFTS) {
+                        return true;
+                    }
+                    return data.eleventyExcludeFromCollections;
+                };
+            },
+        );
+
+        eleventyConfig.on("eleventy.before", ({ runMode }) => {
+            // Set the environment variable
+            if (runMode === "serve" || runMode === "watch") {
+                process.env.BUILD_DRAFTS = true;
+            }
+        });
+    },
+
     MetaGenerator: (eleventyConfig) => {
-        const plugin = require("eleventy-plugin-metagen");
-        eleventyConfig.addPlugin(plugin);
+        eleventyConfig.addPlugin(pluginMetagen);
     },
 
     PhosphorIcons: (eleventyConfig) => {
-        const plugin = require("eleventy-plugin-phosphoricons");
-        eleventyConfig.addPlugin(plugin);
+        eleventyConfig.addPlugin(pluginPhosphorIcons);
     },
 
     SpeculationRules: (eleventyConfig) => {
-        const plugin = require("eleventy-plugin-speculation-rules");
-        eleventyConfig.addPlugin(plugin);
-    },
-
-    // Drafts support
-    DraftsSupport: (eleventyConfig) => {
-        const plugin = require("./drafts.js");
-        eleventyConfig.addPlugin(plugin);
+        eleventyConfig.addPlugin(pluginSpeculationRules);
     },
 
     // Official plugins
     RSS: (eleventyConfig) => {
-        const plugin = require("@11ty/eleventy-plugin-rss");
-        eleventyConfig.addPlugin(plugin);
+        eleventyConfig.addPlugin(pluginRSS);
     },
 
     SyntaxHighlight: (eleventyConfig) => {
-        const plugin = require("@11ty/eleventy-plugin-syntaxhighlight");
-        eleventyConfig.addPlugin(plugin, { preAttributes: { tabindex: 0 } });
-    },
-
-    Navigation: (eleventyConfig) => {
-        const plugin = require("@11ty/eleventy-navigation");
-        eleventyConfig.addPlugin(plugin);
+        eleventyConfig.addPlugin(pluginSyntaxHighlight, {
+            preAttributes: { tabindex: 0 },
+        });
     },
 
     EleventyHtmlBase: (eleventyConfig) => {
-        const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
         eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
     },
 };

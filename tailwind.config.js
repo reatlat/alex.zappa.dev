@@ -1,7 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require("tailwindcss/colors");
 
-module.exports = {
+import typography from "@tailwindcss/typography";
+import forms from "@tailwindcss/forms";
+import aspectRatio from "@tailwindcss/aspect-ratio";
+import safeArea from "tailwindcss-safe-area";
+import lineClamp from "@tailwindcss/line-clamp";
+
+export default {
     content: ["./src/**/*.{html,js,njk,md,vue}", "./cfg/_11ty/**/*.js"],
     darkMode: "class",
     theme: {
@@ -155,11 +160,11 @@ module.exports = {
         },
     },
     plugins: [
-        require("@tailwindcss/typography"),
-        require("@tailwindcss/forms"),
-        require("@tailwindcss/aspect-ratio"),
-        require("tailwindcss-safe-area"),
-        require("@tailwindcss/line-clamp"),
+        typography,
+        forms,
+        aspectRatio,
+        safeArea,
+        lineClamp,
         ({ addComponents, theme }) => {
             addComponents({
                 "#breadcrumbs": {
