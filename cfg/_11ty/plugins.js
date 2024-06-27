@@ -8,6 +8,7 @@ import pluginPhosphorIcons from "eleventy-plugin-phosphoricons";
 import pluginSpeculationRules from "eleventy-plugin-speculation-rules";
 import pluginRSS from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import { eleventyImageTransformPlugin as pluginImageTransform } from "@11ty/eleventy-img";
 
 export default {
     // Drafts support
@@ -43,6 +44,30 @@ export default {
             if (runMode === "serve" || runMode === "watch") {
                 process.env.BUILD_DRAFTS = true;
             }
+        });
+    },
+
+    ImageTransform: (eleventyConfig) => {
+        // Image optimization: https://www.11ty.dev/docs/plugins/image/#eleventy-transform
+        eleventyConfig.addPlugin(pluginImageTransform, {
+            // File extensions to process in _site folder
+            extensions: "html",
+
+            // Output formats for each image.
+            formats: ["avif", "webp", "auto"],
+
+            outputDir: "./_site/img/",
+            urlPath: "/img/",
+
+            // optional, output image widths
+            widths: ["auto"],
+
+            defaultAttributes: {
+                // e.g. <img loading decoding> assigned on the HTML tag will override these values.
+                loading: "lazy",
+                decoding: "async",
+                class: "mx-auto rounded drop-shadow-lg",
+            },
         });
     },
 

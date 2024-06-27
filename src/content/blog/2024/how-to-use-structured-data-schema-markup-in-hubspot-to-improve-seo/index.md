@@ -157,7 +157,7 @@ and enhance the user experience. Don't overlook the importance of schema markup 
 your HubSpot templates today and reap the benefits of higher search rankings and increased website traffic. Stay ahead
 of the competition and make the most out of your HubSpot platform by leveraging the power of structured data.
 
-## Updated ({{updated|readableDate("LLL dd, yyyy")}})
+## Updated ({{updated|readableDate("LLL d, yyyy")}})
 I just found out that HubSpot has released [Structured Data (Beta)](https://community.hubspot.com/t5/Releases-and-Updates/Now-live-Setting-to-apply-BlogPosting-JSON-LD-schema-to-blog/ba-p/645867) and it works really well.
 I'm still think homebrewed solution is better, but it's good to know that HubSpot is moving in the right direction.
 

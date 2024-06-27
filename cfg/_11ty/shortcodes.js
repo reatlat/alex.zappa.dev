@@ -53,6 +53,7 @@ export default {
                 let imageAttributes = {
                     alt,
                     sizes,
+                    "eleventy:ignore": "",
                     class: classes
                         ? classes + " rounded drop-shadow-lg"
                         : "mx-auto rounded drop-shadow-lg",
@@ -61,29 +62,6 @@ export default {
                 };
 
                 return eleventyImage.generateHTML(metadata, imageAttributes);
-            },
-        );
-    },
-
-    imageExt: (eleventyConfig) => {
-        eleventyConfig.addShortcode(
-            "imageExt",
-            function imageExtShortcode(src, args = {}) {
-                args = {
-                    ...{
-                        loading: "lazy",
-                        alt: " ",
-                        width: "auto",
-                        height: "auto",
-                    },
-                    ...args,
-                };
-
-                args.class = args.class
-                    ? args.class + " rounded drop-shadow-lg"
-                    : "mx-auto rounded drop-shadow-lg";
-
-                return `<img src="${src}" class="${args.class}" loading="${args.loading}" alt="${args.alt}" width="${args.width}" height="${args.height}">`;
             },
         );
     },
