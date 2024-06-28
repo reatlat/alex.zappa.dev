@@ -16,13 +16,13 @@ stumbled upon GitKraken. Cross-platform git interface.
 
 ## GitKraken
 
-{% image "./girkraken-interface.png", "", [900] %}
+<img src="./girkraken-interface.png" alt="GitKraken Interface" eleventy:widths="900">
 
 GitKraken is written in [electron](https://www.electronjs.org) and uses open
 libraries: [NodeGit](https://www.nodegit.org), [libgit2](https://libgit2.org). This is exactly what allows it to
 simply support cross-platform.
 
-{% image "./gitkraken-merge.png", "", [900] %}
+<img src="./gitkraken-merge.png" alt="GitKraken Merge" eleventy:widths="900">
 
 A certain minus of the program is that it is limited free(Freemium). For personal use, with some functional limitations,
 it is completely free, but for professional work you have to take subscription. The cost of a subscription per year is
@@ -35,14 +35,13 @@ follow the link <https://www.gitkraken.com/switch>, GitKraken thus attracts new 
 
 ### GitKraken Pro – Features
 
-{% image "./gk-features.png", "", [900] %}
+<img src="./gk-features.png" alt="GitKraken Pro Features" eleventy:widths="900">
 
 There are many goodies, but the most beautiful thing, in my opinion, is that the merge conflict tools, merge a
 conflicting code very difficult on big projects, and often took a lot of time because something could be overwritten and
 a whole code branch was lost.
 
 {% youTube "R1iWJNyRpQE", "GitKraken Tutorial: Merge Conflict Tool" %}
-
 
 With GitKraken, this has become elementary, the code highlighting system for changes in the code (DIFF) and the built-in
 editor allow you to make changes to the files on the fly and the build process becomes effortless.

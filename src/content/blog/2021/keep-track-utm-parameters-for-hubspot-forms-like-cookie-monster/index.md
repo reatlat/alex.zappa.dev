@@ -110,7 +110,8 @@ to Site footer HTML editor between script tags
 </script>
 ```
 
-{% image "./hubspot-site-footer-html-editor.png", "", [900] %}
+<img src="./hubspot-site-footer-html-editor.png" alt="HubSpot Site Footer HTML Editor" eleventy:widths="900">
+
 *Final result should look like screenshot*
 
 The same method could be used for any websites(Webflow, WordPress, Wix, Static, etc…) who use HubSpot forms.

@@ -7,7 +7,7 @@ tags: [css, 'dark-mode', 'light-mode']
 
 As developer, I do prefer dark schema for system and all my apps except Gmail on mobile 🙂 Emails still not so friendly for dark theme mode 🙂
 
-{% image "./meme-light-ide.jpeg", "", [360] %}
+<img src="./meme-light-ide.jpeg" alt="Light IDE Meme" eleventy:widths="360">
 
 ## Detect with CSS media query
 The prefers-color-scheme CSS media feature is used to detect if the user has requested a light or dark color theme.
@@ -96,21 +96,21 @@ function () {
 
 Result should look like a screenshot.
 
-{% image "./google-tag-manager-custom-javascript.png" %}
+<img src="./google-tag-manager-custom-javascript.png" alt="Google Tag Manager Custom JavaScript" eleventy:widths="900">
 
 ### Tracking with GA Universal
 
 To track user color mode with Google Analytics Universal, we need to create a tag in GTM like screenshot below, and fire it on PageView trigger.
 
-{% image "./google-tag-manager-ga-universal-event.png" %}
+<img src="./google-tag-manager-ga-universal-event.png" alt="Google Tag Manager GA Universal Event" eleventy:widths="900">
 
 ### Tracking with GAv4
 
 Not a secret, Google Analytics v4 has new way to collect data, and in this case, we need to create a tag in GTM and also create custom dimension in Google Analytics.
 
-{% image "./google-tag-manager-user-color-mode-gav4.png" %}
+<img src="./google-tag-manager-user-color-mode-gav4.png" alt="Google Tag Manager User Color Mode GAv4" eleventy:widths="900">
 
-{% image "./google-analysis-v4-custom-dimension.png" %}
+<img src="./google-analysis-v4-custom-dimension.png" alt="Google Analysis v4 Custom Dimension" eleventy:widths="900">
 
 After all set, in 48h, you will start to see User color mode in your Google Analytics reports.
 

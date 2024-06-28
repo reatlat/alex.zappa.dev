@@ -144,7 +144,7 @@ You can find copy of [this snippet here](https://gist.github.com/reatlat/a847984
 
 The result of this code snippet is a new field in the user profile page, where users can upload their custom avatar images. The custom avatar images will be displayed instead of the Gravatar images on the site.
 
-{% image "./wp-custom-gravatar-dashboard.jpeg", "", [320] %}
+<img src="./wp-custom-gravatar-dashboard.jpeg" alt="Custom Gravatar Field in User Profile" eleventy:widths="320">
 
 ## Alternative Solutions
 

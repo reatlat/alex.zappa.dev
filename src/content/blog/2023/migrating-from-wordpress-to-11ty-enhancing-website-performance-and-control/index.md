@@ -31,7 +31,7 @@ templating language is intuitive, and the documentation is extensive. I feel mor
 than ever before. Lastly, the ability to version control my website's codebase using Git is invaluable. I can easily
 track changes, collaborate with others, and revert back to a previous version if needed.
 
-{% image "./pagespeed-report.png", "Google PageSpeed Insights Report", [500] %}
+<img src="./pagespeed-report.png" alt="Google PageSpeed Insights Report" eleventy:widths="500">
 
 ## My Initial Thoughts and Observations
 

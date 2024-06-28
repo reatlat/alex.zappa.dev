@@ -25,7 +25,8 @@ attribute?
 
 Here is example:
 
-{% image "./responsive-images-issue.png", "", [900] %}
+<img src="./responsive-images-issue.png" alt="Responsive images issue" eleventy:widths="900">
+
 *On screenshot, you can see classic issue with blogs on WordPress or HubSpot*
 
 ## CSS and responsive images

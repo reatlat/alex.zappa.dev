@@ -11,12 +11,12 @@ If you are looking for start using the Bitly API, you will need your Oauth Acces
 navigate to the hamburger menu button in the top right-hand corner. From the drop down select ‘Settings’ and then
 continue to the ‘Advanced Settings’ tab. Look to the bottom under ‘For Developers’ and click on the OAuth hyperlink.
 
-{% image "./api-key-with-arrow.png", "", [900] %}
+<img src="./api-key-with-arrow.png" alt="Bitly OAuth Access Token" eleventy:widths="900">
 
 If you need to generate an access token so you can use our API, you can go to <https://bitly.com/a/oauth_apps>, click
 “Generic Access Token”,
 
-{% image "./bitly-edit-profile-generic-access-token.png", "", [900] %}
+<img src="./bitly-edit-profile-generic-access-token.png" alt="Bitly Edit Profile Generic Access Token" eleventy:widths="900">
 
 Then enter your password to create the token, and then copy that token into your code or configuration.
 
