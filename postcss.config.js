@@ -5,14 +5,12 @@ import tailwind from "tailwindcss";
 import autoprefixer from "autoprefixer";
 import mergeRules from "postcss-merge-rules";
 
-const comments = discardComments({ removeAll: true });
-
 export default {
     plugins: [
         easyImport,
         tailwindNesting,
         tailwind,
-        comments,
+        discardComments({ removeAll: true }),
         autoprefixer,
         mergeRules,
     ],
