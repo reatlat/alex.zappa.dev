@@ -54,4 +54,3 @@ GitHub Issues, the Glo can be an excellent task manager. About GitKraken Glo wil
 
 Have fun?
 
-{% signature %}

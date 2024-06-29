@@ -116,4 +116,3 @@ to Site footer HTML editor between script tags
 
 The same method could be used for any websites(Webflow, WordPress, Wix, Static, etc…) who use HubSpot forms.
 
-{% signature %}

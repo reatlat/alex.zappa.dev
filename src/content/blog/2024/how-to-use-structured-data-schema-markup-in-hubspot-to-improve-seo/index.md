@@ -162,4 +162,3 @@ I just found out that HubSpot has released [Structured Data (Beta)](https://comm
 I'm still think homebrewed solution is better, but it's good to know that HubSpot is moving in the right direction.
 
 
-{% signature %}

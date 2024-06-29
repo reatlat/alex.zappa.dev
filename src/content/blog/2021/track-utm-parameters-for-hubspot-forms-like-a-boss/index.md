@@ -186,4 +186,3 @@ The same method could be used for any websites(Webflow, WordPress, Wix, Static, 
 
 This is it! Next time, I will cover the way [how to store UTM parameters in cookie files](/blog/keep-track-utm-parameters-for-hubspot-forms-like-cookie-monster/).
 
-{% signature %}

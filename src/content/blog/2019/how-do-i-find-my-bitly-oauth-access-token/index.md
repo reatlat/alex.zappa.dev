@@ -23,4 +23,3 @@ Then enter your password to create the token, and then copy that token into your
 Access tokens don’t expire (though you can expire them manually if yours leaks into the wild), so you can use the single
 access token as long as you need.
 
-{% signature %}

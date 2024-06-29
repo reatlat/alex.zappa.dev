@@ -152,4 +152,3 @@ if you don't want to edit your WordPress theme, you can use a plugin variation o
 
 I hope this blog post helps you add custom avatar functionality to your WordPress site. If you like this plugin, please consider to give it a star on GitHub.
 
-{% signature %}

@@ -13,4 +13,3 @@ The source code of plugin can be found here <https://github.com/reatlat/wp-eleme
 Plugin available in [WordPress repository](https://wordpress.org/plugins/multidomain-support-for-elementor/), and also
 you can download it from [GitHub](https://github.com/reatlat/wp-multidomain-support-for-elementor/releases/)
 
-{% signature %}

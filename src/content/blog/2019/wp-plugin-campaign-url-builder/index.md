@@ -28,4 +28,3 @@ Campaign URL Builder shortcode allows you to place presented shortlink generator
 
 Coming a soon as possible… ?
 
-{% signature %}

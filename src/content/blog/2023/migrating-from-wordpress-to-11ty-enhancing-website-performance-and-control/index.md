@@ -72,4 +72,3 @@ Twitter-based comment system, I will be able to create a more engaging and conte
 Stay tuned for more blog posts where I will be sharing tips, tricks, and insights on using 11ty to its full potential.
 Until next time, happy coding!
 
-{% signature %}

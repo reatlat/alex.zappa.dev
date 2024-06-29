@@ -87,4 +87,3 @@ and visually stunning content to their audience.
 
 My favorite is [Unspalsh Source API](https://unsplash.com/developers), what's yours?
 
-{% signature %}

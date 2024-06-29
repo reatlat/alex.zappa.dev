@@ -118,4 +118,3 @@ To make sure your CSS works well on the rest of browsers, always use Autoprefixe
 
 There are countless tricks we can use with CSS3. Which is your favorite? [Comment down below.](#comments)
 
-{% signature %}

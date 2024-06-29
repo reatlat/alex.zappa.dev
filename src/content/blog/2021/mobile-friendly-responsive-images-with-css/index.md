@@ -76,5 +76,4 @@ This is it, it should resolve the issue with oversized images. Here is example o
 
 This is it! Hope my post have been helpful, stay safe!
 
-{% signature %}
 

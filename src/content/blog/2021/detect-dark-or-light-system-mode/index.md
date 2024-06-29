@@ -116,4 +116,3 @@ After all set, in 48h, you will start to see User color mode in your Google Anal
 
 This is it, hope this article help to learn something new, GTM and GA could help us to collect a lot of different information, to learn how to do that, I strongly recommend checking [Analytics Mania](https://www.analyticsmania.com/) where Julius teaching how to use GTM and GA in god mode 😉
 
-{% signature %}

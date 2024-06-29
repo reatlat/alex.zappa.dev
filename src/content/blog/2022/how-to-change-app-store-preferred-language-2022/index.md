@@ -43,4 +43,3 @@ in English.
 
 This is it, solution was super simple, but nobody, even Apple Support have no idea about this glitch.
 
-{% signature %}

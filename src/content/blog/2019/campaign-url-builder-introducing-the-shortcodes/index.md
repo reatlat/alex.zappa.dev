@@ -82,4 +82,3 @@ PHP example
 <?php echo do_shortcode('[Campaign-URL-Builder]'); ?>
 ```
 
-{% signature %}

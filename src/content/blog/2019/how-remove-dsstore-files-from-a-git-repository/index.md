@@ -51,4 +51,3 @@ Admire your great work?
 
 Also, check [gitignore.io](https://www.toptal.com/developers/gitignore/) where you can configure your own `.gitignore` file by few clicks.
 
-{% signature %}
