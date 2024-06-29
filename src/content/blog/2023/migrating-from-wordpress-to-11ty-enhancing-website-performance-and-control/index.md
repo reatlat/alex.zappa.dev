@@ -31,7 +31,7 @@ templating language is intuitive, and the documentation is extensive. I feel mor
 than ever before. Lastly, the ability to version control my website's codebase using Git is invaluable. I can easily
 track changes, collaborate with others, and revert back to a previous version if needed.
 
-{% image "./pagespeed-report.png", "Google PageSpeed Insights Report", [500] %}
+<img src="./pagespeed-report.png" alt="Google PageSpeed Insights Report" eleventy:widths="500">
 
 ## My Initial Thoughts and Observations
 
@@ -72,4 +72,3 @@ Twitter-based comment system, I will be able to create a more engaging and conte
 Stay tuned for more blog posts where I will be sharing tips, tricks, and insights on using 11ty to its full potential.
 Until next time, happy coding!
 
-{% signature %}

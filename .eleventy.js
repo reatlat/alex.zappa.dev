@@ -1,12 +1,12 @@
-const markdownItAnchor = require("markdown-it-anchor");
-const htmlmin = require("html-minifier");
+import markdownItAnchor from "markdown-it-anchor";
+import { minify } from "html-minifier";
 
-const dataExtensions = require("./cfg/_11ty/dataExtensions");
-const plugins = require("./cfg/_11ty/plugins");
-const shortcodes = require("./cfg/_11ty/shortcodes");
-const filters = require("./cfg/_11ty/filters");
+import dataExtensions from "./cfg/_11ty/dataExtensions.js";
+import plugins from "./cfg/_11ty/plugins.js";
+import shortcodes from "./cfg/_11ty/shortcodes.js";
+import filters from "./cfg/_11ty/filters.js";
 
-module.exports = function (eleventyConfig) {
+export default async function (eleventyConfig) {
     Object.keys(dataExtensions).forEach((dataExtensionName) => {
         dataExtensions[dataExtensionName](eleventyConfig);
     });
@@ -58,7 +58,7 @@ module.exports = function (eleventyConfig) {
             this.page.outputPath &&
             this.page.outputPath.endsWith(".html")
         ) {
-            return htmlmin.minify(content, {
+            return minify(content, {
                 useShortDoctype: true,
                 removeComments: true,
                 collapseWhitespace: true,
@@ -107,4 +107,4 @@ module.exports = function (eleventyConfig) {
         // folder name and does **not** affect where things go in the output folder.
         pathPrefix: "/",
     };
-};
+}

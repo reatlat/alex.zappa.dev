@@ -61,4 +61,3 @@ function syncMailchimp($data) {
 }
 ```
 
-{% signature %}

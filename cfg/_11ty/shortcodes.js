@@ -3,8 +3,8 @@
  * https://www.11ty.dev/docs/shortcodes/
  */
 
-const path = require("path");
-const eleventyImage = require("@11ty/eleventy-img");
+import path from "path";
+import eleventyImage from "@11ty/eleventy-img";
 
 const relativeToInputPath = (inputPath, relativeFilePath) => {
     let split = inputPath.split("/");
@@ -26,7 +26,7 @@ const findYouTubeVideoId = (url) => {
     return matches ? matches[0] : "";
 };
 
-module.exports = {
+export default {
     // Eleventy Image shortcode
     // https://www.11ty.dev/docs/plugins/image/
     image: (eleventyConfig) => {
@@ -53,6 +53,7 @@ module.exports = {
                 let imageAttributes = {
                     alt,
                     sizes,
+                    "eleventy:ignore": "",
                     class: classes
                         ? classes + " rounded drop-shadow-lg"
                         : "mx-auto rounded drop-shadow-lg",
@@ -61,29 +62,6 @@ module.exports = {
                 };
 
                 return eleventyImage.generateHTML(metadata, imageAttributes);
-            },
-        );
-    },
-
-    imageExt: (eleventyConfig) => {
-        eleventyConfig.addShortcode(
-            "imageExt",
-            function imageExtShortcode(src, args = {}) {
-                args = {
-                    ...{
-                        loading: "lazy",
-                        alt: " ",
-                        width: "auto",
-                        height: "auto",
-                    },
-                    ...args,
-                };
-
-                args.class = args.class
-                    ? args.class + " rounded drop-shadow-lg"
-                    : "mx-auto rounded drop-shadow-lg";
-
-                return `<img src="${src}" class="${args.class}" loading="${args.loading}" alt="${args.alt}" width="${args.width}" height="${args.height}">`;
             },
         );
     },
@@ -101,8 +79,9 @@ module.exports = {
                 switch (type) {
                     case "name":
                         return "Alex Zappa";
+                    case "post":
                     default:
-                        return `May the 4th be with you,<br/>Alex`;
+                        return `<p>May the 4th be with you,<br/>Alex</p>`;
                 }
             },
         );

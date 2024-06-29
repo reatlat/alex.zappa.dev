@@ -7,9 +7,9 @@ layout: base.njk
 		<header class="grid">
 			<h1 class="order-2 mb-0">{{ title }}{%- if draft %} <small class="text-base">[draft]</small>{%- endif %}</h1>
 			<p class="post-metadata order-1 m-0 text-sm md:text-base">
-				<time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate("LLLL dd, yyyy") }}</time>
+				<time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate("LLLL d, yyyy") }}</time>
         {%- if updated %}
-          <time datetime="{{ updated | htmlDateString }}"> &bull; updated {{ updated | readableDate("LLL dd, yyyy") }}</time>
+          <time datetime="{{ updated | htmlDateString }}"> &bull; updated {{ updated | readableDate("LLL d, yyyy") }}</time>
         {%- endif %}
 			</p>
 			{%- if tags|filterTagList|length %}
@@ -26,7 +26,9 @@ layout: base.njk
 
 		{{ content | safe }}
 
-		{#
+    {% signature "post" %}
+
+    {#
 		{%- if tags|filterTagList|length %}
 		<footer class="mt-8"></footer>
 		{%- endif %}

@@ -1,28 +1,17 @@
-module.exports = {
+import easyImport from "postcss-easy-import/index.js";
+import discardComments from "postcss-discard-comments";
+import tailwindNesting from "tailwindcss/nesting/index.js";
+import tailwind from "tailwindcss";
+import autoprefixer from "autoprefixer";
+import mergeRules from "postcss-merge-rules";
+
+export default {
     plugins: [
-        require("postcss-easy-import"),
-        require("postcss-discard-comments")({ removeAll: true }),
-        require("tailwindcss/nesting"),
-        require("tailwindcss"),
-        require("autoprefixer"),
-        require("postcss-merge-rules"),
-        // require('@fullhuman/postcss-purgecss')({
-        // 	// Content files referencing CSS classes
-        // 	content: [
-        // 		"./_site/**/*.html",
-        // 		"./_site/**/*.js"
-        // 	],
-        //
-        // 	// CSS files to be purged in-place
-        // 	css: ["./_site/**/*.css"],
-        //
-        // 	// Preserve tailwind responsive classes
-        // 	// defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
-        // 	defaultExtractor: (content) => content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [],
-        //
-        // 	safelist: {
-        // 		greedy: [],
-        // 	},
-        // })
+        easyImport,
+        tailwindNesting,
+        tailwind,
+        discardComments({ removeAll: true }),
+        autoprefixer,
+        mergeRules,
     ],
 };

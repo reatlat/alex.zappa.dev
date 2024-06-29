@@ -8,7 +8,7 @@ tags: [ apple, macos, appstore, vpn ]
 My wife has issue with AppStore on MacBook, her account, and iPhone was set up in English but for some reason AppStore
 on macOS have been in Spanish.
 
-{% image "./appstore-esp.png", "App Store in Spanish", [700] %}
+<img src="./appstore-esp.png" alt="App Store in Spanish" eleventy:widths="700">
 
 In internet, you can find numerous instructions how to change language of your account and AppStore. Some of them live
 on Apple Support pages, but no one solution works for me, and according to google requests, looks like I’m not the only
@@ -36,11 +36,10 @@ Spain like I am and you log in to appStore, the language will be set to Spanish.
 Even your account set up to English, so based on my discovery I set my VPN to UK location, logout from AppStore, force
 close it, and open again, first it was in Spanish again, but after I login to my Apple ID, AppStore become to English!!!
 
-{% image "./appstore-eng.png", "App Store in English", [700] %}
+<img src="./appstore-eng.png" alt="App Store in English" eleventy:widths="700">
 
 Later I turn VPN off and restart my mac to see if AppStore change language, but its not, from now my AppStore are always
 in English.
 
 This is it, solution was super simple, but nobody, even Apple Support have no idea about this glitch.
 
-{% signature %}

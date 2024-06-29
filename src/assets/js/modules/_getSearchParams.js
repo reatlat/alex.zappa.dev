@@ -1,6 +1,6 @@
 import debugLog from "./_debugLog";
 
-module.exports = (param = false, url = false) => {
+export default (param = false, url = false) => {
     url = url ? url : window.location.href;
 
     debugLog(`getSearchParams: "${param}" from [${url}]`);

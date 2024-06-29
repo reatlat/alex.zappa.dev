@@ -1,4 +1,4 @@
-module.exports = function (src, loading = "defer", callback) {
+export default (src, loading = "defer", callback) => {
     if (document.querySelector(`script[src="${src}"]`)) {
         return;
     }

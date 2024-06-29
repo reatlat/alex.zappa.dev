@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     title: "Alex Zappa",
     url:
         process.env.ELEVENTY_ENV === "production"

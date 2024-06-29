@@ -112,10 +112,9 @@ The CSS browser prefixes that you can use (each of which is specific to a differ
 
 To make sure your CSS works well on the rest of browsers, always use Autoprefixer, here ho is it looks like:
 
-{% image "./autoprefixer-css-online.png", "", [900], "dark:invert" %}
+<img src="./autoprefixer-css-online.png" alt="Autoprefixer CSS online" eleventy:widths="900">
 
 ## Conclusion
 
 There are countless tricks we can use with CSS3. Which is your favorite? [Comment down below.](#comments)
 
-{% signature %}

@@ -178,11 +178,11 @@ Open Settings > Website(sidebar) > Pages(sidebar) > Templates(tab) > Site footer
 </script>
 ```
 
-{% image "./hubsput-site-footer-html-editor.png", "", [900] %}
+<img src="./hubsput-site-footer-html-editor.png" alt="HubSpot Site Footer HTML Editor" eleventy:widths="900">
+
 *Final result should look like screenshot*
 
 The same method could be used for any websites(Webflow, WordPress, Wix, Static, etc…) who use HubSpot forms.
 
 This is it! Next time, I will cover the way [how to store UTM parameters in cookie files](/blog/keep-track-utm-parameters-for-hubspot-forms-like-cookie-monster/).
 
-{% signature %}

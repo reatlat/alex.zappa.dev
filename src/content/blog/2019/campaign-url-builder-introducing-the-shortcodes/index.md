@@ -10,13 +10,14 @@ for [Campaign URL Builder](/blog/wp-plugin-campaign-url-builder/) plugin.
 
 Shortcode settings moved to new tab **Shortcode** on top tabs menu.
 
-{% image "./campaign-url-builder-shortcode-settings.png", "", [900] %}
+<img src="./campaign-url-builder-shortcode-settings.png" alt="Campaign URL Builder Shortcode Settings" eleventy:widths="900">
 
 By default, shortcodes disabled, also if you use bulletin API key shortcodes also will be disabled.
 
 Please use your API key for Bitly. How to find your Bitly API key, [read here](/blog/how-do-i-find-my-bitly-oauth-access-token/).
 
-{% image "./campaign-url-builder-introducing-the-shortcodes.png", "", [900] %}
+<img src="./campaign-url-builder-introducing-the-shortcodes.png" alt="Campaign URL Builder Shortcode Settings API Key" eleventy:widths="900">
+
 *This is how default shortcode generate a form on front-end*
 
 ## How to use shortcode
@@ -81,4 +82,3 @@ PHP example
 <?php echo do_shortcode('[Campaign-URL-Builder]'); ?>
 ```
 
-{% signature %}

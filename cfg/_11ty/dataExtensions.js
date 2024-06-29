@@ -1,6 +1,6 @@
-module.exports = {
+import yaml from "js-yaml";
+export default {
     yamlAsData: function (eleventyConfig) {
-        const yaml = require("js-yaml");
         eleventyConfig.addDataExtension("yaml", (contents) =>
             yaml.load(contents),
         );

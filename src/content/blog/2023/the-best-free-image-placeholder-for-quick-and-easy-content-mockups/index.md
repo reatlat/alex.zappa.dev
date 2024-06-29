@@ -22,10 +22,10 @@ custom text to their placeholders. This versatility makes it a valuable tool for
 See the example below:
 
 ```html
-<img src="https://placehold.co/320x150?text=320x150\nhttps:/placehold.co/" alt="Placeholder Image" />
+<img src="https://placehold.co/320x150?text=320x150\nhttps:/placehold.co/" alt="Placeholder Image">
 ```
 
-{% imageExt "https://placehold.co/320x150?text=320x150%5Cnhttps%3A%2Fplacehold.co%2F", { alt:"Placeholder Image", width:320, height:150 } %}
+<img src="https://placehold.co/320x150?text=320x150%5Cnhttps%3A%2Fplacehold.co%2F" alt="Placeholder Image" width="320" height="150">
 
 ## Lorem Picsum a.k.a. Unsplash It
 
@@ -38,10 +38,10 @@ before acquiring the final ones.
 See the example below:
 
 ```html
-<img src="https://unsplash.it/320/150?image=57" alt="Placeholder Image" />
+<img src="https://unsplash.it/320/150?image=57" alt="Placeholder Image">
 ```
 
-{% imageExt "https://unsplash.it/320/150", { alt:"Placeholder Image", width:320, height:150 } %}
+<img src="https://unsplash.it/320/150?image=57" alt="Placeholder Image" width="320" height="150">
 
 ## Unspalsh Source API
 
@@ -56,10 +56,8 @@ for content creators in need of high-quality placeholder images.
 See the example below:
 
 ```html
-<img src="https://source.unsplash.com/320x150/?funny+cat" alt="Placeholder Image" />
+<img src="https://source.unsplash.com/320x150/?funny+cat" alt="Placeholder Image">
 ```
-
-{# {% imageExt "https://source.unsplash.com/320x150/?funny+cat", { alt:"Placeholder Image", width:320, height:150 } %} #}
 
 ## Pixabay Fillers
 
@@ -72,10 +70,10 @@ for content creators in need of high-quality placeholder images.
 See the example below:
 
 ```html
-<img src="https://cdn.pixabay.com/video/2015/08/08/125-135736646_small.jpg" alt="Placeholder Image" />
+<img src="https://cdn.pixabay.com/video/2015/08/08/125-135736646_small.jpg" alt="Placeholder Image">
 ```
 
-{% imageExt "https://cdn.pixabay.com/video/2015/08/08/125-135736646_small.jpg", { alt:"Placeholder Image", width:320, height:150 } %}
+<img src="https://cdn.pixabay.com/video/2015/08/08/125-135736646_small.jpg" alt="Placeholder Image" width="320" height="150">
 
 ## Conclusion
 
@@ -89,4 +87,3 @@ and visually stunning content to their audience.
 
 My favorite is [Unspalsh Source API](https://unsplash.com/developers), what's yours?
 
-{% signature %}

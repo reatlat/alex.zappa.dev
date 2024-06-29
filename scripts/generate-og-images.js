@@ -4,17 +4,17 @@ import slugify from "slugify";
 import chalk from "chalk";
 
 if (!fs.existsSync("./_temp/titles-for-og-images.txt")) {
-  console.log(
-    chalk.red(
-      "File ./_temp/titles-for-og-images.txt does not exist. Please run `npm run build` first.",
-    ),
-  );
-  process.exit(1);
+    console.log(
+        chalk.red(
+            "File ./_temp/titles-for-og-images.txt does not exist. Please run `npm run build` first.",
+        ),
+    );
+    process.exit(1);
 }
 
 let titles = fs
-  .readFileSync("./_temp/titles-for-og-images.txt", "utf8")
-  .split("\n");
+    .readFileSync("./_temp/titles-for-og-images.txt", "utf8")
+    .split("\n");
 
 titles = titles.filter((title) => title !== "");
 
@@ -74,31 +74,34 @@ const htmlTemplate = `
 `;
 
 const getSlug = (title) => {
-  return slugify(title.replaceAll(/\//g, " or ").replaceAll(/&amp;/g, "and"), {
-    lower: true,
-    replacement: "-",
-    remove: /[*+~.·,()'"`´%!?¿:@]/g,
-  });
+    return slugify(
+        title.replaceAll(/\//g, " or ").replaceAll(/&amp;/g, "and"),
+        {
+            lower: true,
+            replacement: "-",
+            remove: /[*+~.·,()'"`´%!?¿:@]/g,
+        },
+    );
 };
 
 const generateImage = (title) => {
-  title = title.trim().replaceAll(/&amp;/g, "and");
-  nodeHtmlToImage({
-    output: `./src/public/img/og/${getSlug(title)}.png`,
-    content: {
-      title: title,
-      bgColor: bgColors[Math.floor(Math.random() * bgColors.length)],
-    },
-    html: htmlTemplate,
-  }).then(() => {
-    console.log(chalk.green(`✅ Generated image for ${title}`));
-    // remove first title from array
-    titles.shift();
-    // if there are still titles left, call generateImage again
-    if (titles.length > 0) {
-      generateImage(titles[0]);
-    }
-  });
+    title = title.trim().replaceAll(/&amp;/g, "and");
+    nodeHtmlToImage({
+        output: `./src/public/img/og/${getSlug(title)}.png`,
+        content: {
+            title: title,
+            bgColor: bgColors[Math.floor(Math.random() * bgColors.length)],
+        },
+        html: htmlTemplate,
+    }).then(() => {
+        console.log(chalk.green(`✅ Generated image for ${title}`));
+        // remove first title from array
+        titles.shift();
+        // if there are still titles left, call generateImage again
+        if (titles.length > 0) {
+            generateImage(titles[0]);
+        }
+    });
 };
 
 // start the process

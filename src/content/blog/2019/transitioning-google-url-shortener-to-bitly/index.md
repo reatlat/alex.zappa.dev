@@ -11,4 +11,3 @@ Since March 2019, [Campaign URL Builder](/blog/wp-plugin-campaign-url-builder/) 
 goo.gl URL shortener. Previously created links will continue to redirect to their intended destination. Please see this
 [Google blog post](https://developers.googleblog.com/2018/03/transitioning-google-url-shortener.html) for more details.
 
-{% signature %}

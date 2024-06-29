@@ -144,7 +144,7 @@ You can find copy of [this snippet here](https://gist.github.com/reatlat/a847984
 
 The result of this code snippet is a new field in the user profile page, where users can upload their custom avatar images. The custom avatar images will be displayed instead of the Gravatar images on the site.
 
-{% image "./wp-custom-gravatar-dashboard.jpeg", "", [320] %}
+<img src="./wp-custom-gravatar-dashboard.jpeg" alt="Custom Gravatar Field in User Profile" eleventy:widths="320">
 
 ## Alternative Solutions
 
@@ -152,4 +152,3 @@ if you don't want to edit your WordPress theme, you can use a plugin variation o
 
 I hope this blog post helps you add custom avatar functionality to your WordPress site. If you like this plugin, please consider to give it a star on GitHub.
 
-{% signature %}
