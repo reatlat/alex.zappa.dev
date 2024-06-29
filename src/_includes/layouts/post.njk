@@ -26,7 +26,9 @@ layout: base.njk
 
 		{{ content | safe }}
 
-		{#
+    {% signature "post" %}
+
+    {#
 		{%- if tags|filterTagList|length %}
 		<footer class="mt-8"></footer>
 		{%- endif %}

@@ -79,8 +79,9 @@ export default {
                 switch (type) {
                     case "name":
                         return "Alex Zappa";
+                    case "post":
                     default:
-                        return `May the 4th be with you,<br/>Alex`;
+                        return `<p>May the 4th be with you,<br/>Alex</p>`;
                 }
             },
         );
