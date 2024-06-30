@@ -23,8 +23,7 @@ inquirer.prompt(questions).then((answers) => {
         lower: true,
     });
     const date = DateTime.local().toFormat("yyyy-LL-dd");
-    const year = DateTime.local().toFormat("yyyy");
-    const filepath = `./src/content/blog/${year}/${slug}/index.md`;
+    const filepath = `./src/content/blog/${date}-${slug}/index.md`;
 
     // Create the directory and file
     mkdirSync(path.dirname(filepath), { recursive: true });
@@ -33,7 +32,6 @@ inquirer.prompt(questions).then((answers) => {
         `---
 title: "${title}"
 desc: ""
-date: ${date}
 tags: []
 draft: true
 ---

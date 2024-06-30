@@ -7,7 +7,6 @@
   "scripts": {
     "clean:site": "rimraf './_site'",
     "blog:new": "node scripts/new-post.js",
-    "blog:edit": "node scripts/edit-post.js",
     "postbuild": "npm run export:twconfig",
     "postbuild:og-images": "node scripts/generate-og-images.js",
     "view:twconfig": "npx tailwind-config-viewer -o",
