@@ -1,4 +1,4 @@
-# alex.zappa.dev
+# [alex.zappa.dev](https://alex.zappa.dev/)
 
 My personal website and blog. Built with [Eleventy](https://www.11ty.dev/), [Tailwind CSS](https://tailwindcss.com/), and [Alpine.js](https://alpinejs.dev/).
 
