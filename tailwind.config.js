@@ -227,6 +227,9 @@ export default {
                         "@apply bg-zenith-700 drop-shadow-lg dark:drop-shadow-none":
                             {},
                     },
+                ".prose p": {
+                    "@apply text-pretty": {},
+                },
                 '.prose :where(blockquote p:first-of-type):not(:where([class~="not-prose"] *))::before, .prose :where(blockquote p:last-of-type):not(:where([class~="not-prose"] *))::after':
                     {
                         "@apply hidden": {},
