@@ -11,9 +11,7 @@ module.exports = {
         ecmaVersion: 2019,
         sourceType: "module",
     },
-    globals: {
-        kandji: false,
-    },
+    globals: {},
     env: {
         browser: true,
         es6: true,

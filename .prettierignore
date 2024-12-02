@@ -8,3 +8,4 @@ _site/
 node_modules
 .cache
 NOTEPAD
+eleventy.config.js

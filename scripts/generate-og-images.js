@@ -3,7 +3,7 @@ import fs from "fs";
 import slugify from "slugify";
 import chalk from "chalk";
 
-if (!fs.existsSync("./_temp/titles-for-og-images.txt")) {
+if (!fs.existsSync("./_temp/titles-for-og-images.json")) {
     console.log(
         chalk.red(
             "File ./_temp/titles-for-og-images.txt does not exist. Please run `npm run build` first.",
@@ -12,11 +12,12 @@ if (!fs.existsSync("./_temp/titles-for-og-images.txt")) {
     process.exit(1);
 }
 
-let titles = fs
-    .readFileSync("./_temp/titles-for-og-images.txt", "utf8")
-    .split("\n");
+// read args
+const mode = process.argv[2] || ""; // all or force
 
-titles = titles.filter((title) => title !== "");
+const dataPosts = JSON.parse(
+    fs.readFileSync("./_temp/titles-for-og-images.json", "utf-8"),
+);
 
 const bgColors = ["blue", "purple", "marine", "red", "candy"];
 
@@ -49,6 +50,7 @@ const htmlTemplate = `
     h1 {
       overflow: hidden;
       display: -webkit-box;
+      text-wrap: pretty;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 3;
     }
@@ -73,36 +75,28 @@ const htmlTemplate = `
 </body>
 `;
 
-const getSlug = (title) => {
-    return slugify(
-        title.replaceAll(/\//g, " or ").replaceAll(/&amp;/g, "and"),
-        {
-            lower: true,
-            replacement: "-",
-            remove: /[*+~.·,()'"`´%!?¿:@]/g,
-        },
-    );
-};
-
-const generateImage = (title) => {
-    title = title.trim().replaceAll(/&amp;/g, "and");
-    nodeHtmlToImage({
-        output: `./src/public/img/og/${getSlug(title)}.png`,
+const generateImage = async (post) => {
+    const outputPath = `./src/public/img/og/${post.slug}.png`;
+    if (!["all", "force"].includes(mode) && fs.existsSync(outputPath)) {
+        console.log(chalk.yellow(`⚠️ Image for ${post.title} already exists`));
+        return;
+    }
+    await nodeHtmlToImage({
+        output: outputPath,
         content: {
-            title: title,
+            title: post.title,
             bgColor: bgColors[Math.floor(Math.random() * bgColors.length)],
         },
         html: htmlTemplate,
     }).then(() => {
-        console.log(chalk.green(`✅ Generated image for ${title}`));
-        // remove first title from array
-        titles.shift();
-        // if there are still titles left, call generateImage again
-        if (titles.length > 0) {
-            generateImage(titles[0]);
-        }
+        console.log(chalk.green(`✅ Generated image for ${post.title}`));
     });
 };
 
 // start the process
-generateImage(titles[0]);
+(async () => {
+    for (const post of dataPosts) {
+        await generateImage(post);
+    }
+    console.log(chalk.blue("All done!"));
+})();
