@@ -1,5 +1,5 @@
 export default {
     tags: ["tools"],
-    layout: "tool.njk",
+    layout: "base.njk",
     permalink: "/tools/{{ title | slugify }}/",
 };

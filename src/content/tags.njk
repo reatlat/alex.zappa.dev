@@ -1,4 +1,5 @@
 ---
+layout: prose
 pagination:
   data: collections
   size: 1
@@ -11,9 +12,10 @@ pagination:
     - tagList
     - featured
   addAllPagesToCollections: true
-layout: prose.njk
 eleventyComputed:
   title: Tagged “{{ tag | slugify }}”
+metadata:
+  suffix: ""
 permalink: /tags/{{ tag | slugify }}/
 excludeFromSitemap: true
 ---

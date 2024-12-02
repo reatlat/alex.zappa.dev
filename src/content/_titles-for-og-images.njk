@@ -1,18 +1,7 @@
 ---
-permalink: ../_temp/titles-for-og-images.txt
+layout: nada
+permalink: ../_temp/titles-for-og-images.json
 eleventyExcludeFromCollections: true
 excludeFromSitemap: true
 ---
-{%- for page in collections.posts %}
-{%- if page.data.draft != true %}
-{{ page.data.title if page.data.title }}
-{%- endif %}
-{%- endfor %}
-{%- for page in collections.projects %}
-{%- if page.data.draft != true %}
-{{ page.data.title if page.data.title }}
-{%- endif %}
-{%- endfor %}
-Tools & Utilities
-Privacy Policy
-Blog Archive
+{% ogImagesJSON collections.all %}

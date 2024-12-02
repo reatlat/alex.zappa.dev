@@ -1,7 +1,7 @@
 ---
-layout: base.njk
+layout: base
 ---
-<div class="prose mx-auto pt-2 pb-8 md:pt-8 md:pb-14">
+<div class="prose mx-auto pt-2 pb-8 md:pt-8">
 
 	<article>
 		<header class="grid">
@@ -37,7 +37,7 @@ layout: base.njk
 
 
 	{%- if collections.posts %}
-		<section class="my-12 py-8 border-t border-solid dark:border-zinc-700">
+		<section class="m2-12 py-8 border-t border-solid dark:border-zinc-700">
 			{%- set previousPost = collections.posts | getPreviousCollectionItem %}
 			{%- set nextPost = collections.posts | getNextCollectionItem %}
 			{%- if nextPost or previousPost %}

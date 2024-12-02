@@ -1,7 +1,7 @@
 ---
 title: "webChronicle - Your Personal Wayback Machine"
 desc: "A web archiving tool that allows you to capture and explore snapshots of webpages over time—like the Wayback Machine, but as your own personal Time Machine."
-tags: [eleventy, web-archiving, web-chronicle]
+tags: [featured, eleventy, web-archiving, webchronicle]
 ---
 
 In October 10. 2024 I was looking an archived copy of the website on the [Wayback Machine](https://web.archive.org/) and found that the web archive is down.

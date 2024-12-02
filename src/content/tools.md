@@ -1,5 +1,5 @@
 ---
-layout: prose.njk
+layout: prose
 permalink: /tools/
 title: Tools & Utilities
 desc: Discover a collection of favorite developer tools, including JetBrains IDEs, iTerm2 as a terminal replacement, GitHub with CoPilot for code storage and AI assistance, Netlify for website hosting and interactivity, CodePen for a social development environment, WaveBox as a supercharged web browser and email client, Fork as a git client, 1Password for secure password management, Alfred for boosting productivity, and massCode as a code snippets manager. Bring efficiency and organization to your programming workflow.
