@@ -223,13 +223,19 @@ export default async function (eleventyConfig) {
         let returnJson = [];
         allCollections.forEach((item) => {
             let title = (item.data || {}).title || "";
-            if (title.startsWith("Tagged: ")) {
-                title = title.replace("Tagged: ", "Blogs tagged with ");
+            if (title === "Tags") {
+                title = "Blog tags";
+            }
+            if (title.startsWith("Tagged ")) {
+                title = title.split(" ")
+                title[0] = "Blogs tagged with";
+                title[1] = '<span>' + title[1] + '</span>';
+                title = title.join(" ");
             }
             const url = (item.page || {}).url || "";
             if (title && url) {
                 returnJson.push({
-                    title: item.data.title,
+                    title: title,
                     slug: slugify(item.page.url.replace(/\//g, " "), slugifyOptions)
                 });
             }
