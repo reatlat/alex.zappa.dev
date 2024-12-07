@@ -227,6 +227,9 @@ export default {
                         "@apply bg-zenith-700 drop-shadow-lg dark:drop-shadow-none":
                             {},
                     },
+                'blockquote > pre[class*="language-"]': {
+                    "@apply w-[calc(100%+1rem)] sm:w-full mr-0": {},
+                },
                 ".prose p": {
                     "@apply text-pretty": {},
                 },
