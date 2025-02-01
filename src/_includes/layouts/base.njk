@@ -52,9 +52,8 @@
     {%- if eleventy.env.runMode === "serve" -%}
       <link rel="stylesheet" href="/css/main.css">
     {%- else -%}
-      {% set styles %}/css/main.{{ build.hash.short }}.css{% endset -%}
-      <link rel="preload" href="{{ styles }}" as="style">
-      <link rel="stylesheet" href="{{ styles }}">
+      <link rel="preload" href="/css/main.css?hash={{ build.hash.short }}" as="style">
+      <link rel="stylesheet" href="/css/main.css?hash={{ build.hash.short }}">
     {%- endif -%}
 
 
@@ -116,7 +115,7 @@
             <div class="space-y-8">
               <h3 class="text-2xl sm:text-3xl font-bold mb-8 md:mb-4">Thanks for reading!</h3>
               <div class="flex flex-wrap gap-6 select-none">
-                <a href="/feed.json" class="text-xl !no-underline leading-5 font-medium relative" title="JSON Feed">
+                <a href="/feed.json" class="text-xl no-underline! leading-5 font-medium relative" title="JSON Feed">
                   <span class="sr-only">JSON Feed</span>
                   <span class="absolute inset-0 inline-flex justify-center items-center scale-75" aria-hidden="true">i</span>
                   {% phicon "brackets-curly", "regular", { class: "size-6" } %}
@@ -162,7 +161,7 @@
     {% endif %}
 
 		{# Load script defer #}
-		<script src="/js/main{%- if eleventy.env.runMode == 'build' -%}.{{ build.hash.short }}{%- endif -%}.js" defer type="text/javascript"></script>
+		<script src="/js/main.js?hash={{ build.hash.short }}" defer type="text/javascript"></script>
 
 	</body>
 </html>

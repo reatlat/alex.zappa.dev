@@ -44,8 +44,8 @@ layout: base
 				<ul class="links-nextprev list-none p-0 m-0 grid grid-cols-2 gap-8">
 					{%- if previousPost %}
 						<li class="text-left m-0 p-0">
-							<a class="!no-underline group" href="{{ previousPost.url }}">
-								<span class="text-sm text-[--tw-prose-body] flex gap-1 items-center justify-start -ml-1">
+							<a class="no-underline! group" href="{{ previousPost.url }}">
+								<span class="text-sm text-(--tw-prose-body) flex gap-1 items-center justify-start -ml-1">
 									{% phicon "arrow-up-left", "regular", { "class": "size-5" } %}<span>Previous</span>
 								</span>
 								<span class="group-hover:underline">{{ previousPost.data.title }}</span>
@@ -56,8 +56,8 @@ layout: base
 					{%- endif %}
 					{%- if nextPost %}
 						<li class="text-right m-0 p-0">
-							<a class="!no-underline group" href="{{ nextPost.url }}">
-								<span class="text-sm text-[--tw-prose-body] flex gap-1 items-center justify-end -mr-1">
+							<a class="no-underline! group" href="{{ nextPost.url }}">
+								<span class="text-sm text-(--tw-prose-body) flex gap-1 items-center justify-end -mr-1">
 									<span>Next</span>{% phicon "arrow-up-right", "regular", { "class": "size-5" } %}
 								</span>
 								<span class="group-hover:underline">{{ nextPost.data.title }}</span>

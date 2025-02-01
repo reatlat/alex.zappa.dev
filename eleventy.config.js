@@ -1,5 +1,5 @@
 import markdownItAnchor from "markdown-it-anchor";
-import {minify} from "html-minifier";
+import {minify} from "html-minifier-terser";
 import yaml from "js-yaml";
 import slugify from "slugify";
 import path from "path";
