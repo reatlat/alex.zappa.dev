@@ -14,14 +14,6 @@ export default {
             borderRadius: {
                 DEFAULT: "0.375rem",
             },
-            keyframes: {
-                blink: {
-                    "50%": { opacity: 0 },
-                },
-            },
-            animation: {
-                blink: "blink 1.5s steps(1) infinite",
-            },
             aspectRatio: {
                 auto: "auto",
                 box: "1",
@@ -82,9 +74,9 @@ export default {
                 amber: {
                     10: "#FFF8E6",
                     50: "#FFDD80",
-                    100: "rgba(255,188,0,1.0)",
-                    500: "#ffbc00",
-                    DEFAULT: "#ffbc00",
+                    100: "FFBC00",
+                    500: "#FFBC00",
+                    DEFAULT: "#FFBC00",
                 },
                 satori: {
                     10: "#E9F0FB",
@@ -159,93 +151,5 @@ export default {
             },
         },
     },
-    plugins: [
-        typography,
-        forms,
-        aspectRatio,
-        safeArea,
-        lineClamp,
-        ({ addComponents, theme }) => {
-            addComponents({
-                "#breadcrumbs": {
-                    backdropFilter: "saturate(180%)blur(.2rem)",
-                },
-                "[data-theme=light] .prose": {
-                    "--tw-prose-links": "#06c",
-                    "--tw-prose-quote-borders": "#06c",
-                    "--tw-prose-headings": "#222",
-                },
-                "[data-theme=dark] .prose": {
-                    "--tw-prose-links": "#fbbf24",
-                    "--tw-prose-quote-borders": "#fbbf24",
-                    "--tw-prose-quotes": "#f2f2f2",
-                    "--tw-prose-body": "#f2f2f2",
-                    "--tw-prose-headings": "#f2f2f2",
-                    "--tw-prose-bold": "#f2f2f2",
-                },
-                ".btn": {
-                    "@apply no-underline": {},
-                },
-                ".prose": {
-                    "@apply text-base md:text-lg": {},
-                },
-                '.prose :where(a):not(:where([class~="not-prose"] *))': {
-                    textDecoration: "none",
-                    "@apply hover:underline": {},
-                },
-                '.prose :where(pre):not(:where([class~="not-prose"] *))': {
-                    "--tw-prose-pre-bg": "#1a1a1a",
-                },
-                'code, code[class*="language-"], pre[class*="language-"]': {
-                    fontFamily: "monospace",
-                    fontWeight: "400",
-                    lineHeight: "1.3",
-                    "@apply text-base": {},
-                },
-                "code:where(:not([class]))": {
-                    "@apply !rounded !font-normal !text-current !bg-zenith dark:!bg-zenith-700 px-2 py-1":
-                        {},
-                },
-                ' :not(pre) > code[class*="language-"], pre[class*="language-"]':
-                    {
-                        "@apply -mx-4 w-screen rounded-none sm:mx-0 sm:w-full sm:rounded":
-                            {},
-                    },
-                "code:where(:not([class]))::before, code:where(:not([class]))::after":
-                    {
-                        "@apply !content-none": {},
-                    },
-                ".token.property, .token.tag, .token.constant, .token.symbol, .token.deleted":
-                    {
-                        fontStyle: "italic",
-                    },
-                //".language-css .token.selector": {
-                //	color: "#ffca03",
-                //},
-                ':not(pre) > code[class*="language-"], pre[class*="language-"]':
-                    {
-                        "@apply bg-zenith-700 drop-shadow-lg dark:drop-shadow-none":
-                            {},
-                    },
-                'blockquote > pre[class*="language-"]': {
-                    "@apply w-[calc(100%+1rem)] sm:w-full mr-0": {},
-                },
-                ".prose p": {
-                    "@apply text-pretty": {},
-                },
-                '.prose :where(blockquote p:first-of-type):not(:where([class~="not-prose"] *))::before, .prose :where(blockquote p:last-of-type):not(:where([class~="not-prose"] *))::after':
-                    {
-                        "@apply hidden": {},
-                    },
-                ".container": {
-                    "@apply px-4 mx-auto": {},
-                    maxWidth: "1132px",
-                },
-                "lite-youtube": {
-                    "@apply w-full max-w-3xl mx-auto aspect-video align-middle h-unset":
-                        {},
-                },
-            });
-        },
-    ],
+    plugins: [typography, forms, aspectRatio, safeArea, lineClamp],
 };

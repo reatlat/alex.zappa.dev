@@ -1,25 +1,7 @@
-/* stylelint-disable property-no-vendor-prefix */
-/* stylelint-disable no-duplicate-selectors */
 @layer base {
-    /* @font-face {
-    font-family: 'Pangram Pangram';
-    src: url('PangramPangram.woff') format('truetype');
-    font-weight: 100;
-  } */
-
-    /* For a Variable font, use the following CSS code.
-  For an italic Variable font, use italic instead of
-  normal in the font-style parameter. */
-
     html {
         @apply ring-zenith-700;
     }
-
-    /*
-	html:not(.no-fade-in) {
-		animation: 0.3s ease 0s normal backwards 1 fadeIn;
-	}
-  */
 
     /* Set core root defaults */
     html:focus-within {
@@ -69,35 +51,11 @@
         height: auto;
     }
 
-    /* img[width] {
-    width: auto;
-  }
-  img[width][height] {
-    height: auto;
-  }
-
-  img[height] {
-    width: auto;
-  } */
-
-    /* Let SVG scale without boundaries */
-    /* img[src$=".svg"] {
-    width: 100%;
-    height: auto;
-    max-width: none;
-  } */
-
     /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
     ul:where([role="list"]),
     ol:where([role="list"]) {
         list-style: none;
     }
-
-    /* A elements that don't have a class get default styles */
-
-    /* a:where(:not([class])) {
-    text-decoration-skip-ink: auto;
-  } */
 
     /* Inherit fonts for inputs and buttons */
     input,
@@ -125,5 +83,101 @@
             transition-duration: 0.01ms !important;
             scroll-behavior: auto !important;
         }
+    }
+
+    [data-theme="light"] .prose {
+        --tw-prose-links: "#06c";
+        --tw-prose-quote-borders: "#06c";
+        --tw-prose-headings: "#222";
+    }
+
+    [data-theme="dark"] .prose {
+        --tw-prose-links: "#fbbf24";
+        --tw-prose-quote-borders: "#fbbf24";
+        --tw-prose-quotes: "#f2f2f2";
+        --tw-prose-body: "#f2f2f2";
+        --tw-prose-headings: "#f2f2f2";
+        --tw-prose-bold: "#f2f2f2";
+    }
+
+    .btn {
+        @apply no-underline;
+    }
+
+    .prose {
+        @apply text-base md:text-lg;
+    }
+
+    .prose :where(a):not(:where([class~="not-prose"] *)) {
+        text-decoration: none;
+        @apply hover:underline;
+    }
+
+    .prose :where(pre):not(:where([class~="not-prose"] *)) {
+        --tw-prose-pre-bg: #1a1a1a;
+    }
+
+    code,
+    code[class*="language-"],
+    pre[class*="language-"] {
+        font-family: monospace;
+        font-weight: 400;
+        line-height: 1.3;
+        @apply text-base;
+    }
+
+    code:where(:not([class])) {
+        @apply !rounded !font-normal !text-current !bg-zenith dark:!bg-zenith-700 px-2 py-1;
+    }
+
+    :not(pre) > code[class*="language-"],
+    pre[class*="language-"] {
+        @apply -mx-4 w-screen rounded-none sm:mx-0 sm:w-full sm:rounded;
+    }
+
+    code:where(:not([class]))::before,
+    code:where(:not([class]))::after {
+        @apply !content-none;
+    }
+
+    .token.property,
+    .token.tag,
+    .token.constant,
+    .token.symbol,
+    .token.deleted {
+        font-style: italic;
+    }
+
+    :not(pre) > code[class*="language-"],
+    pre[class*="language-"] {
+        @apply bg-zenith-700 drop-shadow-lg dark:drop-shadow-none;
+    }
+
+    blockquote > pre[class*="language-"] {
+        @apply w-[calc(100%+1rem)] sm:w-full mr-0;
+    }
+
+    .prose p {
+        @apply text-pretty;
+    }
+
+    .prose
+        :where(blockquote p:first-of-type):not(
+            :where([class~="not-prose"] *)
+        )::before,
+    .prose
+        :where(blockquote p:last-of-type):not(
+            :where([class~="not-prose"] *)
+        )::after {
+        @apply hidden;
+    }
+
+    .container {
+        @apply px-4 mx-auto;
+        max-width: 1132px;
+    }
+
+    lite-youtube {
+        @apply w-full max-w-3xl mx-auto aspect-video align-middle h-unset;
     }
 }
