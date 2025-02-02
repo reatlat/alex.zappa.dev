@@ -27,89 +27,8 @@
     --color-transparent: transparent;
     --color-current: currentColor;
     --color-inherit: inherit;
-    --color-white: #fff;
-    --color-black: #111;
-
-    --color-cursor-5: #262626;
-    --color-cursor-10: #292929;
-    --color-cursor-50: #888888;
-    --color-cursor-500: #ffffff;
     --color-cursor: #ffffff;
-
-    --color-zenith-10: #fefefe;
-    --color-zenith-50: #f8f8f8;
-    --color-zenith-500: #f2f2f2;
-    --color-zenith-600: #1e1e1e;
-    --color-zenith-700: #1a1a1a;
-    --color-zenith: #f2f2f2;
-
-    --color-slate-10: #ededed;
-    --color-slate-50: #a6a6a6;
-    --color-slate-500: #4d4d4d;
-    --color-slate: #4d4d4d;
-
-    --color-terminal-10: #e7e7e7;
-    --color-terminal-50: #888888;
-    --color-terminal-200: #404040;
-    --color-terminal-400: #222222;
-    --color-terminal-500: #111111;
-    --color-terminal-600: #0f0f0f;
-    --color-terminal-700: #0d0d0d;
-    --color-terminal-800: #0b0b0b;
-    --color-terminal-900: #000000;
     --color-terminal: #111111;
-
-    --color-amber-10: #fff8e6;
-    --color-amber-50: #ffdd80;
-    --color-amber-100: FFBC00;
-    --color-amber-500: #ffbc00;
-    --color-amber: #ffbc00;
-
-    --color-satori-10: #e9f0fb;
-    --color-satori-50: #90b3ec;
-    --color-satori-100: #e9f0fb;
-    --color-satori-200: #a7c3f0;
-    --color-satori-300: #90b3ec;
-    --color-satori-400: #3c7be1;
-    --color-satori-500: #2268d9;
-    --color-satori-600: #1b53ae;
-    --color-satori-700: #143e82;
-    --color-satori-800: #0e2a57;
-    --color-satori-900: #07152b;
-    --color-satori: #2268d9;
-
-    --color-gray-100: #dbdbdb;
-    --color-gray-200: #b8b8b8;
-    --color-gray-300: #949494;
-    --color-gray-400: #717171;
-    --color-gray-500: #4d4d4d;
-    --color-gray-600: #3e3e3e;
-    --color-gray-700: #2e2e2e;
-    --color-gray-800: #1f1f1f;
-    --color-gray-900: #111111;
-    --color-gray: #4d4d4d;
-
-    --color-green-100: #dcf5e0;
-    --color-green-200: #b9ecc2;
-    --color-green-300: #97e2a3;
-    --color-green-400: #74d985;
-    --color-green-500: #7ee175;
-    --color-green-600: #5efa68;
-    --color-green-700: #317c3d;
-    --color-green-800: #205329;
-    --color-green-900: #102914;
-    --color-green: #7ee175;
-
-    --color-red-100: #ffe1e1;
-    --color-red-200: #ffc4c4;
-    --color-red-300: #ffa6a6;
-    --color-red-400: #ff8989;
-    --color-red-500: #ff6868;
-    --color-red-600: #cc5656;
-    --color-red-700: #bd4848;
-    --color-red-800: #662b2b;
-    --color-red-900: #331515;
-    --color-red: #ff6868;
 
     --color-aspect-ratio-auto: auto;
     --color-aspect-ratio-box: 1;
@@ -149,10 +68,8 @@
         border-color: var(--color-gray-200, currentColor);
     }
 
-
-
     html {
-        @apply ring-zenith-700;
+        @apply ring-zinc-700;
     }
 
     /* Set core root defaults */
@@ -236,10 +153,22 @@
     [x-cloak] {
         display: none !important;
     }
+
 }
+
+/* 3rd party styles */
+@import 'prism-themes/themes/prism-atom-dark.css' layer(components);
 
 @layer components {
 
+
+    .container {
+        @apply mx-auto max-w-5xl!;
+    }
+
+    .prose {
+        @apply mx-auto max-w-3xl;
+    }
 
     .btn {
         @apply no-underline;
@@ -268,7 +197,7 @@
     }
 
     code:where(:not([class])) {
-        @apply rounded! font-normal! text-current! bg-zenith! dark:bg-zenith-700! px-2 py-1;
+        @apply rounded! font-normal! text-current! bg-zinc-500! dark:bg-zinc-700! px-2 py-1;
     }
 
     :not(pre) > code[class*="language-"],
@@ -291,7 +220,7 @@
 
     :not(pre) > code[class*="language-"],
     pre[class*="language-"] {
-        @apply bg-zenith-700 drop-shadow-lg dark:drop-shadow-none;
+        @apply bg-zinc-700 drop-shadow-lg dark:drop-shadow-none;
     }
 
     blockquote > pre[class*="language-"] {
@@ -305,15 +234,6 @@
     .prose :where(blockquote p:first-of-type):not(:where([class~="not-prose"] *))::before,
     .prose :where(blockquote p:last-of-type):not(:where([class~="not-prose"] *))::after {
         @apply hidden;
-    }
-
-    .container {
-        @apply px-4 mx-auto;
-        max-width: 1132px;
-    }
-
-    lite-youtube {
-        @apply w-full max-w-3xl mx-auto aspect-video align-middle h-unset;
     }
 
     [data-theme="dark"] .prose {
@@ -338,12 +258,46 @@
         @apply drop-shadow-lg dark:drop-shadow-none;
     }
 
+    /* YouTube */
+    lite-youtube {
+        @apply w-full max-w-3xl mx-auto aspect-video align-middle h-unset;
+        @apply bg-terminal relative block contain-content bg-center bg-cover cursor-pointer;
+
+        /* responsive iframe with a 16:9 aspect ratio, thanks https://css-tricks.com/responsive-iframes/ */
+        &:after {
+            content: "";
+            display: block;
+            padding-bottom: calc(100% / (16 / 9));
+        }
+
+        & > iframe {
+            @apply absolute top-0 left-0 w-full h-full border-none;
+        }
+
+        & > .lty-playbtn {
+            @apply size-14 sm:size-18 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bg-transparent;
+            @apply bg-no-repeat bg-center bg-contain;
+            @apply cursor-pointer grayscale-100 transition-all duration-100 ease-in;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 68 48"><path fill="%23f00" fill-opacity="0.8" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="%23fff"></path></svg>');
+        }
+
+        &:hover > .lty-playbtn,
+        & .lty-playbtn:focus {
+            filter: none;
+        }
+
+        &.lyt-activated {
+            cursor: unset;
+        }
+
+        &.lyt-activated::before,
+        &.lyt-activated > .lty-playbtn {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .lyt-visually-hidden {
+           @apply sr-only;
+        }
+    }
 }
-
-/* 3rd party styles */
-@import 'prism-themes/themes/prism-atom-dark.css' layer(components);
-
-/* Components */
-@import './components/yt-lite.css' layer(components);
-@import './components/prism-diff.css';
-

@@ -1,6 +1,6 @@
 {
   "name": "alex.zappa.dev",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "description": "The absolutely delicious, I mean really just scrumptious, personal site for Alex Zappa.",
   "main": "eleventy.config.js",
   "type": "module",
