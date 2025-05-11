@@ -24,7 +24,7 @@ See the example below:
 <img src="https://placehold.co/320x150?text=320x150\nhttps:/placehold.co/" alt="Placeholder Image">
 ```
 
-<img src="https://placehold.co/320x150?text=320x150%5Cnhttps%3A%2Fplacehold.co%2F" alt="Placeholder Image" width="320" height="150">
+<img src="https://placehold.co/320x150?text=320x150%5Cnhttps%3A%2Fplacehold.co%2F" alt="Placeholder Image" width="320" height="150" eleventy:ignore>
 
 ## Lorem Picsum a.k.a. Unsplash It
 
@@ -40,7 +40,7 @@ See the example below:
 <img src="https://unsplash.it/320/150?image=57" alt="Placeholder Image">
 ```
 
-<img src="https://unsplash.it/320/150?image=57" alt="Placeholder Image" width="320" height="150">
+<img src="https://unsplash.it/320/150?image=57" alt="Placeholder Image" width="320" height="150" eleventy:ignore>
 
 ## Unspalsh Source API
 
@@ -72,7 +72,7 @@ See the example below:
 <img src="https://cdn.pixabay.com/video/2015/08/08/125-135736646_small.jpg" alt="Placeholder Image">
 ```
 
-<img src="https://cdn.pixabay.com/video/2015/08/08/125-135736646_small.jpg" alt="Placeholder Image" width="320" height="150">
+<img src="https://cdn.pixabay.com/video/2015/08/08/125-135736646_small.jpg" alt="Placeholder Image" width="320" height="150" eleventy:ignore>
 
 ## Conclusion
 
