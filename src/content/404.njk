@@ -6,6 +6,7 @@ bodyClass: "page-404"
 blankPage: true
 ---
 
+<script>document.addEventListener('DOMContentLoaded', function () { plausible('404', { props: { path: document.location.pathname } }); });</script>
 
 <div class="flex items-center justify-center min-h-[90vh] w-full">
 

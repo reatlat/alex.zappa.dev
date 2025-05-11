@@ -59,9 +59,6 @@
 
     <script defer data-domain="alex.zappa.dev" src="https://firebird.beastful.org/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"></script>
     <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-    {%- if bodyClass == 'page-404' %}
-    <script>document.addEventListener('DOMContentLoaded', function () { plausible('404', { props: { path: document.location.pathname } }); });</script>
-    {%- endif %}
 
     {#- color theme toggle #}
     <script>!function(t,e,m){t&&"light"===t&&(e.classList.remove("dark"),e.setAttribute("data-theme","light"),m.setAttribute("content","#ffffff"))}(localStorage.getItem("theme"),document.documentElement,document.querySelector('meta[name="theme-color"]'));</script>
