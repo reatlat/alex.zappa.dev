@@ -1,4 +1,4 @@
-import "./modules/tracker";
+// import "./modules/tracker";
 import flyingPages from "flying-pages-module";
 import Alpine from "alpinejs";
 import intersect from "@alpinejs/intersect";
