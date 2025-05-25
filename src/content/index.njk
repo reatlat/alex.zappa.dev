@@ -29,8 +29,8 @@ ogImage: '/default-og-image.png'
 
 <section class="py-4 md:py-8">
 	<h2>Recent Posts</h2>
-	<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
-		{% set postslist = collections.posts | head(-6) %}
+	<div class="grid md:grid-cols-2 gap-4 lg:gap-8">
+		{% set postslist = collections.posts | head(-4) %}
 		{% set postslistCounter = postsCount %}
 		{% for post in postslist | reverse %}
 			{% include "partials/single-post-card.njk" %}
@@ -40,8 +40,8 @@ ogImage: '/default-og-image.png'
 
 <section class="py-4 md:pt-8 md:pb-14">
 	<h2>Featured Posts</h2>
-	<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
-		{% set postslist = collections[ 'featured' ] | head(-6) %}
+	<div class="grid md:grid-cols-2 gap-4 lg:gap-8">
+		{% set postslist = collections[ 'featured' ] | head(-4) %}
 		{% set postslistCounter = postsCount %}
 		{% for post in postslist | reverse %}
 			{% include "partials/single-post-card.njk" %}

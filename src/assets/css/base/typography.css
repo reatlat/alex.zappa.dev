@@ -1,8 +1,7 @@
 @layer base {
 
     body {
-
-
+        @apply font-sans;
     }
 
     .header-anchor {
@@ -17,7 +16,7 @@
         font-style: normal;
         font-weight: 400;
         line-height: 1.5;
-        @apply text-terminal dark:text-cursor;
+        @apply text-terminal dark:text-cursor/90;
     }
 
     .prose h1,
@@ -26,7 +25,7 @@
     .prose h4,
     .prose h5,
     .prose h6 {
-        font-weight: 600;
+        font-weight: 700;
         line-height: 1.25;
         margin: 1.2em 0 0.5em;
     }
@@ -54,9 +53,13 @@
     .prose ul,
     .prose ol,
     .prose blockquote,
-    .prose pre,
-    .prose code {
+    .prose pre {
         margin-bottom: 1.25em;
+    }
+
+
+    .prose code {
+
     }
 
     .prose a {
@@ -65,7 +68,7 @@
     }
 
     .prose strong {
-        font-weight: 600;
+        font-weight: 700;
     }
 
     .prose em {
@@ -102,17 +105,17 @@
         padding-left: 0.25em;
     }
 
-    .prose code {
+    .prose code:not([class]) {
         @apply font-mono;
-        @apply bg-terminal-400 text-amber-500;
+        @apply bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100;
         padding: 0.2em 0.4em;
         border-radius: 4px;
-        font-size: 0.95em;
+        font-size: 0.8em;
     }
 
-    .prose pre {
+    .prose pre:not([class]) {
         @apply font-mono;
-        @apply bg-terminal-400 text-amber-500;
+        @apply bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100;
         padding: 0.7em 1em;
         overflow-x: auto;
         border-radius: 0;

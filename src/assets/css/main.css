@@ -7,6 +7,8 @@
     --color-terminal-200: #404040;
     --color-terminal-400: #222222;
     --color-terminal-900: #000000;
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: Inconsolata, Monaco, Consolas, Courier New, Courier, monospace;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
