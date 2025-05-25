@@ -12,7 +12,7 @@
   normal in the font-style parameter. */
 
     html {
-        @apply ring-zenith-700;
+        @apply ring-zinc-700;
     }
 
     /*
