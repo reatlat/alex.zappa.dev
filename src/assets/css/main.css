@@ -13,13 +13,13 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* 3rd party styles */
+/*@import "prism-themes/themes/prism-gruvbox-dark.css";*/
+
 /* Base */
 @import "./base/reset.css";
 @import "./base/base.css";
 @import "./base/typography.css";
-
-/* 3rd party styles */
-@import "prism-themes/themes/prism-atom-dark.css";
 
 /* Components */
 @import "./components/codepen.css";
