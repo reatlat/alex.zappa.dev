@@ -219,9 +219,6 @@ export default {
                     {
                         fontStyle: "italic",
                     },
-                //".language-css .token.selector": {
-                //	color: "#ffca03",
-                //},
                 ':not(pre) > code[class*="language-"], pre[class*="language-"]':
                     {
                         "@apply bg-zenith-700 drop-shadow-lg dark:drop-shadow-none":
