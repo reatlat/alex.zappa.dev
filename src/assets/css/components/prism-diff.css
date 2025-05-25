@@ -1,7 +1,5 @@
-/*
- * New diff- syntax
- */
 @layer components {
+
     pre[class*="language-diff-"] {
         --eleventy-code-padding: 1.25em;
         padding-left: var(--eleventy-code-padding);
@@ -46,4 +44,5 @@
         text-decoration: none; /* override del, ins, mark defaults */
         color: inherit; /* override del, ins, mark defaults */
     }
+
 }

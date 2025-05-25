@@ -1,5 +1,4 @@
 // import "./modules/tracker";
-import flyingPages from "flying-pages-module";
 import Alpine from "alpinejs";
 import intersect from "@alpinejs/intersect";
 import dataDOM from "./modules/Alpine.data/DOM";
@@ -22,9 +21,6 @@ Alpine.data("xDOM", dataDOM);
 // Start Alpine when the page is ready.
 window.addEventListener("DOMContentLoaded", () => {
     Alpine.start();
-    flyingPages({
-        // Prefetch all pages by default
-    });
 
     // if .codepen is present, load the embed script
     if (document.querySelector(".codepen")) {

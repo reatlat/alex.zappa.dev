@@ -1,17 +1,147 @@
 @layer base {
+
     body {
+
+
     }
-}
 
-.header-anchor {
-    display: inline-block;
-    font-weight: 300 !important;
-    text-decoration: none !important;
-    transform: scale(0.85);
-}
+    .header-anchor {
+        display: inline-block;
+        font-weight: 300 !important;
+        text-decoration: none !important;
+        transform: scale(0.85);
+    }
 
-.cp_embed_wrapper {
-    @apply overflow-hidden;
-    @apply -mx-4 w-screen rounded-none sm:mx-0 sm:w-full sm:rounded;
-    @apply drop-shadow-lg dark:drop-shadow-none;
+    .prose {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.5;
+        @apply text-terminal dark:text-cursor;
+    }
+
+    .prose h1,
+    .prose h2,
+    .prose h3,
+    .prose h4,
+    .prose h5,
+    .prose h6 {
+        font-weight: 600;
+        line-height: 1.25;
+        margin: 1.2em 0 0.5em;
+    }
+
+    .prose h1 {
+        font-size: 3rem;        /* ~48px */
+    }
+    .prose h2 {
+        font-size: 2.5rem;      /* ~40px */
+    }
+    .prose h3 {
+        font-size: 2rem;        /* ~32px */
+    }
+    .prose h4 {
+        font-size: 1.5rem;      /* ~24px */
+    }
+    .prose h5 {
+        font-size: 1.25rem;     /* ~20px */
+    }
+    .prose h6 {
+        font-size: 1.125rem;    /* ~18px */
+    }
+
+    .prose p,
+    .prose ul,
+    .prose ol,
+    .prose blockquote,
+    .prose pre,
+    .prose code {
+        margin-bottom: 1.25em;
+    }
+
+    .prose a {
+        @apply text-amber-500;
+        text-decoration: underline;
+    }
+
+    .prose strong {
+        font-weight: 600;
+    }
+
+    .prose em {
+        font-style: italic;
+    }
+
+    .prose blockquote {
+        @apply border-l-4 border-amber-500 pl-6 text-current;
+        font-style: italic;
+    }
+
+    .prose ul,
+    .prose ol {
+        padding-left: 1.5em;
+    }
+
+    .prose ul {
+        list-style-type: disc;
+    }
+
+    .prose ol {
+        list-style-type: decimal;
+    }
+
+    .prose ul li::marker {
+        color: currentColor;
+    }
+
+    .prose ol li::marker {
+        color: currentColor;
+    }
+
+    .prose li {
+        padding-left: 0.25em;
+    }
+
+    .prose code {
+        @apply font-mono;
+        @apply bg-terminal-400 text-amber-500;
+        padding: 0.2em 0.4em;
+        border-radius: 4px;
+        font-size: 0.95em;
+    }
+
+    .prose pre {
+        @apply font-mono;
+        @apply bg-terminal-400 text-amber-500;
+        padding: 0.7em 1em;
+        overflow-x: auto;
+        border-radius: 0;
+        font-size: 0.9em;
+    }
+
+    .prose pre code {
+        display: block;
+        padding: 0;
+        background: none;
+        color: inherit;
+    }
+
+    .prose hr {
+        border: none;
+        @apply border-t-2 border-amber-500;
+        margin: 2em 0;
+    }
+
+    .prose small {
+        font-size: 0.85em;
+    }
+
+    .prose [data-hs-cos-type*="rich_text"] > *:first-child {
+        margin-top: 0;
+    }
+
+    .prose [data-hs-cos-type*="rich_text"] > *:last-child {
+        margin-bottom: 0;
+    }
+
 }

@@ -13,9 +13,9 @@
     "watch:11ty": "npx @11ty/eleventy --serve --quiet",
     "build:11ty": "npx @11ty/eleventy",
     "watch:js": "npx esbuild ./src/assets/js/main.js --outfile=./_site/js/main.js --bundle --watch --sourcemap",
-    "build:js": "npx esbuild ./src/assets/js/main.js --outfile=./_site/js/main.$(git rev-parse --short HEAD).js --bundle --minify",
-    "watch:tailwind": "npx tailwindcss --postcss -i src/assets/css/main.css -o ./_site/css/main.css --watch",
-    "build:tailwind": "npx tailwindcss --postcss -i src/assets/css/main.css -o ./_site/css/main.$(git rev-parse --short HEAD).css --minify",
+    "build:js": "npx esbuild ./src/assets/js/main.js --outfile=./_site/js/main.js --bundle --minify",
+    "watch:tailwind": "npx @tailwindcss/cli -i src/assets/css/main.css -o ./_site/css/main.css --watch --sourcemap",
+    "build:tailwind": "npx @tailwindcss/cli -i src/assets/css/main.css -o ./_site/css/main.css --minify",
     "start": "ELEVENTY_ENV=development npm-run-all --parallel watch:*",
     "build": "ELEVENTY_ENV=production npm-run-all --serial build:js build:tailwind build:11ty",
     "debugstart": "DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
@@ -53,6 +53,7 @@
     "@11ty/eleventy-plugin-rss": "^2.0.4",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.1",
     "@alpinejs/intersect": "^3.14.9",
+    "@tailwindcss/cli": "^4.1.7",
     "alpinejs": "^3.14.9",
     "chalk": "^5.4.1",
     "dracula-prism": "^2.1.16",
@@ -74,7 +75,7 @@
     "rimraf": "^6.0.1",
     "sharp": "^0.34.2",
     "slugify": "^1.6.6",
-    "tailwindcss": "~3.4.17",
+    "tailwindcss": "~4.1.7",
     "uuid": "^11.1.0"
   }
 }
