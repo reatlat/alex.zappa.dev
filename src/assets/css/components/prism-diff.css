@@ -2,7 +2,7 @@
 
     code[class*="language-"],
     pre[class*="language-"] {
-        color: #c9d9ea;
+        color: #e6e6f0; /* Slightly brighter base */
         font-family: Consolas, Monaco, 'Andale Mono', monospace;
         direction: ltr;
         text-align: left;
@@ -10,30 +10,26 @@
         word-spacing: normal;
         word-break: normal;
         line-height: 1.5;
-
         -moz-tab-size: 4;
         -o-tab-size: 4;
         tab-size: 4;
-
         -webkit-hyphens: none;
         -moz-hyphens: none;
         -ms-hyphens: none;
         hyphens: none;
     }
 
-    pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
-    code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
-        color: inherit;
-        background: rgba(33, 66, 131, .85);
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection,
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+        background: rgba(255, 0, 255, 0.2);
     }
 
-    pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
-    code[class*="language-"]::selection, code[class*="language-"] ::selection {
-        color: inherit;
-        background: rgba(33, 66, 131, .85);
-    }
-
-    /* Code blocks */
     pre[class*="language-"] {
         padding: 1em;
         margin-top: 1.25em;
@@ -43,10 +39,9 @@
 
     :not(pre) > code[class*="language-"],
     pre[class*="language-"] {
-        background: #2b2b2b;
+        background: #1b1b1d; /* Darker background */
     }
 
-    /* Inline code */
     :not(pre) > code[class*="language-"] {
         padding: .1em;
         border-radius: .3em;
@@ -55,7 +50,8 @@
     .token.comment,
     .token.prolog,
     .token.cdata {
-        color: #c5c5c5;
+        color: #7f8c8d; /* Brighter gray */
+        font-style: italic;
     }
 
     .token.delimiter,
@@ -64,59 +60,60 @@
     .token.selector,
     .token.important,
     .token.atrule {
-        color: #e88939;
+        color: #ff9940; /* Brighter orange */
     }
 
     .token.operator,
     .token.punctuation,
     .token.attr-name {
-        color: #c6d6e7;
+        color: #e6e6f0;
     }
 
     .token.tag,
     .token.tag .punctuation,
     .token.doctype,
     .token.builtin {
-        color: #e8bf6a;
+        color: #ffd75f; /* Stronger yellow */
     }
 
     .token.entity,
     .token.number,
     .token.symbol {
-        color: #6897bb;
+        color: #82aaff; /* Stronger blue */
     }
 
     .token.property,
     .token.constant,
     .token.variable {
-        color: #9876aa;
+        color: #c792ea; /* Bright violet */
     }
 
     .token.string,
     .token.char {
-        color: #6a8759;
+        color: #a1fe95; /* Light neon green */
     }
 
     .token.attr-value,
     .token.attr-value .punctuation {
-        color: #a5c261;
+        color: #ffeb95; /* Brighter warm yellow */
     }
 
     .token.attr-value .punctuation:first-child {
-        color: #c9d9ea;
+        color: #e6e6f0;
     }
 
     .token.url {
-        color: #287bde;
+        color: #45d9ff;
         text-decoration: underline;
     }
 
     .token.function {
-        color: #ffc66d;
+        color: #78dce8; /* Vibrant cyan */
     }
 
     .token.regex {
-        background: #364135;
+        background: #1d2730;
+        color: #f8f8f2;
     }
 
     .token.bold {
@@ -128,16 +125,18 @@
     }
 
     .token.inserted {
-        background: #294436;
+        background: #1e3a29;
+        color: #baffc9;
     }
 
     .token.deleted {
-        background: #484a4a;
+        background: #3a1e1e;
+        color: #ffb3b3;
     }
 
     code.language-css .token.property,
     code.language-css .token.property + .token.punctuation {
-        color: #d1e2f5;
+        color: #b6eaff;
     }
 
     code.language-css .token.id {
@@ -148,7 +147,7 @@
     code.language-css .token.selector > .token.attribute,
     code.language-css .token.selector > .token.pseudo-class,
     code.language-css .token.selector > .token.pseudo-element {
-        color: #ffc66d;
+        color: #ffdb6f;
     }
 
 }
