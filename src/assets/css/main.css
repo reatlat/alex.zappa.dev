@@ -1,21 +1,27 @@
-/* Base */
-@import "tailwindcss/base";
-@import "base/reset.css";
-@import "base/animations.css";
-@import "base/typography.css";
-@import "base/forms.css";
+@import "tailwindcss" source(none);
+@source "../../../src";
+
+@theme {
+    --color-cursor: #FFFFFF;
+    --color-terminal: #111111;
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: Inconsolata, Monaco, Consolas, Courier New, Courier, monospace;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* 3rd party styles */
-/*@import "prismjs/themes/prism-okaidia.css";*/
-@import "prism-themes/themes/prism-atom-dark.css";
-/*@import "lite-youtube-embed";*/
-/*@import "dracula-prism/dist/css/dracula-prism.css";*/
+/*@import "prism-themes/themes/prism-gruvbox-dark.css";*/
+
+/* Base */
+@import "./base/reset.css";
+@import "./base/base.css";
+@import "./base/typography.css";
 
 /* Components */
-@import "tailwindcss/components";
-@import "components/yt-lite.css";
-@import "components/prism-diff.css";
+@import "./components/codepen.css";
+@import "./components/yt-lite.css";
+@import "./components/prism-diff.css";
 
 /* Utils */
-@import "tailwindcss/utilities";
-@import "utilities/utils.css";
+@import "./utilities/utils.css";

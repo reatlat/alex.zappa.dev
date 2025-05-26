@@ -1,17 +1,159 @@
 @layer base {
+
     body {
+        @apply font-sans;
     }
-}
 
-.header-anchor {
-    display: inline-block;
-    font-weight: 300 !important;
-    text-decoration: none !important;
-    transform: scale(0.85);
-}
+    .header-anchor {
+        display: inline-block;
+        font-weight: 300 !important;
+        text-decoration: none !important;
+        transform: scale(0.8);
+    }
 
-.cp_embed_wrapper {
-    @apply overflow-hidden;
-    @apply -mx-4 w-screen rounded-none sm:mx-0 sm:w-full sm:rounded;
-    @apply drop-shadow-lg dark:drop-shadow-none;
+    .prose {
+        font-size: clamp(1rem, 1vw + 0.5rem, 1.25rem); /* 16px → 20px */
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.5;
+        @apply text-terminal dark:text-cursor/90;
+    }
+
+    .prose h1,
+    .prose h2,
+    .prose h3,
+    .prose h4,
+    .prose h5,
+    .prose h6 {
+        font-weight: 700;
+        line-height: 1.25;
+        margin: 1.2em 0 0.5em;
+    }
+
+    .prose h1 {
+        margin: 0 0 0.5em;
+        line-height: 1.1;
+        font-size: clamp(2rem, 3vw + 1rem, 2.5rem);  /* 32px → 40px */
+    }
+    .prose h2 {
+        font-size: clamp(1.75rem, 2.5vw + 1rem, 2.25rem);  /* 28px → 36px */
+    }
+    .prose h3 {
+        font-size: clamp(1.5rem, 2vw + 1rem, 2rem);  /* 24px → 32px */
+    }
+    .prose h4 {
+        font-size: clamp(1.25rem, 1.5vw + 1rem, 1.5rem);  /* 20px → 24px */
+    }
+    .prose h5 {
+        font-size: clamp(1.125rem, 1.2vw + 1rem, 1.25rem);  /* 18px → 20px */
+    }
+    .prose h6 {
+        font-size: clamp(1rem, 1vw + 1rem, 1.125rem);  /* 16px → 18px */
+    }
+
+    .prose p,
+    .prose ul,
+    .prose ol,
+    .prose blockquote,
+    .prose pre,
+    .prose picture,
+    .prose img {
+        margin-bottom: 1.25em;
+    }
+
+
+    .prose code {
+
+    }
+
+    .prose a {
+        @apply text-blue-600 dark:text-amber-500;
+        @apply no-underline hover:underline;
+    }
+
+    .prose strong {
+        font-weight: 700;
+    }
+
+    .prose em {
+        font-style: italic;
+    }
+
+    .prose blockquote {
+        @apply border-l-4 border-blue-500 dark:border-amber-500 pl-6 text-current;
+        font-style: italic;
+    }
+
+    .prose ul,
+    .prose ol {
+        padding-left: 1.5em;
+    }
+
+    .prose ul {
+        list-style-type: disc;
+    }
+
+    .prose ol {
+        list-style-type: decimal;
+    }
+
+    .prose ul li::marker {
+        color: currentColor;
+    }
+
+    .prose ol li::marker {
+        color: currentColor;
+    }
+
+    .prose li {
+        padding-left: 0.25em;
+    }
+
+    .prose > code,
+    .prose *:not(pre) > code {
+        @apply font-mono;
+        @apply bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100;
+        padding: 0.2em 0.4em;
+        border-radius: 4px;
+        font-size: 0.8em;
+    }
+
+    .prose pre {
+        @apply font-mono;
+        @apply -mx-6 sm:-mx-10 md:mx-0 md:rounded-md;
+        @apply bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100;
+        padding: 0.7em 1em;
+        overflow-x: auto;
+        font-size: 0.7em;
+    }
+
+    .prose blockquote > pre {
+        @apply -ml-6 mr-0 md:mx-0;
+    }
+
+    .prose pre code {
+        display: block;
+        padding: 0;
+        background: none;
+        color: inherit;
+    }
+
+    .prose hr {
+        border: none;
+        @apply border-t-2 border-blue-500 dark:border-amber-500;
+        margin: 2em 0;
+    }
+
+    .prose small {
+        font-size: 0.85em;
+    }
+
+    .prose [data-hs-cos-type*="rich_text"] > *:first-child {
+        margin-top: 0;
+    }
+
+    .prose [data-hs-cos-type*="rich_text"] > *:last-child {
+        margin-bottom: 0;
+    }
+
 }

@@ -4,7 +4,7 @@ My personal website and blog. Built with [Eleventy](https://www.11ty.dev/), [Tai
 
 ## License
 
-© 2024 [Alex Zappa](https://github.com/reatlat).
+© 2025 [Alex Zappa](https://github.com/reatlat).
 All Right Reserved.
 Except as otherwise noted,
 codebase and code snippets are licensed under

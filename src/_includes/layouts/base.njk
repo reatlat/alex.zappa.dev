@@ -1,17 +1,22 @@
 <!doctype html>
-<html lang="{{ metadata.language }}" class="scroll-pt-6 {{ htmlClass }} dark" data-theme="dark" :class="theme.name" x-data="xDOM">
+<html lang="{{ metadata.language or 'en' }}" class="scroll-pt-6 dark {{ htmlClass }}" x-data="xDOM">
 	<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {%- if noindex %}
-      <meta name="robots" content="noindex">
+    <meta name="robots" content="noindex">
     {%- endif %}
+
 
     {#- Metadata #}
     <title>{{ title or metadata.title }}{{ suffix or metadata.suffix }}</title>
     <meta name="author" content="{% if author %}{{ author | getAuthorData('name') }}{% else %}Alex Zappa{% endif %}">
     <meta name="description" content="{{ desc or description or metadata.description }}">
     <meta name="generator" content="{{ eleventy.generator }}">
+
+
+    {#- color theme toggle #}
+    <script>document.documentElement.classList.toggle("dark", localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches));</script>
 
 
     {#- Favicons #}
@@ -49,34 +54,27 @@
 
 
     {#- Styles #}
-    {%- if eleventy.env.runMode === "serve" -%}
-      <link rel="stylesheet" href="/css/main.css">
-    {%- else -%}
-      {% set styles %}/css/main.{{ build.hash.short }}.css{% endset -%}
-      <link rel="preload" href="{{ styles }}" as="style">
-      <link rel="stylesheet" href="{{ styles }}">
-    {%- endif -%}
+    <link rel="preload" href="/css/main.css?build={{ build.hash.short }}" as="style">
+    <link rel="stylesheet" href="/css/main.css?build={{ build.hash.short }}">
 
+    {#- Plausible #}
     <script defer data-domain="alex.zappa.dev" src="https://firebird.beastful.org/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"></script>
     <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 
-    {#- color theme toggle #}
-    <script>!function(t,e,m){t&&"light"===t&&(e.classList.remove("dark"),e.setAttribute("data-theme","light"),m.setAttribute("content","#ffffff"))}(localStorage.getItem("theme"),document.documentElement,document.querySelector('meta[name="theme-color"]'));</script>
-
   </head>
-	<body class="dark:bg-terminal-400 dark:text-zenith flex flex-col {{ bodyClass }}">
+	<body class="text-terminal bg-neutral-50 dark:bg-stone-800 dark:text-stone-50 flex flex-col {{ bodyClass }}">
 
 		<a href="#skip" class="sr-only">Skip to main content</a>
 
     {#- Header #}
     {% if not blankPage %}
-      <header class="bg-zenith dark:bg-zenith-700" x-ref="header">
-        <nav class="mx-auto flex container items-center justify-between py-6" aria-label="Global">
+      <header class="p-3 sm:p-6" x-ref="header">
+        <nav class="rounded-md bg-neutral-200 dark:bg-stone-950/30 mx-auto max-w-6xl px-6 py-3 flex items-center justify-between" aria-label="Global">
           <a href="/" class="flex items-center gap-2 font-bold whitespace-nowrap [&:hover_img]:opacity-70">
             <div class="w-10 rounded-full">
               <img src="data:image/jpeg;base64,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"
                    alt="Alex Zappa`s headshot"
-                   class="rounded-full border-2 border-terminal-200 transition duration-200"
+                   class="rounded-full border-2 border-stone-600 transition duration-200"
                    width="40" height="40" eleventy:ignore>
             </div>
             Alex Zappa
@@ -102,8 +100,8 @@
 
 
 		{# Set min height for main section alpine js #}
-		<main id="skip" class="my-12 grow" x-ref="main">
-			<div class="container sm:px-10 prose">
+		<main id="skip" class="grow" x-ref="main">
+			<div class="mx-auto max-w-5xl px-6 py-6 sm:px-10 prose">
 				{{ content | safe }}
 			</div>
 		</main>
@@ -111,60 +109,64 @@
 
     {% if not blankPage %}
       {#- Footer #}
-      <footer class="bg-zenith dark:bg-zenith-700 pb-12 [&_a:hover]:underline" aria-labelledby="footer-heading" x-ref="footer">
+      <footer class="text-center" aria-labelledby="footer-heading" x-ref="footer">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
-        <div class="container pb-8 pt-16 sm:pt-24">
-          <div class="grid sm:flex sm:justify-between gap-8">{# xl:grid xl:grid-cols-3 xl:gap-8 #}
-            <div class="space-y-8">
-              <h3 class="text-2xl sm:text-3xl font-bold mb-8 md:mb-4">Thanks for reading!</h3>
-              <div class="flex flex-wrap gap-6 select-none">
-                <a href="/feed.json" class="text-xl !no-underline leading-5 font-medium relative" title="JSON Feed">
-                  <span class="sr-only">JSON Feed</span>
-                  <span class="absolute inset-0 inline-flex justify-center items-center scale-75" aria-hidden="true">i</span>
-                  {% phicon "brackets-curly", "regular", { class: "size-6" } %}
-                </a>
-                <a href="/feed.xml" title="RSS Feed">
-                  <span class="sr-only">RSS Feed</span>
-                  {% phicon "rss-simple", "regular", { class: "size-6" } %}
-                </a>
-                <a href="https://www.github.com/{{ build.issues.owner }}/" title="GitHub" rel="noopener noreferrer">
-                  <span class="sr-only">GitHub</span>
-                  {% phicon "github-logo", "regular", { class: "size-6" } %}
-                </a>
-                <a href="https://codepen.io/{{ build.issues.owner }}/" title="CodePen" rel="noopener noreferrer">
-                  <span class="sr-only">CodePen</span>
-                  {% phicon "codepen-logo", "regular", { class: "size-6" } %}
-                </a>
-                <a href="https://www.linkedin.com/in/{{ build.issues.owner }}/" title="LinedIn" rel="noopener noreferrer">
-                  <span class="sr-only">LinedIn</span>
-                  {% phicon "linkedin-logo", "regular", { class: "size-6" } %}
-                </a>
-                <a href="https://twitter.com/{{ build.issues.owner }}" title="Twitter" rel="noopener noreferrer">
-                  <span class="sr-only">Twitter</span>
-                  {% phicon "x-logo", "regular", { class: "size-6" } %}
-                </a>
-              </div>
-            </div>
-            <ul role="list" class="space-y-4">
-              {% for item in menu.footer %}
-                <li><a class="leading-8" href="{{ item.url }}">{{ item.title }}</a></li>
-              {% endfor %}
-            </ul>
+        <div class="mx-auto max-w-6xl px-6 py-8">
+
+          <div class="text-4xl sm:text-5xl"
+               x-data="{ icons: ['🖖','🤓','🦄','🫠','🤟','🫶'] }"
+               x-text="icons[Math.random() * icons.length | 0]">🖖</div>
+          <h3 class="text-2xl sm:text-3xl font-bold mb-8 md:mb-4">Thanks for reading!</h3>
+
+          {#- Social links -#}
+          <div class="flex flex-wrap justify-center gap-6 select-none">
+            <a href="/feed.json" class="text-xl leading-5 font-medium relative" title="JSON Feed">
+              <span class="sr-only">JSON Feed</span>
+              <span class="absolute inset-0 inline-flex justify-center items-center scale-75" aria-hidden="true">i</span>
+              {% phicon "brackets-curly", "regular", { class: "size-6" } %}
+            </a>
+            <a href="/feed.xml" title="RSS Feed">
+              <span class="sr-only">RSS Feed</span>
+              {% phicon "rss-simple", "regular", { class: "size-6" } %}
+            </a>
+            <a href="https://www.github.com/{{ build.issues.owner }}/" title="GitHub" rel="noopener noreferrer">
+              <span class="sr-only">GitHub</span>
+              {% phicon "github-logo", "regular", { class: "size-6" } %}
+            </a>
+            <a href="https://codepen.io/{{ build.issues.owner }}/" title="CodePen" rel="noopener noreferrer">
+              <span class="sr-only">CodePen</span>
+              {% phicon "codepen-logo", "regular", { class: "size-6" } %}
+            </a>
+            <a href="https://www.linkedin.com/in/{{ build.issues.owner }}/" title="LinedIn" rel="noopener noreferrer">
+              <span class="sr-only">LinedIn</span>
+              {% phicon "linkedin-logo", "regular", { class: "size-6" } %}
+            </a>
+            <a href="https://twitter.com/{{ build.issues.owner }}" title="Twitter" rel="noopener noreferrer">
+              <span class="sr-only">Twitter</span>
+              {% phicon "x-logo", "regular", { class: "size-6" } %}
+            </a>
           </div>
-          <div class="mt-16 sm:mt-20 text-sm">
-            <p>Last built on {{ build.timestamp.formatted }} (<a href="https://www.github.com/{{ build.issues.owner }}/{{ build.issues.repo }}/commit/{{ build.hash.full }}" rel="noreferrer noopener" >{{ build.hash.short }}</a>)</p>
-          </div>
-          <div class="border-t border-solid dark:border-zinc-700 pt-8 mt-8">
+
+          <ul role="list" class="mt-8 flex flex-col md:flex-row gap-y-4 md:gap-x-12 md:justify-center [&_a]:hover:underline">
+            {% for item in menu.footer %}
+              <li><a class="leading-8" href="{{ item.url }}">{{ item.title }}</a></li>
+            {% endfor %}
+          </ul>
+
+          <div class="border-t-4 border-dashed border-neutral-200 dark:border-stone-700 pt-8 mt-6 [&_a]:hover:underline">
             <p class="text-sm text-balance">
               &copy;&nbsp;{% year %} <a href="/">Alex&nbsp;Zappa</a>. All&nbsp;Right&nbsp;Reserved. Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener noreferrer">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the MIT License.{# TODO Learn more at /site/ #}
+            </p>
+            <p class="text-xs text-balance mt-3">
+              Last built on {{ build.timestamp.formatted }} (<a href="https://www.github.com/{{ build.issues.owner }}/{{ build.issues.repo }}/commit/{{ build.hash.full }}" rel="noreferrer noopener" >{{ build.hash.short }}</a>)
             </p>
           </div>
         </div>
       </footer>
     {% endif %}
 
-		{# Load script defer #}
-		<script src="/js/main{%- if eleventy.env.runMode == 'build' -%}.{{ build.hash.short }}{%- endif -%}.js" defer type="text/javascript"></script>
+		{#- Load script defer -#}
+		<script src="/js/main.js?build={{ build.hash.short }}" defer type="text/javascript"></script>
 
 	</body>
 </html>
