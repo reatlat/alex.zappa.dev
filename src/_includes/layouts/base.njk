@@ -15,20 +15,16 @@
     <meta name="generator" content="{{ eleventy.generator }}">
 
 
-    {#- color theme toggle #}
-    <script>document.documentElement.classList.toggle("dark", localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches));</script>
-
-
     {#- Favicons #}
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#333333">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#292526">
     <link rel="shortcut icon" href="/favicon.ico">
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="msapplication-config" content="/browserconfig.xml">
-    <meta name="theme-color" content="#1a1a1a" :content="theme.dark?'#1a1a1a':'#ffffff'">
+    <meta name="theme-color" content="#292526" :content="theme.dark?'#292526':'#fafafa'">
 
 
     {#- Social #}
@@ -51,6 +47,10 @@
     {#- Atom and JSON feeds included by default #}
     <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="alternate" href="/feed.json" type="application/json" title="{{ metadata.title }}">
+
+
+    {#- color theme toggle #}
+    <script>document.documentElement.classList.toggle("dark", localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches));document.documentElement.dataset.theme = localStorage.theme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");</script>
 
 
     {#- Styles #}

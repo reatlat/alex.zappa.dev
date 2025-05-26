@@ -67,7 +67,7 @@
     }
 
     .prose a {
-        @apply text-blue-600 dark:text-amber-500;
+        @apply text-blue-600 dark:text-amber-400;
         @apply no-underline hover:underline;
     }
 
@@ -80,7 +80,7 @@
     }
 
     .prose blockquote {
-        @apply border-l-4 border-blue-500 dark:border-amber-500 pl-6 text-current;
+        @apply border-l-4 border-blue-500 dark:border-amber-400 pl-6 text-current;
         font-style: italic;
     }
 
@@ -140,7 +140,7 @@
 
     .prose hr {
         border: none;
-        @apply border-t-2 border-blue-500 dark:border-amber-500;
+        @apply border-t-2 border-blue-500 dark:border-amber-400;
         margin: 2em 0;
     }
 

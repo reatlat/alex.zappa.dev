@@ -48,7 +48,7 @@ layout: base
 								<span class="text-sm flex gap-1 items-center justify-start -ml-1">
 									{% phicon "arrow-up-left", "regular", { "class": "size-5" } %}<span>Previous</span>
 								</span>
-								<span class="text-blue-600 dark:text-amber-500 group-hover:underline">{{ previousPost.data.title }}</span>
+								<span class="text-blue-600 dark:text-amber-400 group-hover:underline">{{ previousPost.data.title }}</span>
 							</a>
 						</li>
 					{%- else %}
@@ -60,7 +60,7 @@ layout: base
 								<span class="text-sm flex gap-1 items-center justify-end -mr-1">
 									<span>Next</span>{% phicon "arrow-up-right", "regular", { "class": "size-5" } %}
 								</span>
-								<span class="text-blue-600 dark:text-amber-500 group-hover:underline">{{ nextPost.data.title }}</span>
+								<span class="text-blue-600 dark:text-amber-400 group-hover:underline">{{ nextPost.data.title }}</span>
 							</a>
 						</li>
 					{%- else %}
