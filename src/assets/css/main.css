@@ -4,7 +4,6 @@
 @theme {
     --color-cursor: #FFFFFF;
     --color-terminal: #111111;
-    --color-stone-850: oklch(24.2% 0.0065 45.1705);
     --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: Inconsolata, Monaco, Consolas, Courier New, Courier, monospace;
 }
