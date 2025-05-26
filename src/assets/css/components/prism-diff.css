@@ -1,19 +1,9 @@
-/**
- * Gruvbox dark theme
- *
- * Adapted from a theme based on:
- * Vim Gruvbox dark Theme (https://github.com/morhetz/gruvbox)
- *
- * @author Azat S. <to@azat.io>
- * @version 1.0
- */
-
 @layer components {
 
     code[class*="language-"],
     pre[class*="language-"] {
-        color: #ebdbb2; /* fg1 / fg */
-        font-family: Consolas, Monaco, "Andale Mono", monospace;
+        color: #c9d9ea;
+        font-family: Consolas, Monaco, 'Andale Mono', monospace;
         direction: ltr;
         text-align: left;
         white-space: pre;
@@ -31,20 +21,16 @@
         hyphens: none;
     }
 
-    pre[class*="language-"]::-moz-selection,
-    pre[class*="language-"] ::-moz-selection,
-    code[class*="language-"]::-moz-selection,
-    code[class*="language-"] ::-moz-selection {
-        color: #fbf1c7; /* fg0 */
-        background: #7c6f64; /* bg4 */
+    pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+        color: inherit;
+        background: rgba(33, 66, 131, .85);
     }
 
-    pre[class*="language-"]::selection,
-    pre[class*="language-"] ::selection,
-    code[class*="language-"]::selection,
-    code[class*="language-"] ::selection {
-        color: #fbf1c7; /* fg0 */
-        background: #7c6f64; /* bg4 */
+    pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection, code[class*="language-"] ::selection {
+        color: inherit;
+        background: rgba(33, 66, 131, .85);
     }
 
     /* Code blocks */
@@ -57,19 +43,19 @@
 
     :not(pre) > code[class*="language-"],
     pre[class*="language-"] {
-        background: #1d2021; /* bg0_h */
+        background: #2b2b2b;
     }
 
     /* Inline code */
     :not(pre) > code[class*="language-"] {
-        padding: 0.1em;
-        border-radius: 0.3em;
+        padding: .1em;
+        border-radius: .3em;
     }
 
     .token.comment,
     .token.prolog,
     .token.cdata {
-        color: #a89984; /* fg4 / gray1 */
+        color: #c5c5c5;
     }
 
     .token.delimiter,
@@ -78,55 +64,59 @@
     .token.selector,
     .token.important,
     .token.atrule {
-        color: #fb4934; /* red2 */
+        color: #e88939;
     }
 
     .token.operator,
     .token.punctuation,
     .token.attr-name {
-        color: #a89984; /* fg4 / gray1 */
+        color: #c6d6e7;
     }
 
     .token.tag,
     .token.tag .punctuation,
     .token.doctype,
     .token.builtin {
-        color: #fabd2f; /* yellow2 */
+        color: #e8bf6a;
     }
 
     .token.entity,
     .token.number,
     .token.symbol {
-        color: #d3869b; /* purple2 */
+        color: #6897bb;
     }
 
     .token.property,
     .token.constant,
     .token.variable {
-        color: #fb4934; /* red2 */
+        color: #9876aa;
     }
 
     .token.string,
     .token.char {
-        color: #b8bb26; /* green2 */
+        color: #6a8759;
     }
 
     .token.attr-value,
     .token.attr-value .punctuation {
-        color: #a89984; /* fg4 / gray1 */
+        color: #a5c261;
+    }
+
+    .token.attr-value .punctuation:first-child {
+        color: #c9d9ea;
     }
 
     .token.url {
-        color: #b8bb26; /* green2 */
+        color: #287bde;
         text-decoration: underline;
     }
 
     .token.function {
-        color: #fabd2f; /* yellow2 */
+        color: #ffc66d;
     }
 
     .token.regex {
-        background: #b8bb26; /* green2 */
+        background: #364135;
     }
 
     .token.bold {
@@ -138,11 +128,27 @@
     }
 
     .token.inserted {
-        background: #a89984; /* fg4 / gray1 */
+        background: #294436;
     }
 
     .token.deleted {
-        background: #fb4934; /* red2 */
+        background: #484a4a;
+    }
+
+    code.language-css .token.property,
+    code.language-css .token.property + .token.punctuation {
+        color: #d1e2f5;
+    }
+
+    code.language-css .token.id {
+        color: #ffc66d;
+    }
+
+    code.language-css .token.selector > .token.class,
+    code.language-css .token.selector > .token.attribute,
+    code.language-css .token.selector > .token.pseudo-class,
+    code.language-css .token.selector > .token.pseudo-element {
+        color: #ffc66d;
     }
 
 }

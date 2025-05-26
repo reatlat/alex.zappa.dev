@@ -55,7 +55,9 @@
     .prose ul,
     .prose ol,
     .prose blockquote,
-    .prose pre {
+    .prose pre,
+    .prose picture,
+    .prose img {
         margin-bottom: 1.25em;
     }
 
