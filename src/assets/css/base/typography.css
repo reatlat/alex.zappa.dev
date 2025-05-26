@@ -8,11 +8,11 @@
         display: inline-block;
         font-weight: 300 !important;
         text-decoration: none !important;
-        transform: scale(0.85);
+        transform: scale(0.8);
     }
 
     .prose {
-        font-size: 20px;
+        font-size: clamp(1rem, 1vw + 0.5rem, 1.25rem); /* 16px → 20px */
         font-style: normal;
         font-weight: 400;
         line-height: 1.5;
@@ -32,22 +32,23 @@
 
     .prose h1 {
         margin: 0 0 0.5em;
-        font-size: 3rem;        /* ~48px */
+        line-height: 1.1;
+        font-size: clamp(2rem, 3vw + 1rem, 2.5rem);  /* 32px → 40px */
     }
     .prose h2 {
-        font-size: 2.5rem;      /* ~40px */
+        font-size: clamp(1.75rem, 2.5vw + 1rem, 2.25rem);  /* 28px → 36px */
     }
     .prose h3 {
-        font-size: 2rem;        /* ~32px */
+        font-size: clamp(1.5rem, 2vw + 1rem, 2rem);  /* 24px → 32px */
     }
     .prose h4 {
-        font-size: 1.5rem;      /* ~24px */
+        font-size: clamp(1.25rem, 1.5vw + 1rem, 1.5rem);  /* 20px → 24px */
     }
     .prose h5 {
-        font-size: 1.25rem;     /* ~20px */
+        font-size: clamp(1.125rem, 1.2vw + 1rem, 1.25rem);  /* 18px → 20px */
     }
     .prose h6 {
-        font-size: 1.125rem;    /* ~18px */
+        font-size: clamp(1rem, 1vw + 1rem, 1.125rem);  /* 16px → 18px */
     }
 
     .prose p,
