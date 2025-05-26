@@ -50,7 +50,7 @@
 
 
     {#- color theme toggle #}
-    <script>document.documentElement.classList.toggle("dark", localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches));document.documentElement.dataset.theme = localStorage.theme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");</script>
+    <script>document.documentElement.classList.toggle("dark", localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches));document.querySelector('meta[name="theme-color"]').setAttribute("content", localStorage.theme === "dark" ? "#292526" : "#fafafa");</script>
 
 
     {#- Styles #}
